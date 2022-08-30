@@ -1,0 +1,74 @@
+ <main class="main-content">
+
+            <!--== Start Page Header Area Wrapper ==-->
+            <section class="page-header-area pt-10 pb-9" data-bg-color="#FFF3DA">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="page-header-st3-content text-center text-md-start">
+                                <ol class="breadcrumb justify-content-center justify-content-md-start">
+                                    <li class="breadcrumb-item"><a class="text-dark" [routerLink]="['/home']">Incio</a></li>
+                                    <li class="breadcrumb-item active text-dark" aria-current="page">Detalle del producto</li>
+                                </ol>
+                                <h2 class="page-header-title">Producto</h2>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </section>
+            <!--== End Page Header Area Wrapper ==-->
+
+            <!--== Start Product Details Area Wrapper ==-->
+            <section class="section-space">
+                <div class="container">
+                    <div class="row product-details">
+                        <div class="col-lg-6">
+                            <div class="product-details-thumb">
+                                <img src="{{_butler.imagePreviewProduct}}" width="570" height="693" alt="Image">
+                                <span class="flag-new" [hidden]="_butler.preview.status!='bestseller'">Mas vendido</span>
+                                     <span class="flag-new" [hidden]="_butler.preview.status!='discount'">Descuento</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="product-details-content">
+                                <h5 class="product-details-collection">Ref: {{_butler.preview.ref}}</h5>
+                                <h3 class="product-details-title">{{_butler.preview.name}}</h3>
+                                
+                                <p class="mb-7">{{_butler.preview.description}}</p>
+                                   <div class="product-details-pro-qty">
+                                            <div class="pro-qty">
+                                                <input type="text" title="Cantidad" value="01">
+                                            </div>
+                                        </div>
+                                <div class="product-details-shipping-cost">
+                                    <input class="form-check-input" type="checkbox" value="" id="ShippingCost" checked>
+                                    <label class="form-check-label" for="ShippingCost">Shipping </label>
+                                </div>
+                                <div class="product-details-action">
+                                    <h4 class="price">COLP {{_butler.preview.price}}</h4>
+                                    <div class="product-details-cart-wishlist">
+                                        
+                                        <button type="button" class="btn" data-bs-toggle="modal" (click)="addToCar()" >Agregar al carro</button>
+                             
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+             
+                </div>
+            </section>
+            <!--== End Product Details Area Wrapper ==-->
+
+            <!--== Start Product Banner Area Wrapper ==-->
+            <div class="container">
+                <!--== Start Product Category Item ==-->
+                <a href="product.html" class="product-banner-item">
+                    <img src="assets/assets/images/shop/banner/7.jpg" width="1170" height="240" alt="Image-HasTech">
+                </a>
+                <!--== End Product Category Item ==-->
+            </div>
+        
+
+        </main>
