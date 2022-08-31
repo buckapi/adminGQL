@@ -15,6 +15,7 @@ const routes: Routes = [
 { path: 'rastrea', loadChildren: () => import('./components/pages/rastrea/rastrea.module').then(m => m.RastreaModule) },
 { path: 'promos', loadChildren: () => import('./components/pages/promos/promos.module').then(m => m.PromosModule) },
 { path: 'detail', loadChildren: () => import('./components/pages/detail/detail.module').then(m => m.DetailModule) },
+{ path: 'order', loadChildren: () => import('./components/pages/order/order.module').then(m => m.OrderModule) },
  { path:'**',pathMatch:'full',redirectTo:'home'}
 ];
 
