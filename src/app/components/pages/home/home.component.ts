@@ -35,6 +35,8 @@ export class HomeComponent implements AfterViewInit {
   bestseller$: any;
    products: any;
   products$: any;
+      public init:number=1;
+  public end:number=12;
   private debounceTimer?:NodeJS.Timeout;
 @ViewChild('mapDiv')mapDivElement!:ElementRef
 @ViewChild('mysearch')myserachElement!:ElementRef
@@ -127,6 +129,31 @@ getDirections(place:Feature){
   this.mapService.getRouteBetweenPoints(start,end);
 
 }
+ loadmore(indice:any){
+    // this.products$=[];
+    console.log(indice);
+    this.end=this.end+9;
+    this.init=this.init+12;
+     this._butler.skip=this._butler.skip+12; 
+      this.dataApi.getDataAPI(this._butler.skip,this._butler.limit);   
+     this.products$=this.dataApi.products$;  
+     // this._butler.limit=this._butler.limit+12; 
+
+
+  }
+  loadprev(indice:any){
+    if(this.init>1){
+      
+    // this.products$=[];
+    console.log(indice);
+    this.end=this.end-12;
+    this.init=this.init-12;
+     this._butler.skip=this._butler.skip-12; 
+      this.dataApi.getDataAPI(this._butler.skip,this._butler.limit);   
+     this.products$=this.dataApi.products$;  
+     // this._butler.limit=this._butler.limit+9; 
+    }
+    }
 
   onScroll() {
     console.log("scrolled!!");

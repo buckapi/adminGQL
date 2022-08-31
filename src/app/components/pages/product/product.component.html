@@ -1,74 +1,100 @@
- <main class="main-content">
 
-            <!--== Start Page Header Area Wrapper ==-->
-            <section class="page-header-area pt-10 pb-9" data-bg-color="#FFF3DA">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="page-header-st3-content text-center text-md-start">
-                                <ol class="breadcrumb justify-content-center justify-content-md-start">
-                                    <li class="breadcrumb-item"><a class="text-dark" [routerLink]="['/home']">Incio</a></li>
-                                    <li class="breadcrumb-item active text-dark" aria-current="page">Detalle del producto</li>
-                                </ol>
-                                <h2 class="page-header-title">Producto</h2>
-                            </div>
+
+           <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>{{_butler.preview.name}}</h4>
+                            <p class="mb-0">{{_butler.preview.ref}}</p>
                         </div>
-                       
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="['/home']">volver</a></li>
+                            <li class="breadcrumb-item active"><a >Detalle</a></li>
+                        </ol>
                     </div>
                 </div>
-            </section>
-            <!--== End Page Header Area Wrapper ==-->
-
-            <!--== Start Product Details Area Wrapper ==-->
-            <section class="section-space">
-                <div class="container">
-                    <div class="row product-details">
-                        <div class="col-lg-6">
-                            <div class="product-details-thumb">
-                                <img src="{{_butler.imagePreviewProduct}}" width="570" height="693" alt="Image">
-                                <span class="flag-new" [hidden]="_butler.preview.status!='bestseller'">Mas vendido</span>
-                                     <span class="flag-new" [hidden]="_butler.preview.status!='discount'">Descuento</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="product-details-content">
-                                <h5 class="product-details-collection">Ref: {{_butler.preview.ref}}</h5>
-                                <h3 class="product-details-title">{{_butler.preview.name}}</h3>
-                                
-                                <p class="mb-7">{{_butler.preview.description}}</p>
-                                   <div class="product-details-pro-qty">
-                                            <div class="pro-qty">
-                                                <input type="text" title="Cantidad" value="01">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-6  col-md-6 col-xxl-5 ">
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane fade show active" id="first">
+                                                <img class="img-fluid" src="{{_butler.imagePreviewProduct}}" alt="">
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="tab-slide-content new-arrival-product mb-4 mb-xl-0">
+                                            <!-- Nav tabs -->
+                                            <ul class="nav slide-item-list mt-3" role="tablist">
+                                                <li role="presentation" class="show">
+                                                    <a href="ecom-product-detail.html#first" role="tab" data-bs-toggle="tab">
+                                                        <img class="img-fluid" src="{{_butler.imagePreviewProduct}}" alt="" width="50">
+                                                    </a>
+                                                </li>
+                                              
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--Tab slider End-->
+                                    <div class="col-xl-9 col-lg-6  col-md-6 col-xxl-7 col-sm-12">
+                                        <div class="product-detail-content">
+                                            <!--Product details-->
+                                            <div class="new-arrival-content pr">
+                                                <h4>{{_butler.preview.name}}</h4>
+                                              
+                                                <div class="d-table mb-2">
+                                                    <p class="price float-left d-block">${{_butler.preview.price}}</p>
+                                                </div>
+                                            
+                                                <p>Ref: <span class="item">{{_butler.preview.ref}}</span> </p>
+                                                  <!--   <p>Brand: <span class="item">Lee</span></p>
+                                                    <p>Product tags:&nbsp;&nbsp;
+                                                        <span class="badge badge-success light">bags</span>
+                                                        <span class="badge badge-success light">clothes</span>
+                                                        <span class="badge badge-success light">shoes</span>
+                                                        <span class="badge badge-success light">dresses</span>
+                                                    </p> -->
+                                                <p class="text-content">{{_butler.preview.description}}</p>
+                                                <div class="d-flex align-items-end flex-wrap mt-4">
+                                                  <!--   <div class="filtaring-area mb-3 me-3">
+                                                        <div class="size-filter">
+                                                            <h4 class="m-b-15">Select size</h4>
+                                                            
+                                                            <div class="btn-group" data-bs-toggle="buttons">
+                                                                <label class="btn btn-outline-primary light mb-0"><input type="radio" class="position-absolute invisible" name="options" id="option5"> XS</label>
+                                                                <label class="btn btn-outline-primary light mb-0"><input type="radio" class="position-absolute invisible" name="options" id="option1" checked>SM</label>
+                                                                <label class="btn btn-outline-primary light mb-0"><input type="radio" class="position-absolute invisible" name="options" id="option2"> MD</label>
+                                                                <label class="btn btn-outline-primary light mb-0"><input type="radio" class="position-absolute invisible" name="options" id="option3"> LG</label>
+                                                                <label class="btn btn-outline-primary light mb-0"><input type="radio" class="position-absolute invisible" name="options" id="option4"> XL</label>
+                                                            </div>
+                                                        </div>
+                                                    </div> -->
+                                                    <!--Quantity start-->
+                                                    <div class="col-2 px-0  mb-3 me-3">
+                                                        <input type="number" name="num" class="form-control input-btn input-number" value="1">
+                                                    </div>
+                                                    <!--Quanatity End-->
+                                                    <!-- <div class="shopping-cart  mb-3 me-3">
+                                                        <a class="btn btn-primary" href="javascript:void(0)"><i
+                                                                class="fa fa-shopping-basket me-2"></i>Add
+                                                            to cart</a>
+                                                    </div> -->
+                                                </div>
                                             </div>
                                         </div>
-                                <div class="product-details-shipping-cost">
-                                    <input class="form-check-input" type="checkbox" value="" id="ShippingCost" checked>
-                                    <label class="form-check-label" for="ShippingCost">Shipping </label>
-                                </div>
-                                <div class="product-details-action">
-                                    <h4 class="price">COLP {{_butler.preview.price}}</h4>
-                                    <div class="product-details-cart-wishlist">
-                                        
-                                        <button type="button" class="btn" data-bs-toggle="modal" (click)="addToCar()" >Agregar al carro</button>
-                             
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-             
+                    <!-- review -->
+                    
                 </div>
-            </section>
-            <!--== End Product Details Area Wrapper ==-->
-
-            <!--== Start Product Banner Area Wrapper ==-->
-            <div class="container">
-                <!--== Start Product Category Item ==-->
-                <a href="product.html" class="product-banner-item">
-                    <img src="assets/assets/images/shop/banner/7.jpg" width="1170" height="240" alt="Image-HasTech">
-                </a>
-                <!--== End Product Category Item ==-->
             </div>
-        
-
-        </main>
+        </div>

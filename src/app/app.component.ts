@@ -1,6 +1,8 @@
 import { Component,OnInit } from '@angular/core';
 import { BikersService } from './services';
 import { Butler } from './services/butler.service';
+import { Router } from '@angular/router';
+
 import { ScriptService } from './services/script.service';
 //declare var $: any;
 @Component({
@@ -15,7 +17,8 @@ export class AppComponent implements OnInit {
   constructor(
     public script:ScriptService,
     public bikersScript:BikersService,
-    public _butler:Butler
+    public _butler:Butler,
+        public router:Router,
   ){}
 
 

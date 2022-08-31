@@ -22,8 +22,8 @@ export class Butler {
     profile:boolean=true;
     rides:boolean=false;
     bikerStatus:boolean=true;
-    skip:number=1;
-    limit:number=0;
+    skip:number=0;
+    limit:number=12;
     type:string="Passenger"; 
     placeholder:string="a donde deseas ir?"; 
 	  any:any[]=[]; 
