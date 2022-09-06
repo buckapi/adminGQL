@@ -130,7 +130,7 @@ const LOGIN =  gql`
             tap(({data})=>{
                 const {getProductsByStatus} =data;
                 this.productsSubject.next(getProductsByStatus);
-                console.log(getProductsByStatus);
+              //  console.log(getProductsByStatus);//
             })
             
         ).subscribe();
@@ -148,11 +148,31 @@ const LOGIN =  gql`
             tap(({data})=>{
                 const {getBestseller} =data;
                 this.bestsellerSubject.next(getBestseller);
-                console.log(getBestseller);
+              //  console.log(getBestseller);
             })
             
         ).subscribe();
     }
+ getByStatus(vskip:any,vlimit:any):void{
+        this.apollo.watchQuery<any>({
+            query: GETPRODUCTS,
+            variables:{
+                status:"activated",
+                skip:vskip,
+                limit:vlimit,
+            }
+        }).valueChanges.pipe(
+            take(1),
+            tap(({data})=>{
+              //  const {getProductsByStatus} =data;
+               // this.productsSubject.next(getProductsByStatus);
+             //   console.log(getProductsByStatus);
+            })
+            
+        ).subscribe();
+    }
+
+
      getDiscount(vskip:any,vlimit:any):void{
         this.apollo.watchQuery<any>({
             query: GETDISCOUNT,
@@ -166,7 +186,7 @@ const LOGIN =  gql`
             tap(({data})=>{
                 const {getDiscount} =data;
                 this.discountSubject.next(getDiscount);
-                console.log(getDiscount);
+           //     console.log(getDiscount);
             })
             
         ).subscribe();
@@ -184,7 +204,7 @@ const LOGIN =  gql`
             tap(({data})=>{
                 const {getCategories} =data;
                 this.categoriesSubject.next(getCategories);
-                console.log(getCategories);
+             //   console.log(getCategories);
             })
             
         ).subscribe();

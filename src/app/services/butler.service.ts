@@ -6,7 +6,10 @@ import { Injectable } from '@angular/core';
 export class Butler {
     car:any[]=[];
     currency:number=1;
+    init:number=1;
+    end:number=12;
     numProd:number=0;
+    results:number=0;
     preview:any={};
     totalProducts:number=0;
     imagePreviewProduct:string="";

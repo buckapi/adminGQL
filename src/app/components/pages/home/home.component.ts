@@ -35,6 +35,7 @@ export class HomeComponent implements AfterViewInit {
   bestseller$: any;
    products: any;
   products$: any;
+  prodSze$: any;
       public init:number=1;
   public end:number=12;
   private debounceTimer?:NodeJS.Timeout;
@@ -83,12 +84,6 @@ link:string="";
 
 public details(b:any){
   let a =b;
-  // if (a==1){this.link="assets/assets/img/user4.jpg";}
-  // if (a==2){this.link="assets/assets/img/user10.jpg";}
-  // if (a==3){this.link="assets/assets/img/user40.jpg";}
-  // if (a==4){this.link="assets/assets/img/user2.jpg";}
-  // if (a==5){this.link="assets/assets/img/user20.jpg";}
-  // if (a==6){this.link="assets/assets/img/user3.jpg";}
 if(!this._butler.details){
     this._butler.details=true;
     return
@@ -130,67 +125,46 @@ getDirections(place:Feature){
 
 }
  loadmore(indice:any){
-    // this.products$=[];
-    console.log(indice);
-    this.end=this.end+9;
-    this.init=this.init+12;
-     this._butler.skip=this._butler.skip+12; 
+      // this.products$=[];
+      console.log(indice);
+      this._butler.end=this._butler.end+12;
+      this._butler.init=this._butler.init+12;
+      this._butler.skip=this._butler.skip+12; 
       this.dataApi.getDataAPI(this._butler.skip,this._butler.limit);   
-     this.products$=this.dataApi.products$;  
-     // this._butler.limit=this._butler.limit+12; 
-
-
+      this.products$=this.dataApi.products$;  
+      // this._butler.limit=this._butler.limit+12; 
   }
   loadprev(indice:any){
-    if(this.init>1){
-      
-    // this.products$=[];
-    console.log(indice);
-    this.end=this.end-12;
-    this.init=this.init-12;
-     this._butler.skip=this._butler.skip-12; 
-      this.dataApi.getDataAPI(this._butler.skip,this._butler.limit);   
-     this.products$=this.dataApi.products$;  
-     // this._butler.limit=this._butler.limit+9; 
-    }
+    if(this._butler.init>1){        
+        // this.products$=[];
+        console.log(indice);
+        this._butler.end=this._butler.end-12;
+        this._butler.init=this._butler.init-12;
+        this._butler.skip=this._butler.skip-12; 
+        this.dataApi.getDataAPI(this._butler.skip,this._butler.limit);   
+        this.products$=this.dataApi.products$;  
+         // this._butler.limit=this._butler.limit+9; 
+      }
     }
 
   onScroll() {
     console.log("scrolled!!");
   }
+  public getSize(){
+    this.prodSze$=this.dataApi.getByStatus(0,0);
+    //console.log(JSON.stringify(this.prodSze$.count));
+   // this._butler.results=this.prodSze$.count;
+
+
+  }
   ngAfterViewInit(): void {
     this.products$=this.dataApi.products$; 
-    // console.log(this.bikersService.userLocation);
+    this.getSize(); // console.log(this.bikersService.userLocation);
      this.script.load(
-    // 'jquery',
-    // 'global',
-    // 'select',
-    // 'dataTables',
-    // 'datatablesIni',
-    // 'custom',
-    // 'deznav',
-    'demo')
+     'demo')
     .then(data => {
       console.log('script loaded ', data);
     }).catch(error => console.log(error));
    
-    // const map = new Map({
-    //   container: this.mapDivElement.nativeElement, // container ID
-    //   style: 'mapbox://styles/mapbox/streets-v11', // style URL
-    //   center:this.bikersService.userLocation,
-    //   pitch: 60, // pitch in degrees
-    //   bearing: 40, // bearing in degrees
-    //   zoom: 15 // starting zoom
-    //   });
-    // const popup = new Popup()
-    //   .setHTML(`
-    //   <h6>Aqui estoy</h6>
-    //   </span>esta es mi ubicación</span>
-    //     `); 
-    // new Marker({color:'red'}).setLngLat(this.bikersService.userLocation!)
-    //   .setPopup(popup)
-    //   .addTo(map)
-    // this.mapService.setMap(map)
-
   }
 }
