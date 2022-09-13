@@ -9,7 +9,7 @@
                         </div>
                         <input type="text" class="form-control" placeholder="Buscar producto...">
                     </div>
-                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex ">
                         <nav>
                                     <ul class="pagination pagination-gutter pagination-primary no-bg">
                                         <li class="page-item page-indicator">
@@ -30,7 +30,7 @@
                         
                 </div>
                 <div class="row">
-                    <div class="col-xl-3 col-lg-6 col-md-4 col-sm-6" *ngFor='let product of products$ | async'>
+                    <div class="col-xl-3 col-lg-6 col-md-4 col-sm-6 col-xs-6" *ngFor='let product of products$ | async'>
                         <div class="card" (click)="viewProduct(product)">
                             <div class="card-body">
                                 <div class="new-arrival-product">
