@@ -19,6 +19,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MapviewComponent } from './components/mapview/mapview.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GraphQLModule } from './graphql.module';
+
+
+import { FilePickerModule } from  'ngx-awesome-uploader';
+
 @NgModule({ 
   declarations: [
     AppComponent,
@@ -43,7 +47,8 @@ import { GraphQLModule } from './graphql.module';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    GraphQLModule
+    GraphQLModule,
+    FilePickerModule
   ],
   providers: [
     Butler

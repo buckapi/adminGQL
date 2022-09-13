@@ -60,6 +60,11 @@ export class HeaderComponent implements AfterViewInit {
   }
   
   }
+
+
+  public edit(){
+    this._butler.editing=true;
+  }
   ngAfterViewInit(): void {
    
   }

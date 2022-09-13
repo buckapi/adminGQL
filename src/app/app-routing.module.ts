@@ -16,6 +16,7 @@ const routes: Routes = [
 { path: 'promos', loadChildren: () => import('./components/pages/promos/promos.module').then(m => m.PromosModule) },
 { path: 'detail', loadChildren: () => import('./components/pages/detail/detail.module').then(m => m.DetailModule) },
 { path: 'order', loadChildren: () => import('./components/pages/order/order.module').then(m => m.OrderModule) },
+{ path: 'newproduct', loadChildren: () => import('./components/pages/newproduct/newproduct.module').then(m => m.NewproductModule) },
  { path:'**',pathMatch:'full',redirectTo:'home'}
 ];
 

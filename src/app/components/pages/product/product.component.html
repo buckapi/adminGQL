@@ -4,10 +4,10 @@
             <div class="container-fluid">
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
-                        <div class="welcome-text">
+                       <!--  <div class="welcome-text">
                             <h4>{{_butler.preview.name}}</h4>
-                            <p class="mb-0">{{_butler.preview.ref}}</p>
-                        </div>
+                            <p class="mb-0">Ref. {{_butler.preview.ref}}</p>
+                        </div> -->
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol class="breadcrumb">
@@ -29,8 +29,8 @@
                                             </div>
                                             
                                         </div>
-                                        <div class="tab-slide-content new-arrival-product mb-4 mb-xl-0">
-                                            <!-- Nav tabs -->
+                              <!--           <div class="tab-slide-content new-arrival-product mb-4 mb-xl-0">
+                            
                                             <ul class="nav slide-item-list mt-3" role="tablist">
                                                 <li role="presentation" class="show">
                                                     <a href="ecom-product-detail.html#first" role="tab" data-bs-toggle="tab">
@@ -39,20 +39,23 @@
                                                 </li>
                                               
                                             </ul>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <!--Tab slider End-->
                                     <div class="col-xl-9 col-lg-6  col-md-6 col-xxl-7 col-sm-12">
                                         <div class="product-detail-content">
                                             <!--Product details-->
                                             <div class="new-arrival-content pr">
-                                                <h4>{{_butler.preview.name}}</h4>
+                                                <h4 >{{_butler.preview.name}}</h4>
                                               
-                                                <div class="d-table mb-2">
-                                                    <p class="price float-left d-block">${{_butler.preview.price}}</p>
+                                                <div class="d-table mb-2" >
+                                                    <span class="price float-left d-block" [hidden]="_butler.editing">$ {{_butler.preview.price |  number:'1.0-2'}}</span>
                                                 </div>
+                                                <div class="col-2 px-0  mb-3 me-3" [hidden]="!_butler.editing">
+                                                        <input type="number" name="num" class="form-control input-btn input-number" value="{{_butler.preview.price |  number:'1.0-2'}}">
+                                                    </div>
                                             
-                                                <p>Ref: <span class="item">{{_butler.preview.ref}}</span> </p>
+                                                <p>Ref:. <span class="item">{{_butler.preview.ref}}</span> </p>
                                                   <!--   <p>Brand: <span class="item">Lee</span></p>
                                                     <p>Product tags:&nbsp;&nbsp;
                                                         <span class="badge badge-success light">bags</span>
@@ -76,9 +79,7 @@
                                                         </div>
                                                     </div> -->
                                                     <!--Quantity start-->
-                                                    <div class="col-2 px-0  mb-3 me-3">
-                                                        <input type="number" name="num" class="form-control input-btn input-number" value="1">
-                                                    </div>
+                                                    
                                                     <!--Quanatity End-->
                                                     <!-- <div class="shopping-cart  mb-3 me-3">
                                                         <a class="btn btn-primary" href="javascript:void(0)"><i

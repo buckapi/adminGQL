@@ -1,7 +1,7 @@
   
   <div class="nav-header">
             <a [routerLink]="['']"  class="brand-logo">
-              <img src="assets/assetsdash/images/logo.jpg">
+              <img src="assets/assetsdash/images/logo.png">
      
             </a>
 
@@ -26,21 +26,21 @@
                          
                               </li>
                             <li class="nav-item dropdown notification_dropdown"  [hidden]="!router.url.includes('/product')">
-                                <a class="nav-link  ai-icon"  role="button" data-bs-toggle="dropdown">
+                                <a class="nav-link  ai-icon"  role="button" >
                                     <i class="flaticon-381-trash-1"style="color: red;"></i>
                                     <div class="pulse-css"></div>
                                 </a>
                            
                             </li>
                             <li class="nav-item dropdown notification_dropdown"  [hidden]="!router.url.includes('/product')">
-                                <a class="nav-link  ai-icon"  role="button" data-bs-toggle="dropdown">
+                                <a class="nav-link  ai-icon"  role="button"  (click)="edit()">
                                     <i class="flaticon-381-edit-1"></i>
-                                    <div class="pulse-css"></div>
+                                    
                                 </a>
                            
                             </li>
                             <li class="nav-item dropdown notification_dropdown"  [hidden]="!router.url.includes('/home')">
-                                <a class="nav-link  ai-icon"  role="button" data-bs-toggle="dropdown">
+                                <a class="nav-link  ai-icon"  role="button" [routerLink]="['/newproduct']">
                                     <i class="flaticon-381-add-1"></i>
                                     <div class="pulse-css"></div>
                                 </a>

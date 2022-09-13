@@ -27,6 +27,7 @@
     "apollo-angular": "^3.0.1",
     "graphql": "^16",
     "mapbox-gl": "^1.13.2",
+    "ngx-awesome-uploader": "^13.0.1",
     "ngx-infinite-scroll": "^13.1.0",
     "ngx-useful-swiper": "^10.0.1",
     "rxjs": "~7.4.0",

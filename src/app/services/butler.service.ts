@@ -22,6 +22,7 @@ export class Butler {
     duration:number=0;
     biker:boolean=false;
     details:boolean=false;
+    editing:boolean=false;
     profile:boolean=true;
     rides:boolean=false;
     bikerStatus:boolean=true;

@@ -56,6 +56,29 @@
                    
                
                 </div>
+                    <div class="row page-titles mx-0">
+
+                   
+                    <div class="col-sm-7 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <nav>
+                                    <ul class="pagination pagination-gutter pagination-primary no-bg">
+                                        <li class="page-item page-indicator">
+                                            <a class="page-link"  (click)="loadprev(4)">
+                                                <i class="la la-angle-left"></i></a>
+                                        </li>
+                                        <li class="page-item "><a class="page-link" href="javascript:void(0)">  {{_butler.init}} - {{_butler.end}} </a> 
+                                        </li>
+                                     
+                                        <li class="page-item page-indicator">
+                                            <a class="page-link"  (click)="loadmore(4)">
+                                                <i class="la la-angle-right"></i></a>
+                                        </li>
+                                    </ul>
+                                     <span *ngIf="prodSze$!=undefined" > de  {{prodSze$.length}}</span>  
+                                </nav>
+                    </div>
+                        
+                </div>
               
             </div>
         </div>
