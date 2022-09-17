@@ -7,6 +7,9 @@
       "@app/*": [
         "src/app/*"
       ],
+      "@auth/*":[
+        "src/app/pages/auth/*"
+      ],
       "@shared/*": [
         "src/app/shared/*"
       ],
