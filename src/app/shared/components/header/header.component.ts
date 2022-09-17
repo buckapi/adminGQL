@@ -5,6 +5,7 @@ import { ScriptService } from '@app/services/script.service';
 import { ScriptStore } from '@app/services/script.store';
 import { SwiperOptions } from 'swiper';
 import { BikersService } from '@app/services';
+import { AuthService } from '@services/auth.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -15,6 +16,7 @@ export class HeaderComponent implements AfterViewInit {
   link:string="";
   constructor(
     public _butler:Butler,
+        private readonly authSvc: AuthService,
     public script:ScriptService,
     public router:Router
   ) {
@@ -60,7 +62,15 @@ export class HeaderComponent implements AfterViewInit {
   }
   
   }
-
+async onLogout(): Promise<void> {
+    try {
+      await this.authSvc.signOut();
+       this.router.navigate(['/login']);
+       this._butler.userId="";
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   public edit(){
     this._butler.editing=true;

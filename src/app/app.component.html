@@ -507,7 +507,7 @@
       </div>
     </div>
  -->
-   <div class="deznav" [hidden]="router.url.includes('/login')">
+   <div class="deznav" [hidden]="router.url.includes('/login')" [hidden]="_butler.userId!='68177ed3-70e5-4bef-b1d3-80530ccfbd6b'" >
             <div class="deznav-scroll">
         <ul class="metismenu" id="menu">
             <li>
@@ -534,6 +534,53 @@
         </div>
       </div>
         </div>
+
+
+         <div class="deznav"  [hidden]="_butler.userId!='68177ed3-70e5-4bef-b1d3-80530ccfbd6a'" >
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Ventas</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="">Ticket de venta</a></li>
+                            
+                        </ul>
+
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <i class="flaticon-381-television"></i>
+                            <span class="nav-text">Egresos</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="">salidas de dinero</a></li>
+                           
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-controls-3"></i>
+                            <span class="nav-text">Reportes</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="">Ventas del dia</a></li>
+                            <li><a href="">Ventas por joypay</a></li>
+                            <li><a href="">Ventas a credito</a></li>
+                           
+                        </ul>
+                    </li>
+                </ul>
+            
+                <div class="book-box">
+                  <img src="assets/assetsdash/images/book.png" alt="">
+                  <!-- <a href="javascript:void(0);">Generate Report  ></a> -->
+                </div>
+                <div class="copyright">
+                  <p><strong>LabCel Administrador</strong> © 2022 All Rights Reserved</p>
+                  <p class="fs-12">Desarrollado <span class="heart"></span> por <a href="https://www.buckapi.com" target="_blank">Buckapi</a> </p>
+                </div>
+            </div>
+</div>
 
 </div>
 
