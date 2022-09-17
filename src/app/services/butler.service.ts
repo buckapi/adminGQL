@@ -24,14 +24,20 @@ export class Butler {
     details:boolean=false;
     editing:boolean=false;
     profile:boolean=true;
-    rides:boolean=false;
-    bikerStatus:boolean=true;
+    isLogged:boolean=true;
+    bikerStatus:boolean=false;
     skip:number=0;
     limit:number=12;
     type:string="Passenger"; 
     placeholder:string="a donde deseas ir?"; 
 	  any:any[]=[]; 
     number:number=0;
+
+    rides:boolean=false;
+    name:string=""; 
+    userd:string=""; 
+    usertype:string=""; 
+            
 
     constructor() { }
 }

@@ -13,6 +13,12 @@
       "@pages/*": [
         "src/app/components/pages/*"
       ],
+      "@interfaces/*": [
+        "src/app/interfaces/*"
+      ],
+      "@services/*": [
+        "src/app/services/*"
+      ],
       "@enviroment/*": [
         "src/enviroments/*"
       ]
