@@ -7,8 +7,8 @@
       "@app/*": [
         "src/app/*"
       ],
-      "@auth/*":[
-        "src/app/pages/auth/*"
+      "@guards/*":[
+        "src/app/guards/*"
       ],
       "@shared/*": [
         "src/app/shared/*"
@@ -22,8 +22,8 @@
       "@services/*": [
         "src/app/services/*"
       ],
-      "@enviroment/*": [
-        "src/enviroments/*"
+      "@env/*": [
+        "src/environments/*"
       ]
     },
     "outDir": "./dist/out-tsc",

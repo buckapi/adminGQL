@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import { environment } from '@env/environment';
 import { HeaderModule } from '@shared/components/header/header.module';
 import { LeftSidebarModule } from '@shared/components/left-sidebar/left-sidebar.module';
 import { FilterModule } from '@shared/components/filter/filter.module';
@@ -19,7 +19,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MapviewComponent } from './components/mapview/mapview.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GraphQLModule } from './graphql.module';
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FilePickerModule } from  'ngx-awesome-uploader';
 
@@ -48,7 +49,11 @@ import { FilePickerModule } from  'ngx-awesome-uploader';
       registrationStrategy: 'registerWhenStable:30000'
     }),
     GraphQLModule,
-    FilePickerModule
+    FilePickerModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      preventDuplicates: true,
+    })
   ],
   providers: [
     Butler

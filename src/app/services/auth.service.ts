@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
-import { environment } from "@enviroment/environment";
+import { environment } from "@env/environment";
+
 import { USER_STORAGE_KEY } from "@shared/constants/constant";
 import { ApiError, createClient, Session, SupabaseClient, User, UserCredentials } from "@supabase/supabase-js";
 import { BehaviorSubject, Observable } from "rxjs";
