@@ -36,7 +36,9 @@ export class Butler {
     rides:boolean=false;
     name:string=""; 
     userd:string=""; 
-    usertype:string=""; 
+    userId:string=""; 
+    userType:string=""; 
+    email:string=""; 
             
 
     constructor() { }

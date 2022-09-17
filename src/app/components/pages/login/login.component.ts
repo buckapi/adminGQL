@@ -6,6 +6,7 @@ import { AuthService } from '@services/auth.service';
 import { ACTIONS } from '@shared/constants/constant';
 import { ApiError, User, UserCredentials } from '@supabase/gotrue-js';
 import { ToastrService } from 'ngx-toastr';
+import {CARDS} from '@app/services/cards.service';
 export interface OptionsForm {
   id: string;
   label: string;
@@ -20,12 +21,18 @@ export class LoginComponent implements OnInit {
    authForm !: FormGroup;
   signIn = ACTIONS.signIn;
   @Input() options!: OptionsForm;
+  public cards:any=[];
+
   constructor(
     private readonly authSvc: AuthService,
     private readonly fb: FormBuilder,
     private readonly router: Router,
+    public _butler:Butler,
     private readonly toastSvc: ToastrService,
-  ) { }
+  ) {
+
+this.cards=CARDS
+   }
 
  
   
@@ -47,6 +54,19 @@ export class LoginComponent implements OnInit {
       const result = await actionToCall as UserReponse;
       if (result.email) {
         this.toastSvc.success("Welcome dear" +result.email, 'Logged!');
+        let size = this.cards.length;
+            this._butler.email=result.email;
+//          console.log("yes"+i);
+// console.log(JSON.stringify(this.cards))
+            this._butler.userId=result.id;
+        for(var i=0;i>size;i++){
+            console.log("sizas!" +this._butler.userId);
+
+          if(this._butler.userId==this.cards[i].userId){
+            this._butler.userType=this.cards[i].userType;
+          }
+
+        }
         this.redirectUser();
       } else {
         this.toastSvc.info(result.message, 'Info');
