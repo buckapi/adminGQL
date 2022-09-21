@@ -168,7 +168,9 @@ getDirections(place:Feature){
     .subscribe((
       card$:BuckapicardInterface) => (this.card$=card$,
         this._butler.idBuckapicard=this.card$[0].id,
-        this._butler.idApp=this.card$[0].idApp
+        this._butler.idApp=this.card$[0].idApp,
+        this._butler.idBranch=this.card$[0].idBranch,
+        this._butler.role=this.card$[0].role
         ),      
     
       //console.log(this.card$)    
