@@ -19,8 +19,8 @@ export class DataApiService {
 	// tix: Observable<any>;
 	// sale: Observable<any>;
 	// order: Observable<any>;
-	card: Observable<any>;
-	    public product : ProductInterface ={};
+	//card: Observable<any>;
+	   public card : Card ={};
   constructor(
   	public butler:Butler,
   	private http: HttpClient, 
