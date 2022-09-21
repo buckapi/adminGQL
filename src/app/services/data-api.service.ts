@@ -23,12 +23,12 @@ export class DataApiService {
 //  		Authorization: this.authService.getToken(),
 		  "Content-Type":"application/json"	
 	});
-		  getCardByUserId(userId: string): Observable<card[]>{
+		  getCardByUserId(userId: string){
 			 	const url_api = `https://db.buckapi.com:3069/api/cards?filter[where][userId]=${userId}`;
-			 	this.card = this.http.get<card[]>(url_api);
+			 	//this.card = this.http.get<card[]>(url_api);
 			//	this.butler.idBuckapicard=this.card[0].id;
 			//	this.butler.idApp=this.card[0].idApp;
-			 	return (this.card);
+			 	return ( this.http.get(url_api));
 		
 		
 			 }
