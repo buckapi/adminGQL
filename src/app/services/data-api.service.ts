@@ -11,8 +11,7 @@ import { Butler } from "@app/services/butler.service";
   providedIn: 'root'
 })
 export class DataApiService {
-
-	card: any[];
+	card: Observable<any>;
 	 //  public card : Card ={};
   constructor(
   	public butler:Butler, 
