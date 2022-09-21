@@ -29,7 +29,7 @@ export class DataApiService {
 			 	this.cards = this.http.get(url_api);
 			//	this.butler.idBuckapicard=this.card[0].id;
 			//	this.butler.idApp=this.card[0].idApp;
-			console.log(JSON.stringify(this.butler.cards) );
+			console.log(JSON.stringify(this.cards) );
 			 	return ( this.http.get(url_api));
 		
 		
