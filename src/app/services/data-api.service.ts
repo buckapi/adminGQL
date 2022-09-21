@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders }  from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
+import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 //import { Card } from '../interfaces/card';
 import {Card} from 'src/app/interfaces/card';
@@ -10,7 +11,9 @@ import { Butler } from "@app/services/butler.service";
   providedIn: 'root'
 })
 export class DataApiService {
-	card: any[];
+	private cardSubject= new BehaviorSubject<any[any]>(null);
+    card$ = this.cardSubject.asObservable();
+	//card: any[];
 	 //  public card : Card ={};
   constructor(
   	public butler:Butler, 
