@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders }  from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 //import { Card } from '../interfaces/card';
-import {Card} from 'src/app/interfaces/card';
+import {BuckapicardInterface} from 'src/app/interfaces/buckapicard';
 import { Butler } from "@app/services/butler.service";
 
 @Injectable({
