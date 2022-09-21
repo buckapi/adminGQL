@@ -10,7 +10,7 @@ import { Butler } from "@app/services/butler.service";
   providedIn: 'root'
 })
 export class DataApiService {
-	card: Observable<any>;
+	card: any[];
 	 //  public card : Card ={};
   constructor(
   	public butler:Butler, 
