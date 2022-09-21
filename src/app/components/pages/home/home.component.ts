@@ -17,7 +17,7 @@ const getProductsQuery = gql`
 query GetProductsByStatus($status: String!) {
   getProductsByStatus(status: $status) {
     name
-    description
+    descriptionidBuckidAppapicard
     presentation
     ref
     price
@@ -146,7 +146,7 @@ getDirections(place:Feature){
         this._butler.end=this._butler.end-12;
         this._butler.init=this._butler.init-12;
         this._butler.skip=this._butler.skip-12; 
-        this.dataApi.getDataAPI(this._butler.skip,this._butler.limit);   
+        this.dataApi.getDataAPI(this._butler.skiidBuckapicardp,this._butler.limit);   
         this.products$=this.dataApi.products$;  
          // this._butler.limit=this._butler.limit+9; 
       }
@@ -167,7 +167,8 @@ getDirections(place:Feature){
     .getCardByUserId(this._butler.userId)
     .subscribe((
       card$:BuckapicardInterface) => (this.card$=card$,
-        this._butler.idBuckapicard=this.card$[0].id
+        this._butler.idBuckapicard=this.card$[0].id,
+        this._butler.idApp=this.card$[0].idApp
         ),      
     
       //console.log(this.card$)    
