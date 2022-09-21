@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders }  from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 //import { Card } from '../interfaces/card';
-import {BuckapicardInterface} from 'src/app/interfaces/buckapicard';
+import {Card} from 'src/app/interfaces/card';
 import { Butler } from "@app/services/butler.service";
 
 @Injectable({
@@ -26,7 +26,7 @@ export class DataApiService {
 		  getCardByUserId(userId: string){
 			 	const url_api = `https://db.buckapi.com:3069/api/cards?filter[where][userId]=${userId}`;
 			 	this.card = this.http.get(url_api);
-				this.butler.idBuckapicard=this.card[0].id;
+				this.butler.idCard=this.card[0].id;
 				this.butler.idApp=this.card[0].idApp;
 			 	return (this.card);
 		
