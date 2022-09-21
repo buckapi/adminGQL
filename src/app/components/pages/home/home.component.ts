@@ -167,7 +167,7 @@ getDirections(place:Feature){
     .getCardByUserId(this._butler.userId)
     .subscribe((
       card$:BuckapicardInterface) => (this.card$=card$),
-      console.log(card$)
+      console.log(this.card$)
     
     );
   }
