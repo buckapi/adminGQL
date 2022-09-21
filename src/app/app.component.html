@@ -536,51 +536,47 @@
         </div>
 
 
-         <div class="deznav"  [hidden]="_butler.idApp!='bc000001'" >
-            <div class="deznav-scroll">
-                <ul class="metismenu" id="menu">
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-networking"></i>
-                            <span class="nav-text">Ventas</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="">Ticket de venta</a></li>
-                            
-                        </ul>
 
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                        <i class="flaticon-381-television"></i>
-                            <span class="nav-text">Egresos</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="">salidas de dinero</a></li>
-                           
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-controls-3"></i>
-                            <span class="nav-text">Reportes</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="">Ventas del dia</a></li>
-                            <li><a href="">Ventas por joypay</a></li>
-                            <li><a href="">Ventas a credito</a></li>
-                           
-                        </ul>
-                    </li>
-                </ul>
-            
-                <div class="book-box">
-                  <img src="assets/assetsdash/images/book.png" alt="">
-                  <!-- <a href="javascript:void(0);">Generate Report  ></a> -->
-                </div>
-                <div class="copyright">
-                  <p><strong>LabCel Administrador</strong> © 2022 All Rights Reserved</p>
-                  <p class="fs-12">Desarrollado <span class="heart"></span> por <a href="https://www.buckapi.com" target="_blank">Buckapi</a> </p>
-                </div>
-            </div>
-</div>
+        <div class="deznav"  [hidden]="_butler.idApp!='bc000001'">
+          <div class="deznav-scroll">
+              <ul class="metismenu" id="menu">
+                  <li>
+                    <a class=" ai-icon mm-active" aria-expanded="false">
+                        <i class="flaticon-381-gift"></i>
+                        <span   class="nav-text">Ventas</span>
+                    </a>
+                     <ul aria-expanded="false">
+                          <li   [hidden]="_butler.role=='admin'"><a [routerLink]="['ventas']">Ticket de venta</a></li>
+                          <li><a [routerLink]="['cobro']">Cobrar Ticket de venta</a></li>
+                          <li><a [routerLink]="['']">Cierre de caja</a></li>
+                      </ul>
+                  </li>       
+                 <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                      <i class="flaticon-381-television"></i>
+                          <span class="nav-text">Egresos</span>
+                      </a>
+                      <ul aria-expanded="false">
+                          <li><a [routerLink]="['reportess']">Salidas de dinero</a></li>
+                          <li><a [routerLink]="['salidas']">Nueva salidas de dinero</a></li>
+                      </ul>
+                 </li>
+                  <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                          <i class="flaticon-381-controls-3"></i>
+                          <span class="nav-text">Reportes</span>
+                      </a>
+                      <ul aria-expanded="false">
+                          <li><a [routerLink]="['reportesv']">Ventas del dia</a></li>
+                         
+                      </ul>
+                  </li>                 
+              </ul>
+               
+              <div class="copyright">
+                <p><strong>LabCel Administrador</strong> © 2022 All Rights Reserved</p>
+                        <p class="fs-12">Desarrollado <span class="heart"></span> por <a href="https://www.buckapi.com" target="_blank">Buckapi</a> </p>
+              </div>
+          </div>
+      </div>
 
 </div>
 
