@@ -35,6 +35,7 @@ export class Butler {
 
     rides:boolean=false;
     name:string=""; 
+    idApp:string=""; 
     userd:string=""; 
     userId:string=""; 
     userType:string=""; 

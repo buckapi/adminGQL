@@ -20,7 +20,7 @@ export class DataApiService {
 	// sale: Observable<any>;
 	// order: Observable<any>;
 	//card: Observable<any>;
-	   public card : Card ={};
+	   public card : Card =[];
   constructor(
   	public butler:Butler,
   	private http: HttpClient, 
@@ -35,6 +35,7 @@ export class DataApiService {
 			 	const url_api = `https://db.buckapi.com:3069/api/cards?filter[where][userId]=${userId}`;
 			 	this.card = this.http.get(url_api);
 				this.butler.userId=this.card.id;
+				this.butler.idApp=this.card.idApp;
 			 	return (this.card);
 		
 		
