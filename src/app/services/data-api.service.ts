@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 // import { SaleInterface } from '../models/sale-interface';
 // import { OrderInterface } from '../models/order-interface';
 // import { InfoInterface } from '../models/info-interface';
-import { CardInterface } from '../models/card-interface';
+import { Card } from '../interfaces/card';
 import { Butler } from "@app/services/butler.service";
 
 @Injectable({
