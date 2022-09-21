@@ -9,9 +9,8 @@ import { Butler } from "@app/services/butler.service";
 @Injectable({
   providedIn: 'root'
 })
-public card: any[];
 export class DataApiService {
-
+	public card: any[];
 	 //  public card : Card ={};
   constructor(
   	public butler:Butler, 
