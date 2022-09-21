@@ -2,11 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders }  from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
-// import { AuthService } from './auth.service';
-// import { TixInterface } from '../models/tix-interface';
-// import { SaleInterface } from '../models/sale-interface';
-// import { OrderInterface } from '../models/order-interface';
-// import { InfoInterface } from '../models/info-interface';
 import { Card } from '../interfaces/card';
 import { Butler } from "@app/services/butler.service";
 
@@ -14,13 +9,8 @@ import { Butler } from "@app/services/butler.service";
   providedIn: 'root'
 })
 export class DataApiService {
-	// info: Observable<any>;
-	// tixs: Observable<any>;
-	// tix: Observable<any>;
-	// sale: Observable<any>;
-	// order: Observable<any>;
-	//card: Observable<any>;
-	   public card : Card =[];
+
+	   public card : Card ={};
   constructor(
   	public butler:Butler,
   	private http: HttpClient, 
@@ -30,7 +20,6 @@ export class DataApiService {
   		"Content-Type":"application/json",
   		Authorization: this.authService.getToken()
   		});
-
 		  getCardByUserId(userId: string){
 			 	const url_api = `https://db.buckapi.com:3069/api/cards?filter[where][userId]=${userId}`;
 			 	this.card = this.http.get(url_api);
@@ -41,11 +30,10 @@ export class DataApiService {
 		
 			 }
 
+}
 
-
-
-  //	updateProduct(tix :ProductInterface, id: string){
-		// let token = this.authService.getToken();
+  	//	updateProduct(tix :ProductInterface, id: string){
+	// let token = this.authService.getToken();
 	//	const url_api=`https://db.buckapi.com:3025/api/product/${id}`;
 	//	return this.http
 	//	.put<ProductInterface>(url_api, tix)
@@ -55,7 +43,7 @@ export class DataApiService {
 	// 	const url_api = 'https://db.buckapi.com:3025/api/tixes?filter[where][status]=activated';
 	// 	return this.http.get(url_api);
 	// }
- // 		getTamano(){
+ 	// getTamano(){
 	// 	const url_api = 'https://db.buckapi.com:3025/api/tixes?filter[where][status]=activated';
 	// 	return (this.tixs = this.http.get(url_api));
 	// }
@@ -63,8 +51,6 @@ export class DataApiService {
 	// 	const url_api = 'https://db.buckapi.com:3025/api/tixes?filter[where][initload]=activated';
 	// 	return (this.tixs = this.http.get(url_api));
 	// }
- 	
-
 	// getAllTixsInitload(){
 	// 	const url_api = 'https://db.buckapi.com:3025/api/tixes?filter[where][initload]=activated';
 	// 	return this.http.get(url_api);
@@ -80,19 +66,18 @@ export class DataApiService {
 	// 	.post<SaleInterface>(url_api, sale)
 	// 	.pipe(map(data => data));
 	// }
-// 	saveOrder(order :OrderInterface){
-// 		const url_api='https://db.buckapi.com:3025/api/order';
-// 		return this.http
-// 		.post<OrderInterface>(url_api, order)
-// 		.pipe(map(data => data));
-// 	}
-// sendMailNewBookAppToAdmin(book){
-// 		const url_api='https://email.penguinscleaning.ca:3005/newBookAppToAdmin';
-// 		return this.http
-// 		.post(url_api, book)
-// 		.pipe(map(data => data));
-// 	}
-	
+	// 	saveOrder(order :OrderInterface){
+	// 		const url_api='https://db.buckapi.com:3025/api/order';
+	// 		return this.http
+	// 		.post<OrderInterface>(url_api, order)
+	// 		.pipe(map(data => data));
+	// 	}
+	// sendMailNewBookAppToAdmin(book){
+	// 		const url_api='https://email.penguinscleaning.ca:3005/newBookAppToAdmin';
+	// 		return this.http
+	// 		.post(url_api, book)
+	// 		.pipe(map(data => data));
+	// 	}
 	// updateOrder(order :OrderInterface, id: string){
 	// 	// let token = this.authService.getToken();
 	// 	const url_api=`https://db.buckapi.com:3025/api/order/${id}`;
@@ -104,16 +89,10 @@ export class DataApiService {
 	// 	const url_api = `https://db.buckapi.com:3025/api/order?filter[where][npedido]=${npedido}`;
 	// 	this.order = this.http.get(url_api);
 	// 	return (this.order);
-
-
 	// }
-
-		// let indice = id;
-		// const url_api=`https://db.andesproadventures.com:3018/api/book/${indice}`;
-		// this.book = this.http.get(url_api);
-		// return (this.book);
-
-
-		// this.info = this.http.get(url_api);
-		// return (this.info);
-}
+	// let indice = id;
+	// const url_api=`https://db.andesproadventures.com:3018/api/book/${indice}`;
+	// this.book = this.http.get(url_api);
+	// return (this.book);
+	// this.info = this.http.get(url_api);
+	// return (this.info);
