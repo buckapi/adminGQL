@@ -8,6 +8,7 @@ import { BikersService } from '@app/services/';
 import {Map, Popup,Marker} from 'mapbox-gl';
 import { MapService } from '@app/services/map.service';
 import { Feature } from '@app/interfaces/places';
+import { BuckapicardInterface } from '@app/interfaces/buckapicard';
 import { Apollo } from "apollo-angular";
 import { DataService } from '@app/services/data.service'; 
 import { DataApiService } from '@app/services/data-api.service'; 
@@ -161,8 +162,18 @@ getDirections(place:Feature){
 
 
   }
+  getCard(){
+    this.dataApiService
+    .getCardByUserId(this._butler.userId)
+    .subscribe((
+      cards:BuckapicardInterface) => (this.cards=cards)
+      console.log(this.cards);
+    
+    );
+  }
   ngAfterViewInit(): void {
-    this.card$=this.dataApiService.getCardByUserId(this._butler.userId); 
+    this.getCard();
+    //this.card$=this.dataApiService.getCardByUserId(this._butler.userId).subscribe(); 
     //this.getSize(); // console.log(this.bikersService.userLocation);
      this.script.load(
      'demo')
