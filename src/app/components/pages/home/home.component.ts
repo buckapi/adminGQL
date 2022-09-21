@@ -167,8 +167,8 @@ getDirections(place:Feature){
     .getCardByUserId(this._butler.userId)
     .subscribe((
       card$:BuckapicardInterface) => (this.card$=card$),
-      console.log(this.card$)    ,
-    );
+      //console.log(this.card$)    
+         );
   }
   ngAfterViewInit(): void {
     this.getCard();
