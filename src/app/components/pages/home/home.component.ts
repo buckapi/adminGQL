@@ -10,6 +10,7 @@ import { MapService } from '@app/services/map.service';
 import { Feature } from '@app/interfaces/places';
 import { Apollo } from "apollo-angular";
 import { DataService } from '@app/services/data.service'; 
+import { DataApiService } from '@app/services/data-api.service'; 
 import gql from "graphql-tag";
 const getProductsQuery = gql`
 query GetProductsByStatus($status: String!) {
@@ -34,6 +35,8 @@ export class HomeComponent implements AfterViewInit {
   bestseller: any;
   bestseller$: any;
    products: any;
+   card$: any;
+   card: any;
   products$: any;
   prodSze$: any;
       public init:number=1;
@@ -50,6 +53,7 @@ link:string="";
     public router:Router,
     private apollo: Apollo,
     public dataApi: DataService,
+    public dataApiService: DataApiService,
     public _butler: Butler
   ) { } 
 
@@ -158,8 +162,8 @@ getDirections(place:Feature){
 
   }
   ngAfterViewInit(): void {
-    this.products$=this.dataApi.products$; 
-    this.getSize(); // console.log(this.bikersService.userLocation);
+    this.card$=this.dataApiService.getCardByUserId(this._butler.userId); 
+    //this.getSize(); // console.log(this.bikersService.userLocation);
      this.script.load(
      'demo')
     .then(data => {

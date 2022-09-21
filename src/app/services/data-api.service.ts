@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 // import { SaleInterface } from '../models/sale-interface';
 // import { OrderInterface } from '../models/order-interface';
 // import { InfoInterface } from '../models/info-interface';
+import { CardInterface } from '../models/card-interface';
 import { Butler } from "@app/services/butler.service";
 
 @Injectable({
@@ -18,6 +19,7 @@ export class DataApiService {
 	// tix: Observable<any>;
 	// sale: Observable<any>;
 	// order: Observable<any>;
+	card: Observable<any>;
 	    public product : ProductInterface ={};
   constructor(
   	public butler:Butler,
@@ -28,13 +30,26 @@ export class DataApiService {
   		"Content-Type":"application/json",
   		Authorization: this.authService.getToken()
   		});
-  	updateProduct(tix :ProductInterface, id: string){
+
+		  getCardByUserId(userId: string){
+			 	const url_api = `https://db.buckapi.com:3069/api/cards?filter[where][userId]=${userId}`;
+			 	this.card = this.http.get(url_api);
+				this.butler.userId=this.card.id;
+			 	return (this.card);
+		
+		
+			 }
+
+
+
+
+  //	updateProduct(tix :ProductInterface, id: string){
 		// let token = this.authService.getToken();
-		const url_api=`https://db.buckapi.com:3025/api/product/${id}`;
-		return this.http
-		.put<ProductInterface>(url_api, tix)
-		.pipe(map(data => data));
-	}
+	//	const url_api=`https://db.buckapi.com:3025/api/product/${id}`;
+	//	return this.http
+	//	.put<ProductInterface>(url_api, tix)
+	//	.pipe(map(data => data));
+	//}
 	// getAllTixs(){
 	// 	const url_api = 'https://db.buckapi.com:3025/api/tixes?filter[where][status]=activated';
 	// 	return this.http.get(url_api);
