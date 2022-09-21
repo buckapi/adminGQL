@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders }  from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
-import { Card } from '../interfaces/card';
+//import { Card } from '../interfaces/card';
+import {Card} from 'src/app/interfaces/card';
 import { Butler } from "@app/services/butler.service";
 
 @Injectable({
@@ -12,14 +13,16 @@ export class DataApiService {
 	card: Observable<any>;
 	 //  public card : Card ={};
   constructor(
-  	public butler:Butler,
-  	private http: HttpClient, 
-  	private authService:AuthService
+  	public butler:Butler, 
+  //	private authService:AuthService
+
+  private http: HttpClient
   	) {}
   	headers : HttpHeaders = new HttpHeaders({
-  		"Content-Type":"application/json",
-  		Authorization: this.authService.getToken()
-  		});
+  		
+//  		Authorization: this.authService.getToken(),
+		  "Content-Type":"application/json"	
+	});
 		  getCardByUserId(userId: string){
 			 	const url_api = `https://db.buckapi.com:3069/api/cards?filter[where][userId]=${userId}`;
 			 	this.card = this.http.get(url_api);
