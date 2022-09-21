@@ -130,7 +130,7 @@ getDirections(place:Feature){
 
 }
  loadmore(indice:any){
-      // this.products$=[];
+      // this.products$=[];idBuckapicard
       console.log(indice);
       this._butler.end=this._butler.end+12;
       this._butler.init=this._butler.init+12;
@@ -146,7 +146,7 @@ getDirections(place:Feature){
         this._butler.end=this._butler.end-12;
         this._butler.init=this._butler.init-12;
         this._butler.skip=this._butler.skip-12; 
-        this.dataApi.getDataAPI(this._butler.skiidBuckapicardp,this._butler.limit);   
+        this.dataApi.getDataAPI(this._butler.idBuckapicard,this._butler.limit);   
         this.products$=this.dataApi.products$;  
          // this._butler.limit=this._butler.limit+9; 
       }
