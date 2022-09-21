@@ -9,8 +9,8 @@ import { Butler } from "@app/services/butler.service";
   providedIn: 'root'
 })
 export class DataApiService {
-
-	   public card : Card ={};
+	card: Observable<any>;
+	 //  public card : Card ={};
   constructor(
   	public butler:Butler,
   	private http: HttpClient, 
@@ -23,8 +23,8 @@ export class DataApiService {
 		  getCardByUserId(userId: string){
 			 	const url_api = `https://db.buckapi.com:3069/api/cards?filter[where][userId]=${userId}`;
 			 	this.card = this.http.get(url_api);
-				this.butler.userId=this.card.id;
-				this.butler.idApp=this.card.idApp;
+				//this.butler.userId=this.card[0].id;
+				//this.butler.idApp=this.card[0].idApp;
 			 	return (this.card);
 		
 		
