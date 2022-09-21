@@ -26,8 +26,8 @@ export class DataApiService {
 		  getCardByUserId(userId: string): Observable<card[]>{
 			 	const url_api = `https://db.buckapi.com:3069/api/cards?filter[where][userId]=${userId}`;
 			 	this.card = this.http.get<card[]>(url_api);
-				this.butler.idBuckapicard=this.card[0].id;
-				this.butler.idApp=this.card[0].idApp;
+			//	this.butler.idBuckapicard=this.card[0].id;
+			//	this.butler.idApp=this.card[0].idApp;
 			 	return (this.card);
 		
 		
