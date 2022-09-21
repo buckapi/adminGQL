@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders }  from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
-import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 //import { Card } from '../interfaces/card';
-import {Card} from 'src/app/interfaces/card';
+import {BuckapicardInterface} from 'src/app/interfaces/buckapicard';
 import { Butler } from "@app/services/butler.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataApiService {
-	//card: Observable<any>;
-//	  public card : Card ={};
-card: any[];  
-constructor(
+	card: any[];
+	 //  public card : Card ={};
+  constructor(
   	public butler:Butler, 
   //	private authService:AuthService
 
@@ -28,8 +26,8 @@ constructor(
 		  getCardByUserId(userId: string){
 			 	const url_api = `https://db.buckapi.com:3069/api/cards?filter[where][userId]=${userId}`;
 			 	this.card = this.http.get(url_api);
-				this.butler.idCard=this.card.id;
-				this.butler.idApp=this.card.idApp;
+				this.butler.idCard=this.card[0].id;
+				this.butler.idApp=this.card[0].idApp;
 			 	return (this.card);
 		
 		

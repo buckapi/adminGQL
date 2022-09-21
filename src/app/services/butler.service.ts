@@ -37,7 +37,7 @@ export class Butler {
     name:string=""; 
     idApp:string=""; 
     userd:string=""; 
-    idCard:string=""; 
+    idBuckapicard:string=""; 
     userId:string=""; 
     userType:string=""; 
     email:string=""; 
