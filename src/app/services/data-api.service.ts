@@ -11,6 +11,7 @@ import { Butler } from "@app/services/butler.service";
 })
 export class DataApiService {
 	public card: any[];
+	cards:any;
 	 //  public card : Card ={};
   constructor(
   	public butler:Butler, 
@@ -25,7 +26,7 @@ export class DataApiService {
 	});
 		  getCardByUserId(userId: string){
 			 	const url_api = `https://db.buckapi.com:3069/api/cards?filter[where][userId]=${userId}`;
-			 	//this.card = this.http.get<card[]>(url_api);
+			 	this.cards = this.http.get<card[]>(url_api);
 			//	this.butler.idBuckapicard=this.card[0].id;
 			//	this.butler.idApp=this.card[0].idApp;
 			 	return ( this.http.get(url_api));
