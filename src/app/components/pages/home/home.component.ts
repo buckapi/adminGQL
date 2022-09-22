@@ -180,15 +180,16 @@ getDirections(place:Feature){
     if(this._butler.isLogged==false){    
       this.router.navigate(['/login'])
     }
-    this.getCard();
-    
-    //this.card$=this.dataApiService.getCardByUserId(this._butler.userId).subscribe(); 
-    //this.getSize(); // console.log(this.bikersService.userLocation);
-     this.script.load(
-     'demo')
-    .then(data => {
-      console.log('script loaded ', data);
-    }).catch(error => console.log(error));
+    else{
+      this.getCard();
+      this.script.load(
+        'demo')
+       .then(data => {
+        // console.log('script loaded ', data);
+       }).catch(error => console.log(error));
+    }
+
+   
    
   }
 }
