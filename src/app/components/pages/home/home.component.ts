@@ -113,7 +113,7 @@ flyTo(place:Feature ){
   this.getDirections(place);
 }
 onQueryChanged(query:string=''){
-  if (this.debounceTimer)clearTimeout (this.carddebounceTimer);
+  if (this.debounceTimer)clearTimeout (this.ebounceTimer);
   this.debounceTimer=setTimeout (()=> {
    this.bikersService.getPlacesByQuery(query);
     // console.log(query);
@@ -147,7 +147,7 @@ getDirections(place:Feature){
         this._butler.init=this._butler.init-12;
         this._butler.skip=this._butler.skip-12; 
         this.dataApi.getDataAPI(this._butler.idBuckapicard,this._butler.limit);   
-        this.products$=this.dataApi.products$;  
+        this.products$=this.dataApi.productidBuckapicards$;  
          // this._butler.limit=this._butler.limit+9; 
       }
     }
