@@ -178,7 +178,7 @@ getDirections(place:Feature){
   }
   ngAfterViewInit(): void {
     this.getCard();
-    if(!this._butler.isLogged){    
+    if(this._butler.isLogged==false){    
       this.router.navigate(['/login'])
     }
     //this.card$=this.dataApiService.getCardByUserId(this._butler.userId).subscribe(); 
