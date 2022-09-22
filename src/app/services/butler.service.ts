@@ -43,7 +43,8 @@ export class Butler {
     userId:string=""; 
     userType:string=""; 
     email:string=""; 
-            
+    cards:any[]=[]; 
+
 
     constructor() { }
 }

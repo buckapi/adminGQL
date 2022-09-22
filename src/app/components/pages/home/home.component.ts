@@ -35,9 +35,9 @@ export class HomeComponent implements AfterViewInit {
    // selector: string = ".main-content";
   bestseller: any;
   bestseller$: any;
-   products: any;
-   card$: any;
-   card: any;
+  products: any;
+  card$: any;
+  card: any;
   products$: any;
   prodSze$: any;
       public init:number=1;
@@ -166,15 +166,15 @@ getDirections(place:Feature){
     this.dataApiService
     .getCardByUserId(this._butler.userId)
     .subscribe((
-      card$:BuckapicardInterface) => (this.card$=card$,
-        this._butler.idBuckapicard=this.card$[0].id,
-        this._butler.idApp=this.card$[0].idApp,
-        this._butler.idBranch=this.card$[0].idBranch,
-        this._butler.role=this.card$[0].idApp
-        ),      
- 
-      //console.log(this.card$)    
-         );
+      card$:BuckapicardInterface) => (
+        this.card$=card$,
+        this._butler.cards=this.card$,
+        this._butler.idBuckapicard=this._butler.card$[0].id,
+        this._butler.idApp=this._butler.card$[0].idApp,
+        this._butler.idBranch=this._butler.card$[0].idBranch,
+        this._butler.role=this._butler.card$[0].idApp
+      ),      
+    );
   }
   ngAfterViewInit(): void {
     if(this._butler.isLogged==false){    
