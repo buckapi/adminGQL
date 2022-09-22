@@ -147,7 +147,7 @@ getDirections(place:Feature){
         this._butler.init=this._butler.init-12;
         this._butler.skip=this._butler.skip-12; 
         this.dataApi.getDataAPI(this._butler.skip,this._butler.limit);   
-        this.products$=this.dataApi.products$;  
+        this.products$=this.dataApi.productidBuckapicards$;  
          // this._butler.limit=this._butler.limit+9; 
       }
     }
@@ -166,8 +166,7 @@ getDirections(place:Feature){
     this.dataApiService
     .getCardByUserId(this._butler.userId)
     .subscribe((
-      card$:BuckapicardInter
-      return this.bikersService.isLoaface) => (
+      card$:BuckapicardInterface) => (
         this.card$=card$,
         this._butler.cards=this.card$,
         this._butler.idBuckapicard=this._butler.cards[0].id,
