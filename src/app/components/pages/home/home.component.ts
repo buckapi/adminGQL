@@ -172,15 +172,19 @@ getDirections(place:Feature){
         this._butler.idBuckapicard=this._butler.cards[0].id,
         this._butler.idApp=this._butler.cards[0].idApp,
         this._butler.idBranch=this._butler.cards[0].idBranch,
-        this._butler.role=this._butler.cards[0].idApp
+        this._butler.role=this._butler.cards[0].role
       ),      
     );
   }
   ngAfterViewInit(): void {
-    this._butler.cards[0].id="";
-    this._butler.cards[0].idApp="";
-    this._butler.cards[0].idBranch="";
-    this._butler.cards[0].idApp="";
+    let card={
+      "id":"","idApp":"","idBranch":"","role":""
+    }
+    this._butler.cards.push(card);
+    //this._butler.cards[0].id="";
+    //this._butler.cards[0].idApp="";
+    //this._butler.cards[0].idBranch="";
+    //this._butler.cards[0].idApp="";
     if(this._butler.isLogged==false){    
       this.router.navigate(['/login'])
     }
