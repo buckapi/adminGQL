@@ -113,7 +113,7 @@ flyTo(place:Feature ){
   this.getDirections(place);
 }
 onQueryChanged(query:string=''){
-  if (this.debounceTimer)clearTimeout (this.debounceTimer);
+  if (this.debounceTimer)clearTimeout (this.carddebounceTimer);
   this.debounceTimer=setTimeout (()=> {
    this.bikersService.getPlacesByQuery(query);
     // console.log(query);
@@ -177,6 +177,10 @@ getDirections(place:Feature){
     );
   }
   ngAfterViewInit(): void {
+    this._butler.cards[0].id="";
+    this._butler.cards[0].idApp="";
+    this._butler.cards[0].idBranch="";
+    this._butler.cards[0].idApp="";
     if(this._butler.isLogged==false){    
       this.router.navigate(['/login'])
     }
