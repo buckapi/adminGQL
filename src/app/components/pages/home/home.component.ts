@@ -170,14 +170,17 @@ getDirections(place:Feature){
         this._butler.idBuckapicard=this.card$[0].id,
         this._butler.idApp=this.card$[0].idApp,
         this._butler.idBranch=this.card$[0].idBranch,
-        this._butler.role=this.card$[0].role
+        this._butler.role=this.card$[0].idApp
         ),      
-    
+ 
       //console.log(this.card$)    
          );
   }
   ngAfterViewInit(): void {
     this.getCard();
+    if(!this._butler.isLoggeds){    
+      this.router.navigate(['/login'])
+    }
     //this.card$=this.dataApiService.getCardByUserId(this._butler.userId).subscribe(); 
     //this.getSize(); // console.log(this.bikersService.userLocation);
      this.script.load(

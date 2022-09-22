@@ -67,6 +67,7 @@ this.cards=CARDS
           }
 
         }
+        this._butler.isLogged=true;
         this.redirectUser();
       } else {
         this.toastSvc.info(result.message, 'Info');
