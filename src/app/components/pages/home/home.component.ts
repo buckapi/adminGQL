@@ -147,7 +147,7 @@ getDirections(place:Feature){
         this._butler.init=this._butler.init-12;
         this._butler.skip=this._butler.skip-12; 
         this.dataApi.getDataAPI(this._butler.skip,this._butler.limit);   
-        this.products$=this.dataApi.productidBuckapicards$;  
+        this.products$=this.dataApi.products$;  
          // this._butler.limit=this._butler.limit+9; 
       }
     }
