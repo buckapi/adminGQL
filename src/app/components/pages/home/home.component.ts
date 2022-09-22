@@ -113,7 +113,7 @@ flyTo(place:Feature ){
   this.getDirections(place);
 }
 onQueryChanged(query:string=''){
-  if (this.debounceTimer)clearTimeout (this.ebounceTimer);
+  if (this.debounceTimer)clearTimeout (this.debounceTimer);
   this.debounceTimer=setTimeout (()=> {
    this.bikersService.getPlacesByQuery(query);
     // console.log(query);
