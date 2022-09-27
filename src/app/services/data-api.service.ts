@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders }  from '@angular/common/http';
+import { HttpClient, HttpHeaders }  from '@angular/usmon/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 import { Butler } from "@app/services/butler.service";
@@ -17,7 +17,7 @@ export class DataApiService {
 		  "Content-Type":"application/json"	
 	});
 	getCardByUserId(userId: string){
-		const url_api = `https://db.buckapi.com:3069/api/cards?filter[where][userId]=${userId}`;
+		const url_api = `https://db.buckapi.us:3069/api/cards?filter[where][userId]=${userId}`;
 		this.cards = this.http.get(url_api);
 		return ( this.http.get(url_api));		
 	}
