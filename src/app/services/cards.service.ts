@@ -6,7 +6,7 @@ export const CARDS: Card[] = [
     userType: 'admin',
     idApp: 'bc000001',
     admin:true,
-    role:"admin",
+    role:"administrator",
     userId:'"680acf56-354f-4de6-b55d-e40308fab5df',
     images:[
       'assets/assetsdash/images/avatar-7.jpg',
