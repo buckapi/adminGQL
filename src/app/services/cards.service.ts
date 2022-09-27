@@ -2,10 +2,12 @@ import {Card} from 'src/app/interfaces/card';
 
 export const CARDS: Card[] = [
   {
-    email:'andreazambrano10@gmail.com',
+    email:'progresssiveapps@protonmail.com',
     userType: 'admin',
+    idApp: 'bc000001',
     admin:true,
-    userId:'68177ed3-70e5-4bef-b1d3-80530ccfbd6a',
+    role:"admin",
+    userId:'680acf56-354f-4de6-b55d-e40308fab5df',
     images:[
       'assets/assetsdash/images/avatar-7.jpg',
       'jamundi'

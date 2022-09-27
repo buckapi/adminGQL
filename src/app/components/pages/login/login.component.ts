@@ -30,13 +30,8 @@ export class LoginComponent implements OnInit {
     public _butler:Butler,
     private readonly toastSvc: ToastrService,
   ) {
-
-this.cards=CARDS
+  this.cards=CARDS
    }
-
- 
-  
-
 
   ngOnInit(): void {
     this.initForm();
@@ -45,11 +40,7 @@ this.cards=CARDS
   async onSubmit(): Promise<void> {
     const credentials: UserCredentials = this.authForm.value;
     let actionToCall = this.authSvc.signIn(credentials);
-
-   
-      actionToCall = this.authSvc.signIn(credentials);
-   
-
+    actionToCall = this.authSvc.signIn(credentials);
     try {
       const result = await actionToCall as UserReponse;
       if (result.email) {
@@ -61,11 +52,9 @@ this.cards=CARDS
             this._butler.userId=result.id;
         for(var i=0;i>size;i++){
             console.log("sizas!" +this._butler.userId);
-
           if(this._butler.userId==this.cards[i].userId){
             this._butler.userType=this.cards[i].userType;
           }
-
         }
         this._butler.isLogged=true;
         this.redirectUser();
@@ -75,8 +64,6 @@ this.cards=CARDS
     } catch (error) {
       console.log(error);
     }
-
-
   }
 
   private initForm(): void {
