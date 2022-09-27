@@ -7,7 +7,7 @@ export const CARDS: Card[] = [
     idApp: 'bc000001',
     admin:true,
     role:"admin",
-    userId:'680acf56-354f-4de6-b55d-e40308fab5df',
+    userId:'"680acf56-354f-4de6-b55d-e40308fab5df',
     images:[
       'assets/assetsdash/images/avatar-7.jpg',
       'jamundi'

@@ -3,6 +3,7 @@ export interface Card {
   userId: string;
   email: string;
   role: string;
+  idApp:string;
   admin: boolean;
   images:string[]; 
 }
