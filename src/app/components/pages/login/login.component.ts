@@ -57,7 +57,7 @@ this.cards=CARDS
         let size = this.cards.length;
             this._butler.email=result.email;
 //          console.log("yes"+i);
-// console.log(JSON.stringify(this.cards))
+ console.log(JSON.stringify(this.cards))
             this._butler.userId=result.id;
         for(var i=0;i>size;i++){
             console.log("sizas!" +this._butler.userId);
