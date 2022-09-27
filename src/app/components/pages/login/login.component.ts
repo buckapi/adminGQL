@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
         this.toastSvc.success("Welcome dear" +result.email, 'Logged!');
         let size = this.cards.length;
             this._butler.email=result.email;
-         console.log("yes"+i);
+         console.log("yes"+size);
  console.log(JSON.stringify(this.cards))
             this._butler.userId=result.id;
         for(var i=0;i>size;i++){
