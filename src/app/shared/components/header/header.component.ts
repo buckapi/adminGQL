@@ -65,6 +65,7 @@ export class HeaderComponent implements AfterViewInit {
 async onLogout(): Promise<void> {
     try {
       await this.authSvc.signOut();
+      this._butler.isLogged=false;
        this.router.navigate(['/login']);
        this._butler.userId="";
     } catch (error) {

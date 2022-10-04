@@ -507,7 +507,7 @@
       </div>
     </div>
  -->
-   <div class="deznav" [hidden]="router.url.includes('/login')" [hidden]="_butler.idApp!='bc000001'" >
+   <div class="deznav" [hidden]="router.url.includes('/login')" [hidden]="_butler.idApp!='bc000001' || !_butler.isLogged" >
             <div class="deznav-scroll">
         <ul class="metismenu" id="menu">
             <li>
@@ -537,7 +537,7 @@
 
 
 
-        <div class="deznav"  [hidden]="_butler.idApp!='bc000001'">
+        <div class="deznav"  [hidden]="_butler.idApp!='bc000001'  || !_butler.isLogged">
           <div class="deznav-scroll">
               <ul class="metismenu" id="menu">
                   <li>

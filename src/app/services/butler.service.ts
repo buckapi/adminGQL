@@ -24,7 +24,7 @@ export class Butler {
     details:boolean=false;
     editing:boolean=false;
     profile:boolean=true;
-    isLogged:boolean=true;
+    isLogged:boolean=false;
     bikerStatus:boolean=false;
     skip:number=0;
     limit:number=12;

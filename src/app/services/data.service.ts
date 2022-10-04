@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Apollo, gql } from 'apollo-angular';
+import { Apollo, gql,QueryRef } from 'apollo-angular';
 import { BehaviorSubject } from 'rxjs';
 import { take,tap } from 'rxjs/operators';
 import {Butler} from '@app/services/butler.service';
@@ -113,12 +113,12 @@ const LOGIN =  gql`
 
     ) {
        this.getDataAPI(this._butler.skip,this._butler.limit);
-       this.getDataAPIcategories(0,0);
-       this.getBestseller(0,0);
-       this.getDiscount(0,0);
+      // this.getDataAPIcategories(0,0);
+     //  this.getBestseller(0,0);
+      // this.getDiscount(0,0);
     }
      getDataAPI(vskip:any,vlimit:any):void{
-        this.apollo.watchQuery<any>({
+        this.apollo.use('labcel').watchQuery<any>({
             query: GETPRODUCTS,
             variables:{
                 status:"activated",
@@ -154,7 +154,7 @@ const LOGIN =  gql`
         ).subscribe();
     }
  getByStatus(vskip:any,vlimit:any):void{
-        this.apollo.watchQuery<any>({
+        this.apollo.use('labcel').watchQuery<any>({
             query: GETPRODUCTS,
             variables:{
                 status:"activated",
@@ -164,9 +164,9 @@ const LOGIN =  gql`
         }).valueChanges.pipe(
             take(1),
             tap(({data})=>{
-              //  const {getProductsByStatus} =data;
-               // this.productsSubject.next(getProductsByStatus);
-             //   console.log(getProductsByStatus);
+                const {getProductsByStatus} =data;
+               this.productsSubject.next(getProductsByStatus);
+               console.log(getProductsByStatus);
             })
             
         ).subscribe();

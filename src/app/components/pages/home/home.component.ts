@@ -157,7 +157,7 @@ getDirections(place:Feature){
   }
   public getSize(){
     this.prodSze$=this.dataApi.getByStatus(0,0);
-    //console.log(JSON.stringify(this.prodSze$.count));
+    console.log(JSON.stringify(this.prodSze$));
    // this._butler.results=this.prodSze$.count;
 
 
@@ -177,6 +177,10 @@ getDirections(place:Feature){
     );
   }
   ngAfterViewInit(): void {
+     if(this._butler.isLogged==false){    
+      this.router.navigate(['/login'])
+    }
+    this.getSize();
     let card={
       "id":"","idApp":"","idBranch":"","role":""
     }
