@@ -5,6 +5,7 @@ import { HomeComponent } from './home.component';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
 
+import { LabcelhomeModule } from './labcelhome/labcelhome.module';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { InfiniteScrollModule } from "ngx-infinite-scroll";
   ],
   imports: [
     CommonModule,
+    LabcelhomeModule,
     HomeRoutingModule,
     NgxUsefulSwiperModule,
     InfiniteScrollModule

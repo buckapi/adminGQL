@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   signIn = ACTIONS.signIn;
   @Input() options!: OptionsForm;
   public cards:any=[];
-
+size=0;
   constructor(
     private readonly authSvc: AuthService,
     private readonly fb: FormBuilder,
@@ -45,17 +45,12 @@ export class LoginComponent implements OnInit {
       const result = await actionToCall as UserReponse;
       if (result.email) {
         this.toastSvc.success("Welcome dear" +result.email, 'Logged!');
-        let size = this.cards.length;
+        this.size = this.cards.length;
             this._butler.email=result.email;
-         console.log("yes"+size);
- console.log(JSON.stringify(this.cards))
-            this._butler.userId=result.id;
-        for(var i=0;i>size;i++){
-            console.log("sizas!" +this._butler.userId);
-          if(this._butler.userId==this.cards[i].userId){
-            this._butler.userType=this.cards[i].userType;
-          }
-        }
+// console.log(JSON.stringify(this.cards))
+            this._butler.userId= result.id;
+
+         console.log("id Resp "+this._butler.userId);
         this._butler.isLogged=true;
         this.redirectUser();
       } else {
@@ -74,6 +69,17 @@ export class LoginComponent implements OnInit {
   }
 
   private redirectUser(): void {
+            //console.log("idCard: " +this.cards);
+     for(let i=0;i<this.size;i++){
+            console.log("idCard: " +this.cards[i].userId);
+//1            console.log("sizas: " +this._butler.userId);
+          if(this._butler.userId==this.cards[i].userId){
+            this._butler.userId=this.cards[i].userId;
+            this._butler.branch=this.cards[i].branch;
+            this._butler.userType=this.cards[i].userType;
+          }
+        }
+            console.log("userType: " +this._butler.userType);
     this.router.navigate(['/home']);
   }
 

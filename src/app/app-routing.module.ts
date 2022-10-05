@@ -18,6 +18,9 @@ const routes: Routes = [
 { path: 'detail', loadChildren: () => import('./components/pages/detail/detail.module').then(m => m.DetailModule) },
 { path: 'order', loadChildren: () => import('./components/pages/order/order.module').then(m => m.OrderModule) },
 { path: 'newproduct', loadChildren: () => import('./components/pages/newproduct/newproduct.module').then(m => m.NewproductModule) },
+{ path: 'labcelhome', loadChildren: () => import('./components/pages/home/labcelhome/labcelhome.module').then(m => m.LabcelhomeModule) },
+{ path: 'labceltransactions', loadChildren: () => import('./components/pages/labcel/transactions/transactions.module').then(m => m.TransactionsModule) },
+{ path: 'labceladdtransaction', loadChildren: () => import('./components/pages/labcel/addtransaction/addtransaction.module').then(m => m.AddtransactionModule) },
  { path:'**',pathMatch:'full',redirectTo:'home'}
 ];
 
