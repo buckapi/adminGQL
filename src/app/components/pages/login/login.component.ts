@@ -48,9 +48,9 @@ size=0;
         this.size = this.cards.length;
             this._butler.email=result.email;
 // console.log(JSON.stringify(this.cards))
-            this._butler.userId= result.id;
+            this._butler.idResult= result.id;
 
-         console.log("id Resp "+this._butler.userId);
+       //  console.log("id Result "+this._butler.idResult);
         this._butler.isLogged=true;
         this.redirectUser();
       } else {
@@ -71,15 +71,18 @@ size=0;
   private redirectUser(): void {
             //console.log("idCard: " +this.cards);
      for(let i=0;i<this.size;i++){
-            console.log("idCard: " +this.cards[i].userId);
+           // console.log("idCard: " +this.cards[i].userId);
 //1            console.log("sizas: " +this._butler.userId);
-          if(this._butler.userId==this.cards[i].userId){
+          if(this._butler.idResult==this.cards[i].userId){
             this._butler.userId=this.cards[i].userId;
             this._butler.branch=this.cards[i].branch;
-            this._butler.userType=this.cards[i].userType;
+            this._butler.userType=this.cards[i].userType;         
+            this._butler.idBranch=this.cards[i].idBranch;
+            this._butler.idCard=this.cards[i].idCard;
+            this._butler.userActive=this.cards[i];
           }
         }
-            console.log("userType: " +this._butler.userType);
+            console.log("user Cative: " +this._butler.userActive.images[0]);
     this.router.navigate(['/home']);
   }
 

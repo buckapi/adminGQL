@@ -11,6 +11,7 @@ export class Butler {
     numProd:number=0;
     results:number=0;
     preview:any={};
+    userActive:any={};
     totalProducts:number=0;
     imagePreviewProduct:string="";
       subTotal:number=0;
@@ -35,6 +36,7 @@ export class Butler {
 
     rides:boolean=false;
     name:string=""; 
+    idResult:string=""; 
     idApp:string=""; 
     userd:string=""; 
     role:string=""; 

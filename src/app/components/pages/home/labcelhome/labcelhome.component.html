@@ -2,17 +2,18 @@
     <div class="content-body">
             <div class="container-fluid">
                 <div class="row page-titles mx-0">
-                    <div class="col-sm-6 p-md-0">
-                        <div class="welcome-text">
-                            <h4>Hi, welcome back!</h4>
-                            <span>Statistics</span>
+                    <div class="col-sm-5 p-md-0">
+                        <div class="welcome-text" [hidden]="_butler.userActive.sex=='m'">
+                            <h4>Hola {{_butler.userActive.name}}, bienvenida de vuelta!</h4>
+                            <span></span>
+                        </div>
+                        <div class="welcome-text" [hidden]="_butler.userActive.sex=='f'">
+                            <h4>Hola {{_butler.userActive.name}}, bienvenido de vuelta!</h4>
+                            <span></span>
                         </div>
                     </div>
-                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Widget</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Statistics</a></li>
-                        </ol>
+                    <div class="col-sm-7 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                     <app-clock class="mreloj"></app-clock>
                     </div>
                 </div>
                 <!-- row -->
@@ -83,11 +84,11 @@
                             <div class="card-body">
                                 <div class="text-center">
                                     <div class="profile-photo">
-										<img src="assets/assetsdash/images/profile/profile.png" width="100" class="img-fluid rounded-circle" alt="">
+										<img src="{{_butler.userActive.images[0]}}" width="100" class="img-fluid rounded-circle" alt="">
 									</div>
-                                    <h3 class="mt-4 mb-1">Deangelo Sena</h3>
-                                    <p class="text-muted">Senior Manager</p>
-									<a class="btn btn-outline-primary btn-rounded mt-3 px-5" href="javascript:void()">Folllow</a>
+                                    <h3 class="mt-4 mb-1">{{_butler.userActive.name}}</h3>
+                                    <p class="text-muted">{{_butler.userActive.branch}}</p>
+									<a class="btn btn-outline-primary btn-rounded mt-3 px-5" href="javascript:void()">{{_butler.userActive.email}}</a>
                                 </div>
                             </div>
 							

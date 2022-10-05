@@ -6,12 +6,13 @@ import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
 
 import { LabcelhomeModule } from './labcelhome/labcelhome.module';
-
+import { ClockModule } from '@pages/home/clock/clock.module';
 @NgModule({
-  declarations: [
+  declarations: [  
     HomeComponent
   ],
   imports: [
+    ClockModule,
     CommonModule,
     LabcelhomeModule,
     HomeRoutingModule,
