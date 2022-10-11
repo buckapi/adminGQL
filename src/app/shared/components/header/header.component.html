@@ -39,21 +39,21 @@
                                 </a>
                            
                             </li>
-                            <li class="nav-item dropdown notification_dropdown"  [hidden]="!router.url.includes('/home') || _butler.idApp!='bc000001'">
-                                <a class="nav-link  ai-icon"  role="button" [routerLink]="['/newproduct']">
-                                    <i class="flaticon-381-add-1"></i>
-                                    <div class="pulse-css"></div>
-                                </a>
-                           
-                            </li>
-                               <li class="nav-item dropdown notification_dropdown"  [hidden]="!router.url.includes('/home') || _butler.idApp=='bc000001'">
+                            <li class="nav-item dropdown notification_dropdown"  [hidden]="!router.url.includes('/home') || _butler.idApp!='bc000001' || _butler.userType!='sucursal'">
                                 <a class="nav-link  ai-icon"  role="button" [routerLink]="['/labceladdtransaction']">
                                     <i class="flaticon-381-add-1"></i>
                                     <div class="pulse-css"></div>
                                 </a>
                            
                             </li>
-                            <li class="nav-item dropdown notification_dropdown" [hidden]="router.url.includes('/home')  || router.url.includes('/product') ">
+                      <!--          <li class="nav-item dropdown notification_dropdown"  [hidden]="!router.url.includes('/home') || _butler.idApp=='bc000001'">
+                                <a class="nav-link  ai-icon"  role="button" [routerLink]="['/labceladdtransaction']">
+                                    <i class="flaticon-381-add-1"></i>
+                                    <div class="pulse-css"></div>
+                                </a>
+                           
+                            </li> -->
+                            <li class="nav-item dropdown notification_dropdown" [hidden]=" router.url.includes('/product') || _butler.userType!='admin'">
                                 <a class="nav-link  ai-icon"  role="button" data-bs-toggle="dropdown">
                                     <i class="flaticon-381-ring"></i>
                                     <div class="pulse-css"></div>

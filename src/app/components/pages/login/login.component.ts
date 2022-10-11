@@ -79,10 +79,12 @@ size=0;
             this._butler.userType=this.cards[i].userType;         
             this._butler.idBranch=this.cards[i].idBranch;
             this._butler.idCard=this.cards[i].idCard;
+            this._butler.admin=this.cards[i].admin;
             this._butler.userActive=this.cards[i];
+            this._butler.idApp=this.cards[i].idApp;
           }
         }
-            console.log("user Cative: " +this._butler.userActive.images[0]);
+            console.log("user Cative: " +this._butler.admin);
     this.router.navigate(['/home']);
   }
 

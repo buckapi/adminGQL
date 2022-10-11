@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class Butler {
     car:any[]=[];
+    ticket:any[]=[];
     currency:number=1;
     init:number=1;
     end:number=12;
@@ -33,8 +34,8 @@ export class Butler {
     placeholder:string="a donde deseas ir?"; 
 	  any:any[]=[]; 
     number:number=0;
-
     rides:boolean=false;
+    admin:boolean=false;
     name:string=""; 
     idResult:string=""; 
     idApp:string=""; 

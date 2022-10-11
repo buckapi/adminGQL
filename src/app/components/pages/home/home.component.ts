@@ -190,12 +190,19 @@ getDirections(place:Feature){
     //this._butler.cards[0].idBranch="";
     //this._butler.cards[0].idApp="";
     if(this._butler.isLogged==false){    
-      this.router.navigate(['/login'])
+      this.router.navigate(['login'])
     }
     else{
       this.getCard();
       this.script.load(
-        'demo')
+        'demo',
+        'global',
+        'select',
+        'dataTables',
+        'datatablesIni',
+        'custom',
+        'deznav'
+        )
        .then(data => {
         // console.log('script loaded ', data);
        }).catch(error => console.log(error));

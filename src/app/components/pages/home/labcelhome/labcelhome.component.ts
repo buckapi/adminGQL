@@ -12,15 +12,16 @@ import { BuckapicardInterface } from '@app/interfaces/buckapicard';
 import { Apollo } from "apollo-angular";
 import { DataService } from '@app/services/data.service'; 
 import { DataApiService } from '@app/services/data-api.service'; 
-
-
+import {BRANCHS} from '@app/services/branchs.service';
+import {CARDS} from '@app/services/cards.service';
 @Component({
   selector: 'app-labcelhome',
   templateUrl: './labcelhome.component.html',
   styleUrls: ['./labcelhome.component.css']
 })
 export class LabcelhomeComponent implements AfterViewInit {
-
+  public branchs:any=[];
+  public cards:any=[];
   constructor(
  private bikersService:BikersService,
     public script:ScriptService,
@@ -30,9 +31,15 @@ export class LabcelhomeComponent implements AfterViewInit {
     public dataApi: DataService,
     public dataApiService: DataApiService,
     public _butler: Butler
-    ) { }
+    ) { 
+  this.branchs=BRANCHS;
+  this.cards=CARDS
+  }
 
   ngAfterViewInit(): void {
+      if(!this._butler.isLogged){    
+      this.router.navigate(['/login'])
+    }
   }
 
 }
