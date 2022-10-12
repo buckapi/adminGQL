@@ -14,6 +14,17 @@ import { DataService } from '@app/services/data.service';
 import { DataApiService } from '@app/services/data-api.service'; 
 import gql from "graphql-tag";
 import {TECHNICALS} from '@app/services/technicals.service';
+export interface itemForm {
+  servicio: string;
+  tipo: string;
+  imei: string;
+  tag: string;
+  folio: string;
+  monto: number;
+  referencia: string;
+  tecnico: string;
+  concepto: string;
+}
 @Component({
   selector: 'app-addtransaction',
   templateUrl: './addtransaction.component.html',
@@ -21,10 +32,23 @@ import {TECHNICALS} from '@app/services/technicals.service';
 })
 export class AddtransactionComponent implements AfterViewInit {
   public technicals:any=[];
+  public item :any={
+  servicio:"",
+  tipo:"",
+  imei:"",
+  tag:"",
+  folio:"",
+  monto:0,
+  referencia:"",
+  tecnico:"",
+  concepto:"",
+}; 
+  ticketSize=0;
   option=0;
   optionSelectedText="";
   optionSelected=false;   
-   repair=0;
+  show=true;   
+  repair=0;
   repairSelectedText="";
   repairSelected=false;  
   technical=0;
@@ -48,25 +72,25 @@ private bikersService:BikersService,
      }
 public setOption(option:any){
   this.option=option;
-  if(option==1){this.optionSelectedText="PAYJOY";this.optionSelected=true;}
-  if(option==2){this.optionSelectedText="FOXPAY ";this.optionSelected=true;}
-  if(option==3){this.optionSelectedText="CC FACIL";this.optionSelected=true;}
-  if(option==4){this.optionSelectedText="ACCESORIOS";this.optionSelected=true;}
-  if(option==5){this.optionSelectedText="REPARACION";this.optionSelected=true;}
+  if(option==1){this.optionSelectedText="PAYJOY";this.optionSelected=true;this.item.servicio='PAYJOY';}
+  if(option==2){this.optionSelectedText="FOXPAY";this.optionSelected=true;this.item.servicio="FOXPAY";}
+  if(option==3){this.optionSelectedText="CC FACIL";this.optionSelected=true;this.item.servicio="CC FACIL";}
+  if(option==4){this.optionSelectedText="ACCESORIOS";this.optionSelected=true;this.item.servicio="ACCESORIOS";}
+  if(option==5){this.optionSelectedText="REPARACION";this.optionSelected=true;this.item.servicio="REPARACION";}
  
 }
 public setTechnical(technical:any){
   this.technical=technical;
   for (let i =0;i<this.technicals.length;i++){
- if(technical==i+1){this.technicalSelectedText= this.technicals[i].name;this.technicalSelected=true;}
+ if(technical==i+1){this.technicalSelectedText= this.technicals[i].name;this.technicalSelected=true;this.item.tecnico=this.technicals[i].name;}
 
   }
  
 }
 public setType(type:any){
   this.type=type;
- if(type==1){this.typeSelectedText="Enganche";this.typeSelected=true;}
-  if(type==2){this.typeSelectedText="Parcialidad ";this.typeSelected=true;}
+ if(type==1){this.typeSelectedText="Enganche";this.typeSelected=true;this.item.tipo="Enganche";}
+  if(type==2){this.typeSelectedText="Parcialidad ";this.typeSelected=true;this.item.tipo="Parcialidad";}
 
  
 }
@@ -92,6 +116,19 @@ public resetType(){
 public resetTechnical(){
   this.technical=0;
  this.technicalSelected=false;
+}
+public addItem(){
+  this._butler.ticket.push(this.item);
+  this.ticketSize=this.ticketSize+1;
+  this.item={};
+  this.show=false;
+  this.resetRepair();
+  this.resetTechnical();
+  this.resetType();
+  this.resetOption();
+}
+public showRutine(){
+  this.show=true;
 }
   ngAfterViewInit(): void {
   }

@@ -6,8 +6,8 @@
             </a>
 
             <div class="nav-control">
-                <div class="hamburger">
-                    <span class="line"></span><span class="line"></span><span class="line"></span>-
+                <div class="hamburger" style="transform: translateY(0px) rotate(-180deg); cursor:pointer;">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
                 </div>
             </div>
         </div>
@@ -134,7 +134,7 @@
               </li> -->
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link"  role="button" data-bs-toggle="dropdown">
-                                    <img src="{{_butler.userActive.images[0]}}" width="20" alt=""/>
+                                    <img *ngIf="_butler.userActive.email!=undefined" src="{{_butler.userActive.images[0]}}" width="20" alt=""/>
                   <div class="header-info">
                     <span>{{_butler.userActive.email}}</span>
                     <small>{{_butler.userActive.branch}}</small>

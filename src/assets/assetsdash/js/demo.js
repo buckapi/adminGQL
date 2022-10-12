@@ -1,18 +1,18 @@
 "use strict"
 
 var themeOptionArr = {
-			typography: '',
-			version: '',
-			layout: '',
-			primary: '',
-			headerBg: '',
-			navheaderBg: '',
-			sidebarBg: '',
-			sidebarStyle: '',
-			sidebarPosition: '',
-			headerPosition: '',
-			containerLayout: '',
-			direction: '',
+				typography: "poppins",
+		version: "light",
+		layout: "vertical",
+		headerBg: "color_1",
+		primary: "color_1",
+		navheaderBg: "color_1",
+		sidebarBg: "color_1",
+		sidebarStyle: "full",
+		sidebarPosition: "fixed",
+		headerPosition: "fixed",
+		containerLayout: "full",
+		direction: direction
 		};
 		
 		

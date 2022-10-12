@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AddtransactionRoutingModule } from './addtransaction-routing.module';
 import { AddtransactionComponent } from './addtransaction.component';
-
+import { ClockModule } from '@pages/home/clock/clock.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,8 @@ import { AddtransactionComponent } from './addtransaction.component';
   ],
   imports: [
     CommonModule,
-    AddtransactionRoutingModule
+    AddtransactionRoutingModule,
+    ClockModule  
   ]
 })
 export class AddtransactionModule { }
