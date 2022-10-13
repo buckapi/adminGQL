@@ -178,7 +178,7 @@
                         <div class="card overflow-hidden">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <div class="profile-photo">
+                                    <div class="profile-photo" *ngIf="_butler.userActive.email!=undefined">
                                         <img src="{{_butler.userActive.images[0]}}" width="100" class="img-fluid rounded-circle" alt="">
                                     </div>
                                     <h3 class="mt-4 mb-1">{{_butler.userActive.name}}</h3>
@@ -279,7 +279,7 @@
 
 
 
-                                        <div class="text-center">
+                                        <div class="text-center" *ngIf="_butler.userActive.email!=undefined">
                                               <img src="{{_butler.userActive.images[0]}}" width="100" class="img-fluid rounded-circle" alt="">
                                             <h4 class="fs-26 mt-sm-3 mt-2 mb-sm-3 mb-0 font-w600 text-black">{{_butler.userActive.name}}</h4>   
                                             <p class="mb-0 text-black ">{{_butler.userActive.branch}}</p>
@@ -311,8 +311,8 @@
                                         <div class="row">
                                            
                                             <div class="col-lg-6"  *ngFor="let branch of branchs;let i = index">
-                                                <div class="card border coin-holding-card border-primary">
-                                                    <div class="card-body bg-primary rounded">
+                                                <div class="card border coin-holding-card border-info">
+                                                    <div class="card-body bg-info rounded">
                                                         <div class="d-flex align-items-center">
                                                             <svg class="me-3" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                 <path d="M20.9999 0.00012207C9.40201 0.00012207 0 9.40213 0 21C0 32.5979 9.40201 41.9999 20.9999 41.9999C32.5978 41.9999 41.9998 32.5979 41.9998 21C41.987 9.40762 32.5923 0.0129395 20.9999 0.00012207ZM26.9998 30.0001H22.5V34.4999C22.5 35.3285 21.8285 36 20.9999 36C20.1714 36 19.4998 35.3285 19.4998 34.4999V30.0001H15C14.1714 30.0006 13.4995 29.3295 13.499 28.5009C13.499 28.1599 13.6148 27.8289 13.8281 27.5625L23.8783 15.0001H15C14.1714 15.0001 13.4999 14.3286 13.4999 13.5C13.4999 12.6715 14.1714 11.9999 15 11.9999H19.4998V7.50012C19.4998 6.67157 20.1714 6.00003 20.9999 6.00003C21.8285 6.00003 22.5 6.67203 22.5 7.50012V11.9999H26.9998C27.8293 12.0013 28.5004 12.6747 28.4995 13.5037C28.499 13.8429 28.3832 14.1725 28.1717 14.4375L18.1215 26.9999H26.9998C27.8284 26.9999 28.4999 27.6719 28.4999 28.5C28.4999 29.3286 27.8284 30.0001 26.9998 30.0001Z" fill="white"/>
@@ -349,7 +349,7 @@
                                                             <span class="text-danger pr-2">EGR</span>
                                                             <span class="text-black">$5,982</span>
                                                         </div>
-                                                        <a href="javascript:void(0);" class="underline text-primary font-w500 footer-info">Mas detalles</a>
+                                                        <a href="javascript:void(0);" class="underline text-info font-w500 footer-info">Mas detalles</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -370,7 +370,7 @@
                                 <div class="card-action card-tabs mb-3">
                                     <ul class="nav nav-tabs" role="tablist">
                                         <li class="nav-item " *ngFor="let branch of branchs;let i = index" >
-                                            <a class="nav-link active" data-bs-toggle="tab" href="/my-wallets.html#a{{i+1}}" role="tab">
+                                            <a class="nav-link active bg-info" data-bs-toggle="tab" href="/my-wallets.html#a{{i+1}}" role="tab">
                                                {{branch.name}}
                                             </a>
                                         </li>

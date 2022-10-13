@@ -37357,7 +37357,7 @@ $color_pallate_15: #ed0b4c; */
 
 .form-control.is-invalid {
   border-color: #f72b50 !important;
-  border-right: 0rem !important; }
+  border-right: -1rem !important; }
   .form-control.is-invalid:focus {
     box-shadow: none; }
 

@@ -21,6 +21,7 @@ const routes: Routes = [
 { path: 'labcelhome', loadChildren: () => import('./components/pages/home/labcelhome/labcelhome.module').then(m => m.LabcelhomeModule) },
 { path: 'labceltransactions', loadChildren: () => import('./components/pages/labcel/transactions/transactions.module').then(m => m.TransactionsModule) },
 { path: 'labceladdtransaction', loadChildren: () => import('./components/pages/labcel/addtransaction/addtransaction.module').then(m => m.AddtransactionModule) },
+{ path: 'labcelhistory', loadChildren: () => import('./components/pages/labcel/history/history.module').then(m => m.HistoryModule) },
  { path:'**',pathMatch:'full',redirectTo:'home'}
 ];
 

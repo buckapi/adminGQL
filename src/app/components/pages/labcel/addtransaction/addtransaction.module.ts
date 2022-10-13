@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 import { AddtransactionRoutingModule } from './addtransaction-routing.module';
 import { AddtransactionComponent } from './addtransaction.component';
 import { ClockModule } from '@pages/home/clock/clock.module';
+// import { BrowserModule } from '@angular/platform-browser';
+
+import { FormsModule, ReactiveFormsModule  } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -12,7 +15,10 @@ import { ClockModule } from '@pages/home/clock/clock.module';
   imports: [
     CommonModule,
     AddtransactionRoutingModule,
-    ClockModule  
+    ClockModule ,
+    // BrowserModule,
+     FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AddtransactionModule { }
