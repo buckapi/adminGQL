@@ -15,8 +15,8 @@ export const CARDS: Card[] = [
       'assets/assetsdash/images/profile/captain.png',
       'jamundi'
     ],
-    idBranch:'br000002',
-    idCard:'ur000002'
+    idBranch:'br000001',
+    idCard:'ur000001'
   } ,
   {
     email:'junior.marquez.sohigh0@gmail.com',

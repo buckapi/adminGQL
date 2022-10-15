@@ -14,7 +14,7 @@ import { DataService } from '@app/services/data.service';
 import { DataApiService } from '@app/services/data-api.service'; 
 import gql from "graphql-tag";
 import {TECHNICALS} from '@app/services/technicals.service';
-
+import { ToastrService } from 'ngx-toastr';
 import { AbstractControl, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 export interface itemForm {
@@ -52,10 +52,16 @@ export class AddtransactionComponent implements AfterViewInit {
     folioAcce: new FormControl(''),
     montoAcce: new FormControl(''),
   });
+  //  tarjeta: FormGroup = new FormGroup({ 
+  //   folioTarjeta: new FormControl('')
+  // });
   submitted = false;
   submittedPayjoy = false;
   submittedAcce = false;
+  submittedTarjeta = false;
   public technicals:any=[];
+  public options:any=[];
+  public ticket:any={};
   public item :any={
   // servicio:"",
   // tipo:"",
@@ -67,12 +73,21 @@ export class AddtransactionComponent implements AfterViewInit {
   // tecnico:"",
   // concepto:"",
 }; 
+nticket=0;
   ticketSize=0;
+  cobro=0;
+  folioTarjeta=0;
+  cambio=0;
+  total=0;
   option=0;
   optionSelectedText="";
+  mensaje="Ticket de venta creado!";
   optionSelected=false;   
+  methodSelectedText="";
+  methodSelected=false;   
   show=true;   
   repair=0;
+  method=0;
   repairSelectedText="";
   repairSelected=false;  
   technical=0;
@@ -91,7 +106,9 @@ private bikersService:BikersService,
     public dataApi: DataService,
     public dataApiService: DataApiService,
     public _butler: Butler,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+
+    private readonly toastSvc: ToastrService
     ) {
   this.technicals=TECHNICALS
      }
@@ -123,6 +140,14 @@ public setRepair(repair:any){
   this.repair=repair;
  if(repair==1){this.repairSelectedText="Hardware ✔";this.repairSelected=true;this.item.tipo="Hardware";}
   if(repair==2){this.repairSelectedText="Software ✔";this.repairSelected=true;this.item.tipo="Software";}
+
+ 
+}
+public setMethod(method:any){
+  this.method=method;
+ if(method==1){this.methodSelectedText="Efectivo ✔";this.methodSelected=true;this.item.tipo="Efectivo";}
+  if(method==2){this.methodSelectedText="Transferencia ✔";this.methodSelected=true;this.item.tipo="Transferencia";}
+  if(method==3){this.methodSelectedText="Tarjeta ✔";this.methodSelected=true;this.item.tipo="Tarjeta";}
 
  
 }
@@ -171,14 +196,46 @@ onSubmit3(): void {
     this.item.concepto=this.acce.value.concepto;
     this.item.folio=this.acce.value.folioAcce;
     this.item.monto=this.acce.value.montoAcce;
-    console.log(JSON.stringify(this.item));
+    // console.log(JSON.stringify(this.item));
     this.addItem();
     // console.log(JSON.stringify(this.payjoy.value, null, 2));
   }
-
+public sendTicket(){
+  this.ticket.items=this._butler.ticket;
+  this.ticket.idApp=this._butler.userActive.idApp;
+  this.ticket.idBranch=this._butler.userActive.idBranch;
+  this.ticket.idCard=this._butler.userActive.idCard;
+  this.ticket.email=this._butler.userActive.email;
+  this.ticket.name=this._butler.userActive.name;
+  this.ticket.folioTarjeta=this.folioTarjeta;
+   this.toastSvc.success(this.mensaje, 'Ticket guardado');
+   if (this.folioTarjeta==0){this.ticket.folioTarjeta=null;}
+   if(this.methodSelectedText=='Efectivo ✔'){this.ticket.method="Efectivo";this.ticket.cobro=this.cobro;this.ticket.cambio=this.cambio;}
+   if(this.methodSelectedText=='Transferencia ✔'){this.ticket.method="Transferencia";}
+   if(this.methodSelectedText=='Tarjeta ✔'){this.ticket.method="Tarjeta";}
+   this.ticket.total=this.total;
+   this.ticket.amount=this.total;
+   this.ticket.status="completed";
+   // this.ticket.type="completed";
+   this.ticket.transactionType="ingress";
+   this.ticket.description="Ticket de venta";
+   this.ticket.ref=this.nticket;
+   // this.dataApiService.saveTicket(this.ticket).subscribe( tix => this.router.navigate(['/home']));
+   this.dataApiService.saveTicket(this.ticket)
+   .subscribe((res:any) => {
+     this._butler.ticket=[];
+       this.ticket=null;
+       this.router.navigate(['/home']);
+     });  
+    // console.log(JSON.stringify(this.ticket));
+     console.log(JSON.stringify(this.options));
+}
   onReset(): void {
     this.submitted = false;
     this.form.reset();
+  }
+public aleatorio(a:any,b:any) {
+    return Math.round(Math.random()*(b-a)+parseInt(a));
   }
 public resetRepair(){
   this.repair=0;
@@ -192,11 +249,29 @@ public resetType(){
   this.type=0;
  this.typeSelected=false;
 }
+public resetMethod(){
+  this.method=0;
+ this.methodSelected=false;
+ this.cobro=0;
+ this.folioTarjeta=0;
+}
+public setEqual(){
+  this.cobro=this.total;
+}
 public resetTechnical(){
   this.technical=0;
  this.technicalSelected=false;
 }
 public addItem(){
+  for(let i=1;i<6;i++){
+    if(i+1==this.option){
+      this.options[i]=true;
+    }else{
+      // this.options[i]=false;
+
+    }
+  }
+  this.total=this.total+this.item.monto;
   this._butler.ticket.push(this.item);
   this.ticketSize=this.ticketSize+1;
   this.item={};
@@ -224,7 +299,7 @@ public unoC(){
         tag: ['', Validators.required],
         imei: ['', Validators.required],
         folio: ['', Validators.required],
-        monto: ['', Validators.required]
+        monto: [0, Validators.required]
         
        
 
@@ -256,14 +331,20 @@ public unoC(){
     );
 }
   ngAfterViewInit(): void {
+     for(let i=0;i<5;i++){
 
+      this.options.push(false);
+    
+  }
+this.options=[];
+this.nticket=this.aleatorio(10000,99999);
   this.unoC();
     this.payjoy = this.formBuilder.group(
       {
         referencia: ['', Validators.required],
         imeiPayjoy: ['', Validators.required],
         folioPayjoy: ['', Validators.required],
-        montoPayjoy: ['', Validators.required]
+        montoPayjoy: [0, Validators.required]
       }
   
     );
@@ -271,7 +352,7 @@ public unoC(){
       {
         concepto: ['', Validators.required],
         folioAcce: ['', Validators.required],
-        montoAcce: ['', Validators.required]
+        montoAcce: [0, Validators.required]
       }
   
     );

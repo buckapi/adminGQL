@@ -177,10 +177,10 @@ getDirections(place:Feature){
     );
   }
   ngAfterViewInit(): void {
-     if(this._butler.isLogged==false){    
-      this.router.navigate(['/login'])
-    }
-    this.getSize();
+    //  if(this._butler.isLogged==false){    
+    //   this.router.navigate(['/login'])
+    // }
+    // this.getSize();
     let card={
       "id":"","idApp":"","idBranch":"","role":""
     }
@@ -189,10 +189,10 @@ getDirections(place:Feature){
     //this._butler.cards[0].idApp="";
     //this._butler.cards[0].idBranch="";
     //this._butler.cards[0].idApp="";
-    if(this._butler.isLogged==false){    
-      this.router.navigate(['login'])
-    }
-    else{
+    // if(this._butler.isLogged==false){    
+    //   this.router.navigate(['login'])
+    // }
+    // else{
       this.getCard();
       this.script.load(
         'demo',
@@ -206,7 +206,7 @@ getDirections(place:Feature){
        .then(data => {
         // console.log('script loaded ', data);
        }).catch(error => console.log(error));
-    }
+    // }
 
    
    

@@ -34,6 +34,7 @@
     "ngx-daterangepicker-material": "^6.0.4",
     "ngx-infinite-scroll": "^13.1.0",
     "ngx-toastr": "14.3.0",
+    "ngx-upper-case-directive": "^1.0.3",
     "ngx-useful-swiper": "^10.0.1",
     "rxjs": "~7.4.0",
     "swiper": "^6.8.4",

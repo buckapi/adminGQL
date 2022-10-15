@@ -1,7 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import {BRANCHS} from '@app/services/branchs.service';
 import {CARDS} from '@app/services/cards.service';
 import dayjs, { Dayjs } from 'dayjs/esm';
+
+import {Butler} from '@app/services/butler.service';
+import { Apollo } from "apollo-angular";
+import { DataService } from '@app/services/data.service'; 
+import { DataApiService } from '@app/services/data-api.service'; 
 //import { DateRange, DateRanges, TimePeriod } from '../../../../src/daterangepicker/daterangepicker.component';
 
  export interface TimePeriod {
@@ -22,8 +27,9 @@ import dayjs, { Dayjs } from 'dayjs/esm';
   templateUrl: './history.component.html',
   styleUrls: ['./history.component.css']
 })
-export class HistoryComponent implements OnInit {
-
+export class HistoryComponent implements AfterViewInit {
+  transactions$: any;
+  // prodSze$: any;
  public branchs:any=[];
   public cards:any=[];
   selected: TimePeriod;
@@ -50,7 +56,12 @@ export class HistoryComponent implements OnInit {
     ['últimos 3 meses']: [dayjs().subtract(3, 'month').startOf('month'), dayjs().subtract(1, 'month').endOf('month')]
   };
 
-  constructor() { 
+  constructor(
+   private apollo: Apollo,
+    public dataApi: DataService,
+    public dataApiService: DataApiService,
+    public _butler: Butler
+    ) { 
    this.maxDate = dayjs().add(2, 'weeks');
     this.minDate = dayjs().subtract(3, 'days');
 
@@ -66,6 +77,7 @@ export class HistoryComponent implements OnInit {
  
 
   }
+
   isInvalidDate = (m: dayjs.Dayjs): boolean => {
     return this.invalidDates.some((d) => d.isSame(m, 'day'));
   };
@@ -78,6 +90,10 @@ export class HistoryComponent implements OnInit {
       return false;
     }
   };
+    public getBranchTransactions(){
+    //console.log(JSON.stringify(this.transactions$));
+   // this._butler.results=this.prodSze$.count;
+  }
 
   rangeClicked(range: DateRange): void {
     // eslint-disable-next-line no-console
@@ -92,7 +108,13 @@ export class HistoryComponent implements OnInit {
   chosenDateTime(e: TimePeriod): void {
     this.inlineDateTime = e;
   }
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    if(this._butler.admin){}else{
+      // this.getBranchTransactions();
+
+    this.dataApi.getTransactionsByBranch(0,0,this._butler.userActive.idBranch);
+   this.transactions$=this.dataApi.transactions$;  
+    }
 
   }
 

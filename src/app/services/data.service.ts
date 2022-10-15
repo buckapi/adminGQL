@@ -30,6 +30,24 @@ query GetCategories($status: String!,$skip:Int,$limit:Int) {
     } 
   }
 }`;
+const GETBRANCHTRANSACTIONS =  gql`
+query getTransactionsByBranch($idBranch: String!,$skip:Int,$limit:Int) {
+  getTransactionsByBranch(idBranch: $idBranch,skip:$skip,limit:$limit) {
+    idCard
+    description
+    email
+    name
+    ref
+    amount
+    transactionType
+    createdAt
+    status
+    items {
+        servicio
+        monto
+    }
+  }
+}`;
 const GETPRODUCTS =  gql`
 query GetProductsByStatus($status: String!,$skip:Int,$limit:Int) {
   getProductsByStatus(status: $status,skip:$skip,limit:$limit) {
@@ -98,6 +116,8 @@ const LOGIN =  gql`
   })
 
   export class DataService {
+    private idBranchSubject= new BehaviorSubject<any[any]>(null);
+     transactions$ = this.idBranchSubject.asObservable();
     private discountSubject= new BehaviorSubject<any[any]>(null);
     discount$ = this.discountSubject.asObservable();
     private bestsellerSubject= new BehaviorSubject<any[any]>(null);
@@ -149,6 +169,24 @@ const LOGIN =  gql`
                 const {getBestseller} =data;
                 this.bestsellerSubject.next(getBestseller);
               //  console.log(getBestseller);
+            })
+            
+        ).subscribe();
+    }
+ getTransactionsByBranch(vskip:any,vlimit:any,vidbranch:any):void{
+        this.apollo.use('labcel').watchQuery<any>({
+            query: GETBRANCHTRANSACTIONS,
+            variables:{
+                idBranch:vidbranch,
+                skip:vskip,
+                limit:vlimit,
+            }
+        }).valueChanges.pipe(
+            take(1),
+            tap(({data})=>{
+                const {getTransactionsByBranch} =data;
+               this.idBranchSubject.next(getTransactionsByBranch);
+               //console.log(getTransactionsByBranch);
             })
             
         ).subscribe();

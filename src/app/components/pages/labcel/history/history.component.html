@@ -1,659 +1,120 @@
 <div class="content-body">
 	<div class="container-fluid">
         <div class="row page-titles mx-0">
-                    <div class="col-sm-4 p-md-0">
-                       	<div class="col-xl-12 col-xxl-12">
-
-								<div class="">
-
+            <div class="col-sm-4 p-md-0">
+               	<div class="col-xl-12 col-xxl-12">
+						<div class="">
                             <input type="text"type="text"
-  ngxDaterangepickerMd
-   [locale]="{displayFormat: 'DD/MM/YYYY',firstDay: 1,applyLabel: 'aplicar', customRangeLabel: 'personalizado',weekLabel: 'W', clearLabel: 'limpiar', format: 'DD/MM/YYYY'}"
-  [(ngModel)]="selected"
-  [showCustomRangeLabel]="true"
-  [alwaysShowCalendars]="true"
-  [ranges]="ranges"
-  [linkedCalendars]="true"
-  [isInvalidDate] = "isInvalidDate"
-  [showClearButton]="true"
-  
-  placeholder="Seleccionar periodo..."  class="form-control input-daterange-timepicker"  />
-									<div class="card-header pb-0 d-block d-sm-flex flex-wrap border-0 align-items-center">
-					
-										<div class="input-group detault-daterange me-3  mb-3" >
-										<!-- 	<span class="input-group-text"><i class="las la-calendar"></i></span>
-											<input type="text" class="form-control input-daterange-timepicker" name="daterange" value="04/01/2015 - 01/01/2015"> -->
-<!-- <ngx-daterangepicker [(ngModel)]="value" [options]="options"></ngx-daterangepicker> -->
-									
-										</div>
-										<!-- <a href="javascript:void(0);" class="btn btn-primary light btn-rounded me-3  mb-3"><i class="las la-download scale5 me-2"></i>Hoy</a> -->
-										<!-- <select class="form-control style-1 default-select  mb-3">
-											<option>USD ($ US Dollar)</option>
-											<option>BTC ($ US Dollar)</option>
-											<option>USD ($ US Dollar)</option>
-										</select> -->
-									</div>
-									
+                              ngxDaterangepickerMd
+                               [locale]="{displayFormat: 'DD/MM/YYYY',firstDay: 1,applyLabel: 'aplicar', customRangeLabel: 'personalizado',weekLabel: 'W', clearLabel: 'limpiar', format: 'DD/MM/YYYY'}"
+                              [(ngModel)]="selected"
+                              [showCustomRangeLabel]="true"
+                              [alwaysShowCalendars]="true"
+                              [ranges]="ranges"
+                              [linkedCalendars]="true"
+                              [isInvalidDate] = "isInvalidDate"
+                              [showClearButton]="true"
+                              placeholder="Seleccionar periodo..."  class="form-control input-daterange-timepicker"  />
+							<div class="card-header pb-0 d-block d-sm-flex flex-wrap border-0 align-items-center">
+			
+								<div class="input-group detault-daterange me-3  mb-3" >
+							
 								</div>
+							
 							</div>
-                    </div>
-                    <div class="col-sm-8 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                     <div class="card-action coin-tabs mb-3">
-						<ul class="nav nav-tabs" role="tablist">
-							<!-- <li class="nav-item">
-								<a class="nav-link bg-warning" data-bs-toggle="tab" href="coin-details.html#Bitcoin" role="tab" aria-selected="false">
-									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M16 9.50011C15.9993 8.67201 15.328 8.00092 14.5001 8H10V11H14.5001C15.328 10.9993 15.9993 10.328 16 9.50011Z" fill="#FFAB2D"/>
-									<path d="M10 16H14.5001C15.3285 16 16 15.3285 16 14.5001C16 13.6715 15.3285 13 14.5001 13H10V16Z" fill="#FFAB2D"/>
-									<path d="M12 0C5.3726 0 0 5.3726 0 12C0 18.6274 5.3726 24 12 24C18.6274 24 24 18.6274 24 12C23.9924 5.37574 18.6243 0.00758581 12 0ZM18.0001 14.5713C17.9978 16.4641 16.4641 17.9978 14.5716 17.9999V18.8571C14.5716 19.3305 14.1876 19.7143 13.7144 19.7143C13.2409 19.7143 12.8572 19.3305 12.8572 18.8571V17.9999H11.1431V18.8571C11.1431 19.3305 10.7591 19.7143 10.2859 19.7143C9.8124 19.7143 9.42866 19.3305 9.42866 18.8571V17.9999H6.85733C6.38387 17.9999 6.00013 17.6161 6.00013 17.1429C6.00013 16.6695 6.38387 16.2857 6.85733 16.2857H7.71427V7.71427H6.85733C6.38387 7.71427 6.00013 7.33053 6.00013 6.85707C6.00013 6.38361 6.38387 5.99987 6.85733 5.99987H9.42866V5.14293C9.42866 4.66947 9.8124 4.28573 10.2859 4.28573C10.7593 4.28573 11.1431 4.66947 11.1431 5.14293V5.99987H12.8572V5.14293C12.8572 4.66947 13.2409 4.28573 13.7144 4.28573C14.1879 4.28573 14.5716 4.66947 14.5716 5.14293V5.99987C16.4571 5.99202 17.992 7.5139 18.0001 9.39937C18.0043 10.3978 17.5714 11.3481 16.8152 12C17.5643 12.6445 17.9967 13.5828 18.0001 14.5713Z" fill="#FFAB2D"/>
-									</svg>
-									Bitcoin
-								</a>
-							</li> -->
-							<!-- <li class="nav-item">
-								<a class="nav-link bg-secondary" data-bs-toggle="tab" href="coin-details.html#Ethereum" role="tab" aria-selected="false">
-									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M12.3269 13.7554C12.1177 13.839 11.8846 13.839 11.6753 13.7554L9.42969 12.8571L12.0011 18L14.5725 12.8571L12.3269 13.7554Z" fill="#DC3CCC"/>
-									<path d="M11.9989 12L15.4275 10.8001L11.9989 6L8.57031 10.8001L11.9989 12Z" fill="#DC3CCC"/>
-									<path d="M12 0C5.3726 0 0 5.3726 0 12C0 18.6274 5.3726 24 12 24C18.6274 24 24 18.6274 24 12C23.9927 5.37574 18.6243 0.00732425 12 0V0ZM17.0524 11.5263L12.7667 20.0977C12.5551 20.5212 12.04 20.6928 11.6168 20.4812C11.4507 20.3983 11.3162 20.2638 11.2333 20.0977L6.94757 11.5263C6.81443 11.2589 6.8296 10.9416 6.9876 10.6882L11.2733 3.83111C11.5582 3.42984 12.114 3.33515 12.5153 3.62001C12.5972 3.67808 12.6686 3.74923 12.7267 3.83111L17.0121 10.6882C17.1704 10.9416 17.1856 11.2589 17.0524 11.5263V11.5263Z" fill="#DC3CCC"/>
-									</svg>
-									Ethereum
-								</a>
-							</li> -->
-							<li class="nav-item"  *ngFor="let branch of branchs;let i = index" >
-								<a class="nav-link active  bg-info" data-bs-toggle="tab" href="coin-details.html#Dash" role="tab" aria-selected="true">
-									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M12 0C5.3726 0 0 5.3726 0 12C0 18.6274 5.3726 24 12 24C18.6274 24 24 18.6274 24 12C23.9927 5.37574 18.6243 0.00732425 12 0V0ZM7.04462 11.1428H10.4732C10.9466 11.1428 11.3304 11.5265 11.3304 12C11.3304 12.4735 10.9466 12.8572 10.4732 12.8572H7.04462C6.57116 12.8572 6.18742 12.4735 6.18742 12C6.18742 11.5265 6.57142 11.1428 7.04462 11.1428ZM17.7624 9.92331L16.7315 15.0812C16.4887 16.2784 15.4374 17.1401 14.2158 17.1429H7.04462C6.57116 17.1429 6.18742 16.7592 6.18742 16.2857C6.18742 15.8123 6.57142 15.4285 7.04462 15.4285H14.2158C14.621 15.4275 14.9697 15.1418 15.0503 14.7448L16.0814 9.58692C16.173 9.12654 15.8743 8.67924 15.4141 8.58768C15.3595 8.57696 15.304 8.57147 15.2486 8.57147H8.75902C8.28556 8.57147 7.90182 8.18773 7.90182 7.71427C7.90182 7.24081 8.28556 6.85707 8.75902 6.85707H15.2486C16.6648 6.85759 17.8123 8.00567 17.8121 9.42186C17.8121 9.59006 17.7953 9.75799 17.7624 9.92331V9.92331Z" fill="#3693FF"/>
-									</svg>
-									  {{branch.name}}
-								</a>
-							</li>
-							<!-- <li class="nav-item">
-								<a class="nav-link  bg-primary" data-bs-toggle="tab" href="coin-details.html#Litecoin" role="tab" aria-selected="true">
-									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M12 0C5.3726 0 0 5.3726 0 12C0 18.6274 5.3726 24 12 24C18.6274 24 24 18.6274 24 12C23.9924 5.37574 18.6243 0.00758581 12 0V0ZM16.2857 18.0001H9.42866C8.9552 18.0001 8.57147 17.6164 8.57147 17.1429C8.57147 17.1024 8.57434 17.0618 8.5801 17.0216L9.22515 12.5054L7.92222 12.8313C7.85421 12.8486 7.78437 12.8572 7.71427 12.8572C7.24081 12.8567 6.85759 12.4727 6.85785 11.9992C6.85838 11.6063 7.12571 11.2642 7.50683 11.1684L9.48674 10.6735L10.2942 5.0213C10.3612 4.55254 10.7954 4.22714 11.2642 4.2941C11.7329 4.36107 12.0583 4.79529 11.9914 5.26404L11.2825 10.2247L14.3636 9.4543C14.8222 9.33737 15.2886 9.61439 15.4053 10.0729C15.5222 10.5315 15.2452 10.9979 14.7866 11.1148C14.784 11.1153 14.7814 11.1161 14.7788 11.1166L11.0204 12.0562L10.4164 16.2857H16.2857C16.7592 16.2857 17.1429 16.6695 17.1429 17.1429C17.1429 17.6161 16.7592 18.0001 16.2857 18.0001Z" fill="#374C98"/>
-									</svg>
-									Litecoin
-								</a>
-							</li> -->
-						</ul>
+							
+						</div>
 					</div>
-                    </div>
+            </div>
+            <div class="col-sm-8 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <div class="card-action coin-tabs mb-3">
+    				<ul class="nav nav-tabs" role="tablist" [hidden]="!_butler.admin">
+    					<li class="nav-item"  *ngFor="let branch of branchs;let i = index">
+    						<a class="nav-link active  bg-info" data-bs-toggle="tab"  role="tab" aria-selected="true">
+    							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    							<path d="M12 0C5.3726 0 0 5.3726 0 12C0 18.6274 5.3726 24 12 24C18.6274 24 24 18.6274 24 12C23.9927 5.37574 18.6243 0.00732425 12 0V0ZM7.04462 11.1428H10.4732C10.9466 11.1428 11.3304 11.5265 11.3304 12C11.3304 12.4735 10.9466 12.8572 10.4732 12.8572H7.04462C6.57116 12.8572 6.18742 12.4735 6.18742 12C6.18742 11.5265 6.57142 11.1428 7.04462 11.1428ZM17.7624 9.92331L16.7315 15.0812C16.4887 16.2784 15.4374 17.1401 14.2158 17.1429H7.04462C6.57116 17.1429 6.18742 16.7592 6.18742 16.2857C6.18742 15.8123 6.57142 15.4285 7.04462 15.4285H14.2158C14.621 15.4275 14.9697 15.1418 15.0503 14.7448L16.0814 9.58692C16.173 9.12654 15.8743 8.67924 15.4141 8.58768C15.3595 8.57696 15.304 8.57147 15.2486 8.57147H8.75902C8.28556 8.57147 7.90182 8.18773 7.90182 7.71427C7.90182 7.24081 8.28556 6.85707 8.75902 6.85707H15.2486C16.6648 6.85759 17.8123 8.00567 17.8121 9.42186C17.8121 9.59006 17.7953 9.75799 17.7624 9.92331V9.92331Z" fill="#3693FF"/>
+    							</svg>
+    							  {{branch.name}}
+    						</a>
+    					</li>
+    				</ul>
+                    <ul class="nav nav-tabs" role="tablist" [hidden]="_butler.admin">
+                        <li class="nav-item"  *ngFor="let branch of branchs;let i = index"  [hidden]="branch.idBranch!=_butler.userActive.idBranch">
+                            <a class="nav-link active  bg-info" data-bs-toggle="tab"  role="tab" aria-selected="true">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 0C5.3726 0 0 5.3726 0 12C0 18.6274 5.3726 24 12 24C18.6274 24 24 18.6274 24 12C23.9927 5.37574 18.6243 0.00732425 12 0V0ZM7.04462 11.1428H10.4732C10.9466 11.1428 11.3304 11.5265 11.3304 12C11.3304 12.4735 10.9466 12.8572 10.4732 12.8572H7.04462C6.57116 12.8572 6.18742 12.4735 6.18742 12C6.18742 11.5265 6.57142 11.1428 7.04462 11.1428ZM17.7624 9.92331L16.7315 15.0812C16.4887 16.2784 15.4374 17.1401 14.2158 17.1429H7.04462C6.57116 17.1429 6.18742 16.7592 6.18742 16.2857C6.18742 15.8123 6.57142 15.4285 7.04462 15.4285H14.2158C14.621 15.4275 14.9697 15.1418 15.0503 14.7448L16.0814 9.58692C16.173 9.12654 15.8743 8.67924 15.4141 8.58768C15.3595 8.57696 15.304 8.57147 15.2486 8.57147H8.75902C8.28556 8.57147 7.90182 8.18773 7.90182 7.71427C7.90182 7.24081 8.28556 6.85707 8.75902 6.85707H15.2486C16.6648 6.85759 17.8123 8.00567 17.8121 9.42186C17.8121 9.59006 17.7953 9.75799 17.7624 9.92331V9.92331Z" fill="#3693FF"/>
+                                </svg>
+                                  {{branch.name}}
+                            </a>
+                        </li>
+                    </ul>
+    			</div>
+            </div>
         </div>
         <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-sm mb-0 table-striped student-tbl">
-                                        <thead>
-                                            <tr>
-                                                <th class=" pe-3">
-													<div class="form-check custom-checkbox mx-2">
-														<input type="checkbox" class="form-check-input" id="checkAll">
-														<label class="form-check-label" for="checkAll"></label>
-													</div>
-                                                </th>
-                                                <th>Name</th>
-                                                <th>Email</th>
-                                                <th>Phone</th>
-                                                <th class=" ps-5" style="min-width: 200px;">Billing Address
-                                                </th>
-                                                <th>Joined</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="customers">
-                                            <tr class="btn-reveal-trigger">
-                                                <td class="py-2">
-                                                    <div class="form-check custom-checkbox mx-2">
-														<input type="checkbox" class="form-check-input" id="checkbox1">
-														<label class="form-check-label" for="checkbox1"></label>
-													</div>
-                                                </td>
-                                                <td class="py-3">
-                                                    <a href="ecom-customers.html#">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="avatar avatar-xl me-2">
-                                                                <div class=""><img class="rounded-circle img-fluid"
-                                                                        src="assets/assetsdash/images/avatar/5.png" width="30" alt="" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h5 class="mb-0 fs--1">Ricky Antony</h5>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                                <td class="py-2"><a
-                                                        href="mailto:ricky@example.com">info@example.com</a></td>
-                                                <td class="py-2"> <a href="tel:2012001851">(201) 200-1851</a></td>
-                                                <td class="py-2 ps-5">2392 Main Avenue, Penasauka</td>
-                                                <td class="py-2">30/03/2018</td>
-                                                <td class="py-2 text-end">
-                                                    <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
-                                                        <div class="dropdown-menu dropdown-menu-end border py-0">
-                                                            <div class="py-2"><a class="dropdown-item"  href="ecom-customers.html#!">Edit</a><a class="dropdown-item text-danger" href="ecom-customers.html#!">Delete</a></div>
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-sm mb-0 table-striped student-tbl">
+                                <thead>
+                                    <tr>
+                                        <th class=" pe-3">
+											<div class="form-check custom-checkbox mx-2">
+												<input type="checkbox" class="form-check-input" id="checkAll">
+												<label class="form-check-label" for="checkAll"></label>
+											</div>
+                                        </th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Status</th>
+                                        <th class=" ps-5" style="min-width: 200px;">Descripcion
+                                        </th>
+                                        <th>Monto</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="customers">
+                                    <tr class="btn-reveal-trigger" *ngFor='let transaction of transactions$ | async' >
+                                        <td class="py-2">
+                                            <div class="form-check custom-checkbox mx-2">
+												<input type="checkbox" class="form-check-input" id="checkbox1">
+												<label class="form-check-label" for="checkbox1"></label>
+											</div>
+                                        </td>
+                                        <td class="py-3">
+                                            <a >
+                                                <div class="media d-flex align-items-center">
+                                                    <div class="avatar avatar-xl me-2">
+                                                        <div class=""><img class="rounded-circle img-fluid"
+                                                                src="assets/assetsdash/images/avatar/5.png" width="30" alt="" />
                                                         </div>
                                                     </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="btn-reveal-trigger">
-                                                <td class="py-2">
-                                                    <div class="form-check custom-checkbox mx-2">
-														<input type="checkbox" class="form-check-input" id="checkbox2">
-														<label class="form-check-label" for="checkbox2"></label>
-													</div>
-                                                </td>
-                                                <td class="py-3">
-                                                    <a href="ecom-customers.html#">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="avatar avatar-xl me-2">
-                                                                <img class="rounded-circle img-fluid"
-                                                                    src="assets/assetsdash/images/avatar/1.png" alt="" width="30" />
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h5 class="mb-0 fs--1">Emma Watson</h5>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                                <td class="py-2"><a href="mailto:emma@example.com">info@example.com</a>
-                                                </td>
-                                                <td class="py-2"> <a href="tel:2122288403">(212) 228-8403</a></td>
-                                                <td class="py-2 ps-5">2289 5th Avenue, New York
-                                                </td>
-                                                <td class="py-2">11/07/2017</td>
-                                                <td class="py-2 text-end">
-                                                    <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
-                                                        <div class="dropdown-menu dropdown-menu-end border py-0">
-                                                            <div class="py-2"><a class="dropdown-item"  href="ecom-customers.html#!">Edit</a><a class="dropdown-item text-danger" href="ecom-customers.html#!">Delete</a></div>
-                                                        </div>
+                                                    <div class="media-body">
+                                                        <h5 class="mb-0 fs--1">{{transaction.name}}</h5>
                                                     </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="btn-reveal-trigger">
-                                                <td class="py-2">
-                                                    <div class="form-check custom-checkbox mx-2">
-														<input type="checkbox" class="form-check-input" id="checkbox3">
-														<label class="form-check-label" for="checkbox3"></label>
-													</div>
-                                                </td>
-                                                <td class="py-3">
-                                                    <a href="ecom-customers.html#">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="avatar avatar-xl me-2">
-                                                                <div class=""><img class="rounded-circle img-fluid"
-                                                                        src="assets/assetsdash/images/avatar/5.png" width="30" alt="" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h5 class="mb-0 fs--1">Rowen Atkinson</h5>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                                <td class="py-2"><a href="mailto:rown@example.com">info@example.com</a>
-                                                </td>
-                                                <td class="py-2"> <a href="tel:2012001851">(201) 200-1851</a></td>
-                                                <td class="py-2 ps-5">112 Bostwick Avenue, Jersey City
-                                                </td>
-                                                <td class="py-2">05/04/2016</td>
-                                                <td class="py-2 text-end">
-                                                    <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
-                                                        <div class="dropdown-menu dropdown-menu-end border py-0">
-                                                            <div class="py-2"><a class="dropdown-item"  href="ecom-customers.html#!">Edit</a><a class="dropdown-item text-danger" href="ecom-customers.html#!">Delete</a></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="btn-reveal-trigger">
-                                                <td class="py-2">
-                                                    <div class="form-check custom-checkbox mx-2">
-														<input type="checkbox" class="form-check-input" id="checkbox4">
-														<label class="form-check-label" for="checkbox4"></label>
-													</div>
-                                                </td>
-                                                <td class="py-3">
-                                                    <a href="ecom-customers.html#">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="avatar avatar-xl me-2">
-                                                                <img class="rounded-circle img-fluid"
-                                                                    src="assets/assetsdash/images/avatar/1.png" alt="" width="30" />
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h5 class="mb-0 fs--1">Antony Hopkins</h5>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                                <td class="py-2"><a
-                                                        href="mailto:antony@example.com">info@example.com</a></td>
-                                                <td class="py-2"> <a href="tel:9013243127">(901) 324-3127</a></td>
-                                                <td class="py-2 ps-5">3448 Ile De France St #242, </td>
-                                                <td class="py-2">05/04/2018</td>
-                                                <td class="py-2 text-end">
-                                                    <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
-                                                        <div class="dropdown-menu dropdown-menu-end border py-0">
-                                                            <div class="py-2"><a class="dropdown-item"  href="ecom-customers.html#!">Edit</a><a class="dropdown-item text-danger" href="ecom-customers.html#!">Delete</a></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="btn-reveal-trigger">
-                                                <td class="py-2">
-                                                    <div class="form-check custom-checkbox mx-2">
-														<input type="checkbox" class="form-check-input" id="checkbox5">
-														<label class="form-check-label" for="checkbox5"></label>
-													</div>
-                                                </td>
-                                                <td class="py-3">
-                                                    <a href="ecom-customers.html#">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="avatar avatar-xl me-2">
-                                                                <img class="rounded-circle img-fluid"
-                                                                    src="assets/assetsdash/images/avatar/1.png" alt="" width="30" />
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h5 class="mb-0 fs--1">Jennifer Schramm</h5>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                                <td class="py-2"><a
-                                                        href="mailto:jennifer@example.com">info@example.com</a></td>
-                                                <td class="py-2"> <a href="tel:8283829631">(828) 382-9631</a></td>
-                                                <td class="py-2 ps-5">659 Hannah Street, Charlotte
-                                                </td>
-                                                <td class="py-2">17/03/2016</td>
-                                                <td class="py-2 text-end">
-                                                    <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
-                                                        <div class="dropdown-menu dropdown-menu-end border py-0">
-                                                            <div class="py-2"><a class="dropdown-item"  href="ecom-customers.html#!">Edit</a><a class="dropdown-item text-danger" href="ecom-customers.html#!">Delete</a></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="btn-reveal-trigger">
-                                                <td class="py-2">
-													<div class="form-check custom-checkbox mx-2">
-														<input type="checkbox" class="form-check-input" id="checkbox6">
-														<label class="form-check-label" for="checkbox6"></label>
-													</div>
-                                                </td>
-                                                <td class="py-3">
-                                                    <a href="ecom-customers.html#">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="avatar avatar-xl me-2">
-                                                                <div class=""><img class="rounded-circle img-fluid"
-                                                                        src="assets/assetsdash/images/avatar/5.png" width="30" alt="" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h5 class="mb-0 fs--1">Raymond Mims</h5>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                                <td class="py-2"><a
-                                                        href="mailto:raymond@example.com">info@example.com</a></td>
-                                                <td class="py-2"> <a href="tel:5624685646">(562) 468-5646</a></td>
-                                                <td class="py-2 ps-5">2298 Locust Court, Artesia
-                                                </td>
-                                                <td class="py-2">12/07/2014</td>
-                                                <td class="py-2 text-end">
-                                                    <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
-                                                        <div class="dropdown-menu dropdown-menu-end border py-0">
-                                                            <div class="py-2"><a class="dropdown-item"  href="ecom-customers.html#!">Edit</a><a class="dropdown-item text-danger" href="ecom-customers.html#!">Delete</a></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="btn-reveal-trigger">
-                                                <td class="py-2">
-                                                    <div class="form-check custom-checkbox mx-2">
-														<input type="checkbox" class="form-check-input" id="checkbox7">
-														<label class="form-check-label" for="checkbox7"></label>
-													</div>
-                                                </td>
-                                                <td class="py-3">
-                                                    <a href="ecom-customers.html#">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="avatar avatar-xl me-2">
-                                                                <img class="rounded-circle img-fluid"
-                                                                    src="assets/assetsdash/images/avatar/1.png" alt="" width="30" />
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h5 class="mb-0 fs--1">Michael Jenkins</h5>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                                <td class="py-2"><a
-                                                        href="mailto:jenkins@example.com">info@example.com</a></td>
-                                                <td class="py-2"> <a href="tel:3026138829">(302) 613-8829</a></td>
-                                                <td class="py-2 ps-5">4678 Maud Street, Philadelphia
-                                                </td>
-                                                <td class="py-2">15/06/2014</td>
-                                                <td class="py-2 text-end">
-                                                    <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
-                                                        <div class="dropdown-menu dropdown-menu-end border py-0">
-                                                            <div class="py-2"><a class="dropdown-item"  href="ecom-customers.html#!">Edit</a><a class="dropdown-item text-danger" href="ecom-customers.html#!">Delete</a></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="btn-reveal-trigger">
-                                                <td class="py-2">
-													<div class="form-check custom-checkbox mx-2">
-														<input type="checkbox" class="form-check-input" id="checkbox8">
-														<label class="form-check-label" for="checkbox8"></label>
-													</div>
-                                                </td>
-                                                <td class="py-3">
-                                                    <a href="ecom-customers.html#">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="avatar avatar-xl me-2">
-                                                                <img class="rounded-circle img-fluid"
-                                                                    src="assets/assetsdash/images/avatar/1.png" alt="" width="30" />
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h5 class="mb-0 fs--1">Kristine Cadena</h5>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                                <td class="py-2"><a
-                                                        href="mailto:cadena@example.com">info@example.com</a></td>
-                                                <td class="py-2"> <a href="tel:3172737814">(317) 273-7814</a></td>
-                                                <td class="py-2 ps-5">3412 Crestview Manor, Indianapolis</td>
-                                                <td class="py-2">15/04/2015</td>
-                                                <td class="py-2 text-end">
-                                                    <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
-                                                        <div class="dropdown-menu dropdown-menu-end border py-0">
-                                                            <div class="py-2"><a class="dropdown-item"  href="ecom-customers.html#!">Edit</a><a class="dropdown-item text-danger" href="ecom-customers.html#!">Delete</a></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="btn-reveal-trigger">
-                                                <td class="py-2">
-                                                    <div class="form-check custom-checkbox mx-2">
-														<input type="checkbox" class="form-check-input" id="checkbox9">
-														<label class="form-check-label" for="checkbox9"></label>
-													</div>
-                                                </td>
-                                                <td class="py-3">
-                                                    <a href="ecom-customers.html#">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="avatar avatar-xl me-2">
-                                                                <div class=""><img class="rounded-circle img-fluid"
-                                                                        src="assets/assetsdash/images/avatar/5.png" width="30" alt="" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h5 class="mb-0 fs--1">Ricky Antony</h5>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                                <td class="py-2"><a
-                                                        href="mailto:ricky@example.com">info@example.com</a></td>
-                                                <td class="py-2"> <a href="tel:2012001851">(201) 200-1851</a></td>
-                                                <td class="py-2 ps-5">2392 Main Avenue, Penasauka</td>
-                                                <td class="py-2">30/03/2018</td>
-                                                <td class="py-2 text-end">
-                                                    <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
-                                                        <div class="dropdown-menu dropdown-menu-end border py-0">
-                                                            <div class="py-2"><a class="dropdown-item"  href="ecom-customers.html#!">Edit</a><a class="dropdown-item text-danger" href="ecom-customers.html#!">Delete</a></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="btn-reveal-trigger">
-                                                <td class="py-2">
-                                                    <div class="form-check custom-checkbox mx-2">
-														<input type="checkbox" class="form-check-input" id="checkbox10">
-														<label class="form-check-label" for="checkbox10"></label>
-													</div>
-                                                </td>
-                                                <td class="py-3">
-                                                    <a href="ecom-customers.html#">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="avatar avatar-xl me-2">
-                                                                <img class="rounded-circle img-fluid"
-                                                                    src="assets/assetsdash/images/avatar/1.png" alt="" width="30" />
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h5 class="mb-0 fs--1">Emma Watson</h5>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                                <td class="py-2"><a href="mailto:emma@example.com">info@example.com</a>
-                                                </td>
-                                                <td class="py-2"> <a href="tel:2122288403">(212) 228-8403</a></td>
-                                                <td class="py-2 ps-5">2289 5th Avenue, New York
-                                                </td>
-                                                <td class="py-2">11/07/2017</td>
-                                                <td class="py-2 text-end">
-                                                    <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
-                                                        <div class="dropdown-menu dropdown-menu-end border py-0">
-                                                            <div class="py-2"><a class="dropdown-item"  href="ecom-customers.html#!">Edit</a><a class="dropdown-item text-danger" href="ecom-customers.html#!">Delete</a></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="btn-reveal-trigger">
-                                                <td class="py-2">
-                                                    <div class="form-check custom-checkbox mx-2">
-														<input type="checkbox" class="form-check-input" id="checkbox11">
-														<label class="form-check-label" for="checkbox11"></label>
-													</div>
-                                                </td>
-                                                <td class="py-3">
-                                                    <a href="ecom-customers.html#">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="avatar avatar-xl me-2">
-                                                                <div class=""><img class="rounded-circle img-fluid"
-                                                                        src="assets/assetsdash/images/avatar/5.png" width="30" alt="" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h5 class="mb-0 fs--1">Rowen Atkinson</h5>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                                <td class="py-2"><a href="mailto:rown@example.com">info@example.com</a>
-                                                </td>
-                                                <td class="py-2"> <a href="tel:2012001851">(201) 200-1851</a></td>
-                                                <td class="py-2 ps-5">112 Bostwick Avenue, Jersey City
-                                                </td>
-                                                <td class="py-2">05/04/2016</td>
-                                                <td class="py-2 text-end">
-                                                    <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
-                                                        <div class="dropdown-menu dropdown-menu-end border py-0">
-                                                            <div class="py-2"><a class="dropdown-item"  href="ecom-customers.html#!">Edit</a><a class="dropdown-item text-danger" href="ecom-customers.html#!">Delete</a></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="btn-reveal-trigger">
-                                                <td class="py-2">
-                                                    <div class="form-check custom-checkbox mx-2">
-														<input type="checkbox" class="form-check-input" id="checkbox12">
-														<label class="form-check-label" for="checkbox12"></label>
-													</div>
-                                                </td>
-                                                <td class="py-3">
-                                                    <a href="ecom-customers.html#">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="avatar avatar-xl me-2">
-                                                                <img class="rounded-circle img-fluid"
-                                                                    src="assets/assetsdash/images/avatar/1.png" alt="" width="30" />
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h5 class="mb-0 fs--1">Antony Hopkins</h5>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                                <td class="py-2"><a
-                                                        href="mailto:antony@example.com">info@example.com</a></td>
-                                                <td class="py-2"> <a href="tel:9013243127">(901) 324-3127</a></td>
-                                                <td class="py-2 ps-5">3448 Ile De France St #242</td>
-                                                <td class="py-2">05/04/2018</td>
-                                                <td class="py-2 text-end">
-                                                    <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
-                                                        <div class="dropdown-menu dropdown-menu-end border py-0">
-                                                            <div class="py-2"><a class="dropdown-item"  href="ecom-customers.html#!">Edit</a><a class="dropdown-item text-danger" href="ecom-customers.html#!">Delete</a></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="btn-reveal-trigger">
-                                                <td class="py-2">
-                                                    <div class="form-check custom-checkbox mx-2">
-														<input type="checkbox" class="form-check-input" id="checkbox13">
-														<label class="form-check-label" for="checkbox13"></label>
-													</div>
-                                                </td>
-                                                <td class="py-3">
-                                                    <a href="ecom-customers.html#">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="avatar avatar-xl me-2">
-                                                                <img class="rounded-circle img-fluid"
-                                                                    src="assets/assetsdash/images/avatar/1.png" alt="" width="30" />
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h5 class="mb-0 fs--1">Jennifer Schramm</h5>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                                <td class="py-2"><a
-                                                        href="mailto:jennifer@example.com">info@example.com</a></td>
-                                                <td class="py-2"> <a href="tel:8283829631">(828) 382-9631</a></td>
-                                                <td class="py-2 ps-5">659 Hannah Street, Charlotte
-                                                </td>
-                                                <td class="py-2">17/03/2016</td>
-                                                <td class="py-2 text-end">
-                                                    <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
-                                                        <div class="dropdown-menu dropdown-menu-end border py-0">
-                                                            <div class="py-2"><a class="dropdown-item"  href="ecom-customers.html#!">Edit</a><a class="dropdown-item text-danger" href="ecom-customers.html#!">Delete</a></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="btn-reveal-trigger">
-                                                <td class="py-2">
-                                                    <div class="form-check custom-checkbox mx-2">
-														<input type="checkbox" class="form-check-input" id="checkbox14">
-														<label class="form-check-label" for="checkbox14"></label>
-													</div>
-                                                </td>
-                                                <td class="py-3">
-                                                    <a href="ecom-customers.html#">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="avatar avatar-xl me-2">
-                                                                <div class=""><img class="rounded-circle img-fluid"
-                                                                        src="assets/assetsdash/images/avatar/5.png" width="30" alt="" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h5 class="mb-0 fs--1">Raymond Mims</h5>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                                <td class="py-2"><a
-                                                        href="mailto:raymond@example.com">info@example.com</a></td>
-                                                <td class="py-2"> <a href="tel:5624685646">(562) 468-5646</a></td>
-                                                <td class="py-2 ps-5">2298 Locust Court, Artesia
-                                                </td>
-                                                <td class="py-2">12/07/2014</td>
-                                                <td class="py-2 text-end">
-                                                    <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
-                                                        <div class="dropdown-menu dropdown-menu-end border py-0">
-                                                            <div class="py-2"><a class="dropdown-item"  href="ecom-customers.html#!">Edit</a><a class="dropdown-item text-danger" href="ecom-customers.html#!">Delete</a></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="btn-reveal-trigger">
-                                                <td class="py-2">
-                                                    <div class="form-check custom-checkbox mx-2">
-														<input type="checkbox" class="form-check-input" id="checkbox15">
-														<label class="form-check-label" for="checkbox15"></label>
-													</div>
-                                                </td>
-                                                <td class="py-3">
-                                                    <a href="ecom-customers.html#">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="avatar avatar-xl me-2">
-                                                                <img class="rounded-circle img-fluid"
-                                                                    src="assets/assetsdash/images/avatar/1.png" alt="" width="30" />
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h5 class="mb-0 fs--1">Michael Jenkins</h5>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                                <td class="py-2"><a
-                                                        href="mailto:jenkins@example.com">info@example.com</a></td>
-                                                <td class="py-2"> <a href="tel:3026138829">(302) 613-8829</a></td>
-                                                <td class="py-2 ps-5">4678 Maud Street, Philadelphia
-                                                </td>
-                                                <td class="py-2">15/06/2014</td>
-                                                <td class="py-2 text-end">
-                                                    <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
-                                                        <div class="dropdown-menu dropdown-menu-end border py-0">
-                                                            <div class="py-2"><a class="dropdown-item"  href="ecom-customers.html#!">Edit</a><a class="dropdown-item text-danger" href="ecom-customers.html#!">Delete</a></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="btn-reveal-trigger">
-                                                <td class="py-2">
-                                                    <div class="form-check custom-checkbox mx-2">
-														<input type="checkbox" class="form-check-input" id="checkbox16">
-														<label class="form-check-label" for="checkbox16"></label>
-													</div>
-                                                </td>
-                                                <td class="py-3">
-                                                    <a href="ecom-customers.html#">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="avatar avatar-xl me-2">
-                                                                <img class="rounded-circle img-fluid"
-                                                                    src="assets/assetsdash/images/avatar/1.png" alt="" width="30" />
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h5 class="mb-0 fs--1">Kristine Cadena</h5>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                                <td class="py-2"><a
-                                                        href="mailto:cadena@example.com">info@example.com</a></td>
-                                                <td class="py-2"> <a href="tel:3172737814">(317) 273-7814</a></td>
-                                                <td class="py-2 ps-5">3412 Crestview Manor, Indianapolis</td>
-                                                <td class="py-2">15/04/2015</td>
-                                                <td class="py-2 text-end">
-                                                    <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
-                                                        <div class="dropdown-menu dropdown-menu-end border py-0">
-                                                            <div class="py-2"><a class="dropdown-item"  href="ecom-customers.html#!">Edit</a><a class="dropdown-item text-danger" href="ecom-customers.html#!">Delete</a></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                                                </div>
+                                            </a>
+                                        </td>
+                                        <td class="py-2"><a
+                                               >{{transaction.email}}</a></td>
+                                        <td class="py-2"> <a >{{transaction.status}}</a></td>
+                                        <td class="py-2 ps-5">{{transaction.description}} # {{transaction.ref}}</td>
+                                        <td class="py-2">{{transaction.amount}}</td>
+                                        <td class="py-2 text-end">
+                                            <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
+                                                <div class="dropdown-menu dropdown-menu-end border py-0">
+                                                    <div class="py-2"><a class="dropdown-item"  >Ver detalle</a><a class="dropdown-item text-danger" >Anular</a></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
+                </div>
+            </div>
         </div>
 	</div>
 </div>

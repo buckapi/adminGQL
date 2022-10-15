@@ -20,6 +20,7 @@ import {CARDS} from '@app/services/cards.service';
   styleUrls: ['./labcelhome.component.css']
 })
 export class LabcelhomeComponent implements AfterViewInit {
+    transactions$: any;
   public branchs:any=[];
   public cards:any=[];
   constructor(
@@ -37,9 +38,12 @@ export class LabcelhomeComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+
       if(!this._butler.isLogged){    
       this.router.navigate(['/login'])
     }
+      this.dataApi.getTransactionsByBranch(0,0,this._butler.userActive.idBranch);
+   this.transactions$=this.dataApi.transactions$; 
   }
 
 }

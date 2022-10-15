@@ -35,7 +35,7 @@
                                                 <span class="text-danger"></span>
                                             </label>
                                             <div class="col-lg-9"[hidden]="!optionSelected">
-                                            <h4 class="card-title" (click)="resetOption()" style="cursor:pointer;"> {{optionSelectedText}}</h4>           
+                                            <h4 class="card-title" (click)="resetOption()" style="cursor:pointer;" class="text-info"> {{optionSelectedText}}</h4>           
                                             </div>
                                         </div>
                                     </div> 
@@ -51,7 +51,7 @@
                                                 
                                                 </div>
                                                 <div class="col-lg-9" [hidden]="!technicalSelected">
-                                                     <h4 class="card-title" (click)="resetTechnical()" style="cursor:pointer;"> {{technicalSelectedText}}</h4>
+                                                     <h4 class="card-title" (click)="resetTechnical()" style="cursor:pointer;" class="text-info"> {{technicalSelectedText}}</h4>
                                                 
                                                 </div>
                                             </div>
@@ -68,7 +68,7 @@
                                                      <button type="button" class="btn btn-outline-primary" (click)="setType(2)" >Parcialidad</button>
                                                 </div>
                                                 <div class="col-lg-9" [hidden]="!typeSelected">
-                                                     <h4 class="card-title" (click)="resetType()" style="cursor:pointer;"> {{typeSelectedText}}</h4>
+                                                     <h4 class="card-title" (click)="resetType()" style="cursor:pointer;" class="text-info"> {{typeSelectedText}}</h4>
                                                 </div>
                                             </div>
                                         </div> 
@@ -86,7 +86,7 @@
                                                 </div> 
                                                 <div class="col-lg-9"  [hidden]="!repairSelected">
                                                  
-                                                  <h4 class="card-title" (click)="resetRepair()" style="cursor:pointer;"> {{repairSelectedText}}</h4>
+                                                  <h4 class="card-title" (click)="resetRepair()" style="cursor:pointer;" class="text-info"> {{repairSelectedText}}</h4>
                                                 </div>
                                             </div>
                                         </div> 
@@ -100,7 +100,7 @@
                                                    
                                             </label>
                                             <div class="col-lg-3">
-                                                <input  class="form-control"    type="text"
+                                                <input  class="form-control"  upperCase  type="text"
                                                 formControlName="tag"
                                                 class="form-control"
                                                 [ngClass]="{ 'is-invalid': submitted && f['tag'].errors }">
@@ -114,7 +114,7 @@
                                                
                                             </label>
                                             <div class="col-lg-3">
-                                                <input  class="form-control"    type="text"
+                                                <input  class="form-control"   upperCase type="text"
                                                 formControlName="imei"
                                                 class="form-control"
                                                 [ngClass]="{ 'is-invalid': submitted && f['imei'].errors }">
@@ -142,7 +142,7 @@
                                                
                                             </label>
                                             <div class="col-lg-3">
-                                                <input  class="form-control"    type="text"
+                                                <input  class="form-control" upperCase   type="number"
                                                 formControlName="monto"
                                                 class="form-control"
                                                 [ngClass]="{ 'is-invalid': submitted && f['monto'].errors }">
@@ -177,7 +177,7 @@
                                                
                                             </label>
                                             <div class="col-lg-3">
-                                                <input  class="form-control"    type="text"
+                                                <input  class="form-control"   upperCase  type="text"
                                                 formControlName="imeiPayjoy"
                                                 class="form-control"
                                                 [ngClass]="{ 'is-invalid': submittedPayjoy && g['imeiPayjoy'].errors }">
@@ -191,7 +191,7 @@
                                                    
                                             </label>
                                             <div class="col-lg-3">
-                                                <input  class="form-control"    type="text"
+                                                <input  class="form-control"  upperCase  type="text"
                                                 formControlName="referencia"
                                                 class="form-control"
                                                 [ngClass]="{ 'is-invalid': submittedPayjoy && g['referencia'].errors }">
@@ -205,7 +205,7 @@
                                                
                                             </label>
                                             <div class="col-lg-3">
-                                                <input  class="form-control"    type="text"
+                                                <input  class="form-control"  upperCase  type="text"
                                                 formControlName="folioPayjoy"
                                                 class="form-control"
                                                 [ngClass]="{ 'is-invalid': submittedPayjoy && g['folioPayjoy'].errors }">
@@ -219,7 +219,7 @@
                                                
                                             </label>
                                             <div class="col-lg-3">
-                                                <input  class="form-control"    type="text"
+                                                <input  class="form-control" upperCase   type="number"
                                                 formControlName="montoPayjoy"
                                                 class="form-control"
                                                 [ngClass]="{ 'is-invalid': submittedPayjoy && g['montoPayjoy'].errors }">
@@ -249,7 +249,7 @@
                                             <label class="col-lg-3 col-form-label" for="concepto" >Concepto <span class="text-danger">*</span>        
                                             </label>
                                             <div class="col-lg-7">
-                                                <textarea  rows="5"class="form-control"    type="text"
+                                                <textarea  rows="5"class="form-control"  upperCase  type="text"
                                                 formControlName="concepto"
                                                 class="form-control"
                                                 [ngClass]="{ 'is-invalid': submittedAcce && h['concepto'].errors }"></textarea>
@@ -262,7 +262,7 @@
                                             <label class="col-lg-3 col-form-label" for="folioAcce" >FOLIO <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-3">
-                                                <input  class="form-control"    type="text"
+                                                <input  class="form-control"  upperCase  type="text"
                                                 formControlName="folioAcce"
                                                 class="form-control"
                                                 [ngClass]="{ 'is-invalid': submittedAcce && h['folioAcce'].errors }">
@@ -276,7 +276,7 @@
                                                
                                             </label>
                                             <div class="col-lg-3">
-                                                <input  class="form-control"    type="text"
+                                                <input  class="form-control"  upperCase  type="number"
                                                 formControlName="montoAcce"
                                                 class="form-control"
                                                 [ngClass]="{ 'is-invalid': submittedAcce && h['montoAcce'].errors }">
@@ -361,17 +361,52 @@
                         </div>                                
                         <div class="col-xl-5 " [hidden]="ticketSize<1 || show">
                              <div class="card-header border-0 pb-0">
-                                    <h4 class="card-title">Metodo de pago</h4>
+                                    <h4 class="card-title">Metodo de pago <span (click)="resetMethod()" style="cursor:pointer;"  class="text-info" [hidden]="!methodSelected">{{methodSelectedText}}</span></h4>
                             </div>
-                            <div class="card-body">
-                                <button type="button" class="btn btn-outline-primary" (click)="setOption(1)">Efectivo</button>
-                                <button type="button" class="btn btn-outline-primary" (click)="setOption(1)">Transferencia</button>
-                                <button type="button" class="btn btn-outline-primary" (click)="setOption(1)">Pago con tarjeta</button>
+                                 
+                                           
+                            <div class="card-body" [hidden]="methodSelected">
+                                <button type="button" class="btn btn-outline-primary" (click)="setMethod(1)">Efectivo</button>
+                                <button type="button" class="btn btn-outline-primary" (click)="setMethod(2)">Transferencia</button>
+                                <button type="button" class="btn btn-outline-primary" (click)="setMethod(3)">Pago con tarjeta</button>
                               
                             </div> 
                             <div class="card-body">
-                             
-                                <button type="button" class="btn btn-rounded btn-info">
+                                <div [hidden]="methodSelectedText!='Efectivo ✔' || !methodSelected">
+                                    
+                                    <h4>Total</h4>
+                                        <h1>
+                                            <span (click)="setEqual()" style="cursor:pointer;">{{total |  number :'1.2-2'}}</span>
+                                        </h1>
+                                    <h4>Cobro</h4>
+                                    <div class="col-lg-4">
+                                        <input type="number" class="form-control"  [(ngModel)]="cobro"
+                                        style="height: 5.5rem;width: 13rem;font-size: 2.5rem;" 
+                                        >
+                                    </div>
+                                    <h4>Cambio: </h4>
+                                        <h1>
+                                            <span [hidden]="cobro-total<0">{{cobro-total |  number :'1.2-2'}}</span>
+                                        </h1>
+                                </div>
+                                <!-- <div class="register-form" [hidden]="methodSelectedText!='Tarjeta ✔' || !methodSelected"> -->
+                                    <!-- <form [formGroup]="tarjeta" (ngSubmit)="onSubmit4()"> -->
+                                      
+                                        <div class="mb-3 row"  [hidden]="methodSelectedText!='Tarjeta ✔' || !methodSelected">
+                                            <label class="col-lg-3 col-form-label" for="folioTarjeta" >FOLIO <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-4">
+                                                <input  class="form-control"    type="number"
+                                                [(ngModel)]="folioTarjeta">
+                                            
+                                              </div>
+                                            
+                                        </div>
+                                    <!-- </form> -->
+                                <!-- </div> -->
+                            </div>
+                            <div class="card-body">
+                                <button type="button" class="btn btn-rounded btn-info"  [disabled]=" !methodSelected || (cobro-total<0 && folioTarjeta<1 && methodSelectedText!='Transferencia ✔')"  (click)="sendTicket()">
                                     <span class="btn-icon-start text-info"><i class="fa fa-check"></i>
                                     </span>Procesar 
                                 </button>

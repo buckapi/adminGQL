@@ -4,10 +4,14 @@ import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 import { Butler } from "@app/services/butler.service";
 
+export interface TicketInterface {
+
+}
 @Injectable({
   providedIn: 'root'
 })
 export class DataApiService {
+		ticket: Observable<any>;
 	cards:any;
   constructor(
   	public butler:Butler, 
@@ -21,5 +25,10 @@ export class DataApiService {
 		this.cards = this.http.get(url_api);
 		return ( this.http.get(url_api));		
 	}
-
+	saveTicket(ticket :TicketInterface){
+		const url_api='https://db.buckapi.us:6001/api/transactions';
+		return this.http
+		.post<TicketInterface>(url_api, ticket)
+		.pipe(map(data => data));
+	}
 }

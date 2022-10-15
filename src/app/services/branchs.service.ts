@@ -4,6 +4,7 @@ export const BRANCHS: Branch[] = [
   {
     name:'Hidalgo',
     email:'buckapis@gmail.com',
+    idBranch:'br000003',
     images:[
       'assets/assetsdash/images/profile/profile.png',
       'jamundi'
@@ -12,6 +13,7 @@ export const BRANCHS: Branch[] = [
     {
     name:'Colinas del sur',
     email:'junior.marquez.sohigh0@gmail.com',
+    idBranch:'br000002',
     images:[
       'assets/assetsdash/images/profile/profile.png',
       'jamundi'
@@ -20,6 +22,7 @@ export const BRANCHS: Branch[] = [
 
     {
     name:'Reservas territoriales',
+    idBranch:'-',
     email:'-',
     images:[
       'assets/assetsdash/images/profile/profile.png',
@@ -30,6 +33,7 @@ export const BRANCHS: Branch[] = [
     {
     name:'Oficina',
     email:'andreazambrano10@gmail.com',
+    idBranch:'br000001',
     images:[
       'assets/assetsdash/images/profile/profile.png',
       'jamundi'

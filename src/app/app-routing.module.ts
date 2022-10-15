@@ -4,7 +4,7 @@ import { AuthGuard } from '@guards/auth.guard';
 
 const routes: Routes = [
 { path:'', redirectTo: '/login', pathMatch:'full'},
-{ path: 'home', loadChildren: () => import('./components/pages/home/home.module').then(m => m.HomeModule)},
+{ path: 'home', loadChildren: () => import('./components/pages/home/home.module').then(m => m.HomeModule),canActivate: [AuthGuard]},
 { path: 'login', loadChildren: () => import('./components/pages/login/login.module').then(m => m.LoginModule) },
 { path: 'notifications', loadChildren: () => import('./components/pages/notifications/notifications.module').then(m => m.NotificationsModule) },
 { path: 'about', loadChildren: () => import('./components/pages/about/about.module').then(m => m.AboutModule) },
@@ -19,9 +19,9 @@ const routes: Routes = [
 { path: 'order', loadChildren: () => import('./components/pages/order/order.module').then(m => m.OrderModule) },
 { path: 'newproduct', loadChildren: () => import('./components/pages/newproduct/newproduct.module').then(m => m.NewproductModule) },
 { path: 'labcelhome', loadChildren: () => import('./components/pages/home/labcelhome/labcelhome.module').then(m => m.LabcelhomeModule) },
-{ path: 'labceltransactions', loadChildren: () => import('./components/pages/labcel/transactions/transactions.module').then(m => m.TransactionsModule) },
-{ path: 'labceladdtransaction', loadChildren: () => import('./components/pages/labcel/addtransaction/addtransaction.module').then(m => m.AddtransactionModule) },
-{ path: 'labcelhistory', loadChildren: () => import('./components/pages/labcel/history/history.module').then(m => m.HistoryModule) },
+{ path: 'labceltransactions', loadChildren: () => import('./components/pages/labcel/transactions/transactions.module').then(m => m.TransactionsModule),canActivate: [AuthGuard]  },
+{ path: 'labceladdtransaction', loadChildren: () => import('./components/pages/labcel/addtransaction/addtransaction.module').then(m => m.AddtransactionModule),canActivate: [AuthGuard] },
+{ path: 'labcelhistory', loadChildren: () => import('./components/pages/labcel/history/history.module').then(m => m.HistoryModule),canActivate: [AuthGuard]  },
  { path:'**',pathMatch:'full',redirectTo:'home'}
 ];
 

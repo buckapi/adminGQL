@@ -5,6 +5,7 @@ import { AddtransactionRoutingModule } from './addtransaction-routing.module';
 import { AddtransactionComponent } from './addtransaction.component';
 import { ClockModule } from '@pages/home/clock/clock.module';
 // import { BrowserModule } from '@angular/platform-browser';
+import { NgxUpperCaseDirectiveModule } from 'ngx-upper-case-directive';
 
 import { FormsModule, ReactiveFormsModule  } from "@angular/forms";
 
@@ -16,6 +17,7 @@ import { FormsModule, ReactiveFormsModule  } from "@angular/forms";
     CommonModule,
     AddtransactionRoutingModule,
     ClockModule ,
+    NgxUpperCaseDirectiveModule,
     // BrowserModule,
      FormsModule,
     ReactiveFormsModule
