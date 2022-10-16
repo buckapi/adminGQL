@@ -2,9 +2,9 @@ import {Card} from 'src/app/interfaces/card';
 
 export const CARDS: Card[] = [
   {
-    email:'andreazambrano10@gmail.com',
+    email:'oficinalabcel@protonmail.com',
     userType: 'admin',
-    name:'Andrea',
+    name:'Oficina',
     idApp: 'bc000001',
 
     bramch:"634bbee1d8d2632d682d47ae",
@@ -15,7 +15,7 @@ export const CARDS: Card[] = [
      categories:[      
       'otro'
     ],
-    userId:'a9aff449-ec19-4e88-abb9-43d97515f2e1',
+    userId:'a37e7bd9-3df7-4c33-a51e-ddfd5e7f8b5a',
     images:[
       'assets/assetsdash/images/profile/captain.png',
       'jamundi'
@@ -50,9 +50,9 @@ export const CARDS: Card[] = [
   },
     {
       bramch:"634b008fd8d2632d681c6c05",
-    email:'buckapis@gmail.com',
+    email:'hidalgolabcel@protonmail.com',
     userType: 'sucursal',
-    name:'Buckapis',
+    name:'Hidalgo',
     idApp: 'bc000001',
     admin:false,
     sex: 'm',
@@ -65,7 +65,7 @@ export const CARDS: Card[] = [
       'pago de servicio',
       'otro'
     ],
-    userId:'df1f38c8-d3ef-4565-a4f8-4bfb545d699f',
+    userId:'bb95765f-b322-4607-9655-8251447eccb2',
     images:[
       'assets/assetsdash/images/profile/profile.png',
       'jamundi'

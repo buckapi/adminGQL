@@ -14,6 +14,7 @@ import { DataService } from '@app/services/data.service';
 import { DataApiService } from '@app/services/data-api.service'; 
 import {BRANCHS} from '@app/services/branchs.service';
 import {CARDS} from '@app/services/cards.service';
+
 @Component({
   selector: 'app-labcelhome',
   templateUrl: './labcelhome.component.html',
@@ -22,10 +23,16 @@ import {CARDS} from '@app/services/cards.service';
 export class LabcelhomeComponent implements AfterViewInit {
    public  banchss:any=["br000003","br000002","-","br000001"];
     transactions$: any;
+    allTransactions: any;
   public  totales:any=[0,0,0,0];
+  public  egresos:any=[0,0,0,0];
+  public  ingresos:any=[0,0,0,0];
   public branchs:any=[];
   public cards:any=[];
   public totalCalculado=0;
+  public ingresosCalculado=0;
+  public egresosCalculado=0;
+  public size=0;
   constructor(
  private bikersService:BikersService,
     public script:ScriptService,
@@ -40,46 +47,90 @@ export class LabcelhomeComponent implements AfterViewInit {
   this.cards=CARDS
   }
 public totalIndividual(idBranch:any){
+  console.log("llamado");
   this.totalCalculado=0;
   let pidBranch=idBranch;
   if(this.transactions$!==undefined){
-
-    let size = this.transactions$.length;
-    for (let i =0;i<size;i++){
-      if(this.transactions$[i].amount>0 && this.transactions$[i].idBranch == pidBranch){
+    // let size = this.transactions$.length;
+    for (let i =0;i<this.size;i++){
+      if(this.transactions$[i].idBranch == pidBranch ){         
         this.totalCalculado=this.totalCalculado+this.transactions$[i].amount;
       }
     }
   }
 }
 public calculoTotales(){
- 
+  // console.log("entrando");
   for (let i =0;i<4;i++){
-    this.totalIndividual(this.banchss[i]);
-    this.totales[i]=this.totalCalculado;
-  }
-}
-
-  public loadFromRest(){
-      this.transactions$=this.dataApiService.getTransationByBranch(this._butler.userActive.idBranch);
-
-  } public loadFromGQL(){
-     this.dataApi.getTransactionsByBranch(0,0,this._butler.userActive.idBranch);
-   this.transactions$=this.dataApi.transactions$;  
-  }
-
-  ngAfterViewInit(): void {
-this.calculoTotales();
-      if(!this._butler.isLogged){    
-      this.router.navigate(['/login'])
+      this.totalCalculado=0;
+    for (let j =0;j<this.size;j++){
+      if(this.transactions$[j].idBranch == this.banchss[i] ){         
+        this.totales[i]==this.totalCalculado+this.transactions$[j].amount;
+      }
     }
-if (this._butler.admin){}else{
-
-   this.loadFromRest();
-
+    // this.totalIndividual(this.banchss[i]);
+    // this.totales[i]=this.totalCalculado;
+  }
+      console.log(JSON.stringify(this.totales));
 }
 
+ public loadFromRestIndividual(){
+      this.transactions$=this.dataApiService.getTransationByBranch(this._butler.userActive.idBranch);
+  }
+  public loadFromRestUniversal(){
+      this.transactions$=this.dataApiService.getAllTransactions();
+  }
+  public loadFromGQL(){
+    this.dataApi.getTransactionsByBranch(0,0,this._butler.userActive.idBranch);
+    this.transactions$=this.dataApi.transactions$;  
+  }
+  public checkSize(){
+    this.dataApiService.getAllTransactions()
+     .subscribe((res:any) => {
+       let size=res.length;  
+       console.log("size: "+size);
+       this.totales=[];
+       this.egresos=[];
+       this.ingresos=[];
+      for (let i =0;i<4;i++){
+          for (let j =0;j<size;j++){
+            if(res[j].idBranch!=='undefined' &&  res[j].idBranch==this.banchss[i] ){         
+              if (res[j].transactionType==="ingress"){
+                this.ingresosCalculado=this.ingresosCalculado+res[j].amount;
+                console.log("uno");
+              }else{
+                this.egresosCalculado=this.egresosCalculado+res[j].amount;
+              }
+              this.totalCalculado=this.totalCalculado+res[j].amount;
+            }
+          }
+              this.totales.push(this.totalCalculado);
+              this.egresos.push(this.egresosCalculado);
+              this.ingresos.push(this.ingresosCalculado);
 
+              this.totalCalculado=0;
+              this.ingresosCalculado=0;
+              this.egresosCalculado=0;
+        // this.totalIndividual(this.banchss[i]);
+        // this.totales[i]=this.totalCalculado;
+      }
+      console.log(JSON.stringify(this.totales));
+       // this.calculoTotales();
+       // this.calculoTotales();
+       // console.log(JSON.stringify(this.allTransactions));
+       });  
+    }
+  ngAfterViewInit(): void {
+      // this.loadFromRestUniversal()
+      if(!this._butler.isLogged){    
+        this.router.navigate(['/login'])
+      }
+      if (this._butler.admin){
+        this.loadFromRestUniversal();
+      this.checkSize();
+      }else{
+        this.loadFromRestIndividual();
+      }
   }
 
 }

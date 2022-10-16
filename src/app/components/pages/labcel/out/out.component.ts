@@ -107,12 +107,12 @@ export class OutComponent implements AfterViewInit {  transactions$: any;
 
   } public loadFromGQL(){
      this.dataApi.getTransactionsByBranch(0,0,this._butler.userActive.idBranch);
-   this.transactions$=this.dataApi.transactions$;  
+      this.transactions$=this.dataApi.transactions$;  
   }
   ngAfterViewInit(): void {
     if(this._butler.admin){}else{
       // this.getBranchTransactions();
-  this.loadFromRest();
+    this.loadFromRest();
     }
 
   }

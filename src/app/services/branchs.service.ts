@@ -3,7 +3,7 @@ export const BRANCHS: Branch[] = [
 
   {
     name:'Hidalgo',
-    email:'buckapis@gmail.com',
+    email:'hidalgolabel@protonmail.com',
     idBranch:'br000003',
     images:[
       'assets/assetsdash/images/profile/profile.png',
@@ -32,7 +32,7 @@ export const BRANCHS: Branch[] = [
 
     {
     name:'Oficina',
-    email:'andreazambrano10@gmail.com',
+    email:'oficinalabcel@protonmail.com',
     idBranch:'br000001',
     images:[
       'assets/assetsdash/images/profile/profile.png',

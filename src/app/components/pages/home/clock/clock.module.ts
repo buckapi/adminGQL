@@ -6,13 +6,11 @@ import { ClockComponent } from '@pages/home/clock/clock.component';
 
 @NgModule({
   declarations: [ClockComponent],
-      imports: [
-        CommonModule
-  ],
-  exports: [
-    CommonModule,
-    ClockComponent
-  ]
-  
+    imports: [
+      CommonModule
+    ],
+    exports: [
+      ClockComponent
+    ]  
 })
 export class ClockModule { }
