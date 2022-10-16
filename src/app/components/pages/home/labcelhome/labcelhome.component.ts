@@ -14,13 +14,21 @@ import { DataService } from '@app/services/data.service';
 import { DataApiService } from '@app/services/data-api.service'; 
 import {BRANCHS} from '@app/services/branchs.service';
 import {CARDS} from '@app/services/cards.service';
-
+import { ChartDataSets, ChartOptions } from 'chart.js';
+import { Color, Label } from 'ng2-charts';
 @Component({
   selector: 'app-labcelhome',
   templateUrl: './labcelhome.component.html',
   styleUrls: ['./labcelhome.component.css']
 })
 export class LabcelhomeComponent implements AfterViewInit {
+
+  doughnutChartLabels: Label[] = ['BMW', 'Ford', 'Tesla'];
+  doughnutChartData: MultiDataSet = [
+    [55, 25, 20]
+  ];
+  doughnutChartType: ChartType = 'doughnut';
+  
    public  banchss:any=["br000003","br000002","-","br000001"];
     transactions$: any;
     allTransactions: any;
