@@ -43,6 +43,7 @@
     "swiper": "^6.8.4",
     "tslib": "^2.3.0",
     "yup": "^0.32.11",
+    "@swimlane/ngx-charts": "^18.0.1",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
