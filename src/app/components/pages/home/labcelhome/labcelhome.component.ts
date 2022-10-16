@@ -20,9 +20,12 @@ import {CARDS} from '@app/services/cards.service';
   styleUrls: ['./labcelhome.component.css']
 })
 export class LabcelhomeComponent implements AfterViewInit {
+   public  banchss:any=["br000003","br000002","-","br000001"];
     transactions$: any;
+  public  totales:any=[0,0,0,0];
   public branchs:any=[];
   public cards:any=[];
+  public totalCalculado=0;
   constructor(
  private bikersService:BikersService,
     public script:ScriptService,
@@ -36,14 +39,47 @@ export class LabcelhomeComponent implements AfterViewInit {
   this.branchs=BRANCHS;
   this.cards=CARDS
   }
+public totalIndividual(idBranch:any){
+  this.totalCalculado=0;
+  let pidBranch=idBranch;
+  if(this.transactions$!==undefined){
+
+    let size = this.transactions$.length;
+    for (let i =0;i<size;i++){
+      if(this.transactions$[i].amount>0 && this.transactions$[i].idBranch == pidBranch){
+        this.totalCalculado=this.totalCalculado+this.transactions$[i].amount;
+      }
+    }
+  }
+}
+public calculoTotales(){
+ 
+  for (let i =0;i<4;i++){
+    this.totalIndividual(this.banchss[i]);
+    this.totales[i]=this.totalCalculado;
+  }
+}
+
+  public loadFromRest(){
+      this.transactions$=this.dataApiService.getTransationByBranch(this._butler.userActive.idBranch);
+
+  } public loadFromGQL(){
+     this.dataApi.getTransactionsByBranch(0,0,this._butler.userActive.idBranch);
+   this.transactions$=this.dataApi.transactions$;  
+  }
 
   ngAfterViewInit(): void {
-
+this.calculoTotales();
       if(!this._butler.isLogged){    
       this.router.navigate(['/login'])
     }
-      this.dataApi.getTransactionsByBranch(0,0,this._butler.userActive.idBranch);
-   this.transactions$=this.dataApi.transactions$; 
+if (this._butler.admin){}else{
+
+   this.loadFromRest();
+
+}
+
+
   }
 
 }

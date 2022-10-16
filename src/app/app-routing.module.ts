@@ -22,6 +22,9 @@ const routes: Routes = [
 { path: 'labceltransactions', loadChildren: () => import('./components/pages/labcel/transactions/transactions.module').then(m => m.TransactionsModule),canActivate: [AuthGuard]  },
 { path: 'labceladdtransaction', loadChildren: () => import('./components/pages/labcel/addtransaction/addtransaction.module').then(m => m.AddtransactionModule),canActivate: [AuthGuard] },
 { path: 'labcelhistory', loadChildren: () => import('./components/pages/labcel/history/history.module').then(m => m.HistoryModule),canActivate: [AuthGuard]  },
+{ path: 'labcelout', loadChildren: () => import('./components/pages/labcel/out/out.module').then(m => m.OutModule) },
+{ path: 'outregister', loadChildren: () => import('./components/pages/labcel/outregister/outregister.module').then(m => m.OutregisterModule) },
+{ path: 'cierrecaja', loadChildren: () => import('./components/pages/labcel/cierrecaja/cierrecaja.module').then(m => m.CierrecajaModule) },
  { path:'**',pathMatch:'full',redirectTo:'home'}
 ];
 

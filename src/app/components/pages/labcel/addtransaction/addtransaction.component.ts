@@ -62,6 +62,8 @@ export class AddtransactionComponent implements AfterViewInit {
   public technicals:any=[];
   public options:any=[];
   public ticket:any={};
+  public newSerial:any={};
+  public branch:any={};
   public item :any={
   // servicio:"",
   // tipo:"",
@@ -74,6 +76,7 @@ export class AddtransactionComponent implements AfterViewInit {
   // concepto:"",
 }; 
 nticket=0;
+currentSerial=0;
   ticketSize=0;
   cobro=0;
   folioTarjeta=0;
@@ -208,6 +211,7 @@ public sendTicket(){
   this.ticket.email=this._butler.userActive.email;
   this.ticket.name=this._butler.userActive.name;
   this.ticket.folioTarjeta=this.folioTarjeta;
+  this.ticket.serialT=this.currentSerial;
    this.toastSvc.success(this.mensaje, 'Ticket guardado');
    if (this.folioTarjeta==0){this.ticket.folioTarjeta=null;}
    if(this.methodSelectedText=='Efectivo ✔'){this.ticket.method="Efectivo";this.ticket.cobro=this.cobro;this.ticket.cambio=this.cambio;}
@@ -225,7 +229,8 @@ public sendTicket(){
    .subscribe((res:any) => {
      this._butler.ticket=[];
        this.ticket=null;
-       this.router.navigate(['/home']);
+       this.setSerialT();
+       this.router.navigate(['/labcelhistory']);
      });  
     // console.log(JSON.stringify(this.ticket));
      console.log(JSON.stringify(this.options));
@@ -233,6 +238,11 @@ public sendTicket(){
   onReset(): void {
     this.submitted = false;
     this.form.reset();
+  }
+  public setSerialT(){
+    this._butler.bramch.serialT=this.currentSerial;
+    console.log("new: "+this.newSerial.serialT);
+    this.dataApiService.setSerialT(this._butler.bramch,this._butler.userActive.bramch).subscribe();
   }
 public aleatorio(a:any,b:any) {
     return Math.round(Math.random()*(b-a)+parseInt(a));
@@ -331,10 +341,18 @@ public unoC(){
     );
 }
   ngAfterViewInit(): void {
-     for(let i=0;i<5;i++){
+      this.dataApiService.getSerialT(this._butler.userActive.bramch)
+        .subscribe((res:any) => {
+        this._butler.serialT=res.serialT;
+        this.currentSerial=res.serialT+1;
+        this._butler.bramch=res;
+        this.newSerial.serialT=this.currentSerial;
+        console.log("serial: "+this._butler.serialT);
+        
+      });
 
-      this.options.push(false);
-    
+     for(let i=0;i<5;i++){
+      this.options.push(false);  
   }
 this.options=[];
 this.nticket=this.aleatorio(10000,99999);

@@ -2,6 +2,7 @@ export interface Card {
   userType: string;
   userId: string;
   email: string;
+  bramch: string;
   sex: string;
   name: string;
   branch: string;
@@ -11,4 +12,5 @@ export interface Card {
   idCard:string;
   admin: boolean;
   images:string[]; 
+  categories:string[]; 
 }

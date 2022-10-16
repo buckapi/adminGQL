@@ -7,8 +7,6 @@ import {Butler} from '@app/services/butler.service';
 import { Apollo } from "apollo-angular";
 import { DataService } from '@app/services/data.service'; 
 import { DataApiService } from '@app/services/data-api.service'; 
-//import { DateRange, DateRanges, TimePeriod } from '../../../../src/daterangepicker/daterangepicker.component';
-
  export interface TimePeriod {
   [index: string]: Dayjs;
 
@@ -23,15 +21,12 @@ import { DataApiService } from '@app/services/data-api.service';
   dates: [Dayjs, Dayjs];
 }
 @Component({
-  selector: 'app-history',
-  templateUrl: './history.component.html',
-  styleUrls: ['./history.component.css']
+  selector: 'app-out',
+  templateUrl: './out.component.html',
+  styleUrls: ['./out.component.css']
 })
-export class HistoryComponent implements AfterViewInit {
-  transactions$: any;
+export class OutComponent implements AfterViewInit {  transactions$: any;
   // prodSze$: any;
-  filtering=false;
-  filter="";
  public branchs:any=[];
   public cards:any=[];
   selected: TimePeriod;
@@ -63,7 +58,7 @@ export class HistoryComponent implements AfterViewInit {
     public dataApi: DataService,
     public dataApiService: DataApiService,
     public _butler: Butler
-    ) { 
+    ) {
    this.maxDate = dayjs().add(2, 'weeks');
     this.minDate = dayjs().subtract(3, 'days');
 
@@ -76,12 +71,8 @@ export class HistoryComponent implements AfterViewInit {
     };
  this.branchs=BRANCHS;
   this.cards=CARDS
- 
-
-
-  }
-
-  isInvalidDate = (m: dayjs.Dayjs): boolean => {
+     }
+ isInvalidDate = (m: dayjs.Dayjs): boolean => {
     return this.invalidDates.some((d) => d.isSame(m, 'day'));
   };
 
@@ -96,9 +87,6 @@ export class HistoryComponent implements AfterViewInit {
     public getBranchTransactions(){
     //console.log(JSON.stringify(this.transactions$));
    // this._butler.results=this.prodSze$.count;
-  } public setFilter(idbranch:any){
-   this.filter=idbranch;
-   this.filtering=true;
   }
 
   rangeClicked(range: DateRange): void {
@@ -114,24 +102,18 @@ export class HistoryComponent implements AfterViewInit {
   chosenDateTime(e: TimePeriod): void {
     this.inlineDateTime = e;
   }
-
-  public loadFromRestIndividual(){
+   public loadFromRest(){
       this.transactions$=this.dataApiService.getTransationByBranch(this._butler.userActive.idBranch);
-  }
-  public loadFromRestUniversal(){
-      this.transactions$=this.dataApiService.getAllTransactions();
-  }
-  public reload(){
-    console.log("pedido de ejeucion");
-    this.transactions$=null;
-    this.dataApi.getTransactionsByBranch(0,0,this._butler.userActive.idBranch);
+
+  } public loadFromGQL(){
+     this.dataApi.getTransactionsByBranch(0,0,this._butler.userActive.idBranch);
+   this.transactions$=this.dataApi.transactions$;  
   }
   ngAfterViewInit(): void {
-    if(this._butler.admin){
-      this.loadFromRestUniversal();
-    }else{
-      this.loadFromRestIndividual();   
+    if(this._butler.admin){}else{
+      // this.getBranchTransactions();
+  this.loadFromRest();
     }
-  }
 
+  }
 }

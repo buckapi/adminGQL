@@ -12,6 +12,7 @@ export class Butler {
     numProd:number=0;
     results:number=0;
     preview:any={};
+    bramch:any={};
     userActive:any={};
     totalProducts:number=0;
     imagePreviewProduct:string="";
@@ -50,6 +51,7 @@ export class Butler {
     email:string=""; 
     cards:any[]=[]; 
 
+    serialT:number=0;
 
     constructor() { }
 }
