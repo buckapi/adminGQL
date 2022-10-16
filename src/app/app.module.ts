@@ -25,9 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilePickerModule } from  'ngx-awesome-uploader';
 import { ClockModule } from './components/pages/home/clock/clock.module';
 //import { ClockComponent } from './components/pages/home/clock/clock.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { NgxChartsModule } from '@swimlane/ngx-charts';
 @NgModule({ 
   declarations: [
     AppComponent,
@@ -35,8 +33,6 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
    // ClockComponent
   ],
   imports: [
-    BrowserAnimationsModule,
-    NgxChartsModule,
     RouterModule,
     BrowserModule,
     AppRoutingModule,
