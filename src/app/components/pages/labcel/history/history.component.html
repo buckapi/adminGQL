@@ -113,7 +113,7 @@
 </div>
 
 <div class="modal fade" id="basicModal">
-    <div class="modal-dialog" role="document"  [hidden]="transactionSelected.transactionType=='egress'>
+    <div class="modal-dialog" role="document"  [hidden]="transactionSelected.transactionType=='egress'">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">{{transactionSelected.description}} #{{transactionSelected.ref}}</h5>
@@ -122,50 +122,51 @@
             </div>
             <div class="modal-body"> 
                 <div id="DZ_W_TimeLine1" class="widget-timeline dz-scroll style-1  " style="height: 100%;">
-                <ul class="timeline">
-                    <li *ngFor="let item of transactionSelected.items;let i = index">
-                    <div class="timeline-badge info"></div>
+                    <ul class="timeline">
+                        <li *ngFor="let item of transactionSelected.items;let i = index">
+                        <div class="timeline-badge info"></div>
 
-                        <a class="timeline-panel text-muted"   [hidden]="item.servicio!='REPARACION'">
+                            <a class="timeline-panel text-muted"   [hidden]="item.servicio!='REPARACION'">
+                                <span>{{item.servicio}}</span>
+                                <h6 class="mb-0">{{item.tipo}} <strong>Concepto: </strong> {{item.concepto}} <strong>Técnico:</strong> {{item.tecnico}}<strong>  Folio: </strong> {{item.folio}}  <strong class="text-primary">Monto: {{item.monto}}</strong>.</h6>
+                            </a>
+                        
+                            <a class="timeline-panel text-muted"   [hidden]="item.servicio!='PAYJOY'">
+                                <span>{{item.servicio}}</span>
+                                <h6 class="mb-0">Tipo: {{item.tipo}} TAG: {{item.tag}} . Folio: {{item.folio}} <strong class="text-info">IMEI 1: 
+                                    {{item.imei}}</strong><strong class="text-primary"> Monto: {{item.monto}}</strong></h6>
+                            </a>
+
+                            <a class="timeline-panel text-muted"   [hidden]="item.servicio!='FOXPAY'">
                             <span>{{item.servicio}}</span>
-                            <h6 class="mb-0">{{item.tipo}} <strong>Concepto: </strong> {{item.concepto}} <strong>Técnico:</strong> {{item.tecnico}}<strong>  Folio: </strong> {{item.folio}}  <strong class="text-primary">Monto: {{item.monto}}</strong>.</h6>
-                        </a>
-                      
-                         <a class="timeline-panel text-muted"   [hidden]="item.servicio!='PAYJOY'">
-                            <span>{{item.servicio}}</span>
-                            <h6 class="mb-0">Tipo: {{item.tipo}} TAG: {{item.tag}} . Folio: {{item.folio}} <strong class="text-info">IMEI 1: 
-                                {{item.imei}}</strong><strong class="text-primary"> Monto: {{item.monto}}</strong></h6>
-                        </a>
+                                <h6 class="mb-0">Tipo: {{item.tipo}} Referencia: {{item.referencia}}  Folio: {{item.folio}} 
+                                    <strong class="text-info">IMEI 1: 
+                                    {{item.imei}}</strong><strong class="text-primary"> Monto: {{item.monto}}</strong>
+                                </h6>
+                            </a>
+                        
+                            <a class="timeline-panel text-muted"   [hidden]="item.servicio!='CC FACIL'">
+                            <span >{{item.servicio}}</span>
+                                <h6 class="mb-0">Tipo: {{item.tipo}} Referencia: {{item.referencia}}  Folio: {{item.folio}} 
+                                    <strong class="text-info">IMEI 1: 
+                                    {{item.imei}}</strong><strong class="text-primary"> Monto: {{item.monto}}</strong>
+                                </h6>
+                            </a>
+                            <a class="timeline-panel text-muted"   [hidden]="item.servicio!='ACCESORIOS'">
+                            <span >{{item.servicio}}</span>
+                                <h6 class="mb-0">Concepto: {{item.concepto}}  Folio: {{item.folio}} 
+                                <strong class="text-primary"> Monto: {{item.monto}}</strong>
+                                </h6>
+                            </a>
 
-                        <a class="timeline-panel text-muted"   [hidden]="item.servicio!='FOXPAY'">
-                           <span>{{item.servicio}}</span>
-                            <h6 class="mb-0">Tipo: {{item.tipo}} Referencia: {{item.referencia}}  Folio: {{item.folio}} 
-                                <strong class="text-info">IMEI 1: 
-                                {{item.imei}}</strong><strong class="text-primary"> Monto: {{item.monto}}</strong>
-                            </h6>
-                        </a>
-                      
-                        <a class="timeline-panel text-muted"   [hidden]="item.servicio!='CC FACIL'">
-                           <span >{{item.servicio}}</span>
-                            <h6 class="mb-0">Tipo: {{item.tipo}} Referencia: {{item.referencia}}  Folio: {{item.folio}} 
-                                <strong class="text-info">IMEI 1: 
-                                {{item.imei}}</strong><strong class="text-primary"> Monto: {{item.monto}}</strong>
-                            </h6>
-                        </a>
-                        <a class="timeline-panel text-muted"   [hidden]="item.servicio!='ACCESORIOS'">
-                           <span >{{item.servicio}}</span>
-                            <h6 class="mb-0">Concepto: {{item.concepto}}  Folio: {{item.folio}} 
-                              <strong class="text-primary"> Monto: {{item.monto}}</strong>
-                            </h6>
-                        </a>
-
-                    </li>
-                </ul>
-            </div>
-        </div>           
+                        </li>
+                    </ul>
+                </div>
+            </div> 
+        </div>
     </div>
 
-    <div class="modal-dialog" role="document"  [hidden]="transactionSelected.transactionType!='egress'>
+    <div class="modal-dialog" role="document"  [hidden]="transactionSelected.transactionType!='egress'">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Salida #{{transactionSelected.ref}}</h5>
@@ -173,7 +174,6 @@
                 </button>
             </div>
             <div class="modal-body"> 
-                <div id="DZ_W_TimeLine1" class="widget-timeline dz-scroll style-1  " style="height: 100%;">
                 <h4>Categoria: </h4> {{transactionSelected.categoria}} 
                 <h4> Motivo: </h4> {{transactionSelected.description}} 
                 <h4> Monto: </h4> {{transactionSelected.amount}
