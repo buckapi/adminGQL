@@ -67,8 +67,8 @@
                                     </tr>
                                 </thead>
                                 <tbody id="customers">
-                                    <tr data-bs-toggle="modal" data-bs-target="#basicModal" class="btn-reveal-trigger" *ngFor='let transaction of transactions$ | async' [hidden]="filtering && transaction.idBranch!=filter" (click)="view(transaction)" style="cursor: pointer;">
-                                        <td class="py-3">
+                                    <tr data-bs-toggle="modal" data-bs-target="#basicModal" class="btn-reveal-trigger" *ngFor='let transaction of transactions$ | async' [hidden]="filtering && transaction.idBranch!=filter" >
+                                        <td class="py-3" (click)="view(transaction)" style="cursor: pointer;">
                                             <a >
                                                 <div class="media d-flex align-items-center">
                                                     <div class="avatar avatar-xl me-2">
@@ -85,19 +85,26 @@
                                                 </div>
                                             </a>
                                         </td>
-                                          <td class="py-2 ps-5">{{transaction.description}} <span [hidden]="transaction.transactionType=='egress'"># {{transaction.ref}}</span></td>
+                                          <td (click)="view(transaction)" style="cursor: pointer;" class="py-2 ps-5">{{transaction.description}} <span [hidden]="transaction.transactionType=='egress'"># {{transaction.ref}}</span></td>
                                        
                                         <td class="py-2"> <a [hidden]="transaction.status!='completed'">Completada</a> </td>
-                                       <td class="py-2">
+                                       <td class="py-2" (click)="view(transaction)" style="cursor: pointer;" >
                                             <a [hidden]="transaction.transactionType=='egress'" class="text-success">Ingreso</a> <a [hidden]="transaction.transactionType=='ingress'" class="text-danger">Egreso</a>
                                         </td>
-                                        <td class="py-2">{{transaction.amount}}</td>
+                                        <td (click)="view(transaction)" style="cursor: pointer;" class="py-2">{{transaction.amount}}</td>
                                         <td class="py-2 text-end">
-                                            <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
+                                            <div class="dropdown">
+                                                <button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown">
+                                                    <span class="fs--1">
+                                                        <i class="ti-close""></i>
+                                              </span></button>
                                                 <div class="dropdown-menu dropdown-menu-end border py-0">
                                                     <div class="py-2">
                                                         
-                                                        <a class="dropdown-item text-danger" >Anular</a></div>
+                                                        <a class="dropdown-item text-danger" >Anular 
+                                                            <span [hidden]="transaction.transactionType!=ingress">Entrada</span>
+                                                            <span [hidden]="transaction.transactionType!=egress">Salida</span>?
+                                                        </a></div>
                                                 </div>
                                             </div>
                                         </td>
