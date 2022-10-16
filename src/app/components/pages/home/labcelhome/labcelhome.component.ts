@@ -14,13 +14,14 @@ import { DataService } from '@app/services/data.service';
 import { DataApiService } from '@app/services/data-api.service'; 
 import {BRANCHS} from '@app/services/branchs.service';
 import {CARDS} from '@app/services/cards.service';
-
+import { GoogleChartComponent } from 'angular-google-charts';  
 @Component({
   selector: 'app-labcelhome',
   templateUrl: './labcelhome.component.html',
   styleUrls: ['./labcelhome.component.css']
 })
 export class LabcelhomeComponent implements AfterViewInit {
+  
    public  banchss:any=["br000003","br000002","-","br000001"];
     transactions$: any;
     allTransactions: any;
