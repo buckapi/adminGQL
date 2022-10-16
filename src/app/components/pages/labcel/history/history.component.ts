@@ -30,6 +30,7 @@ import { DataApiService } from '@app/services/data-api.service';
 export class HistoryComponent implements AfterViewInit {
   transactions$: any;
   // prodSze$: any;
+  transactionSelected:any={};
   filtering=false;
   filter="";
  public branchs:any=[];
@@ -80,7 +81,10 @@ export class HistoryComponent implements AfterViewInit {
 
 
   }
+public view(transaction:any){
+  this.transactionSelected=transaction;
 
+}
   isInvalidDate = (m: dayjs.Dayjs): boolean => {
     return this.invalidDates.some((d) => d.isSame(m, 'day'));
   };
