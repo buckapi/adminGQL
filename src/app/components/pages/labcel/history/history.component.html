@@ -85,9 +85,9 @@
                                                 </div>
                                             </a>
                                         </td>
-                                          <td (click)="view(transaction)" style="cursor: pointer;" class="py-2 ps-5">{{transaction.description}} <span [hidden]="transaction.transactionType=='egress'"># {{transaction.ref}}</span></td>
+                                          <td (click)="view(transaction)" style="cursor: pointer;" class="py-2 ps-5" data-bs-toggle="modal" data-bs-target="#basicModal">{{transaction.description}} <span [hidden]="transaction.transactionType=='egress'"># {{transaction.ref}}</span></td>
                                        
-                                        <td  data-bs-toggle="modal" data-bs-target="#basicModal" class="py-2"> <a [hidden]="transaction.status!='completed'">Completada</a> </td>
+                                        <td  data-bs-toggle="modal" data-bs-target="#basicModal" class="py-2"> <a [hidden]="transaction.status!='completed'"  (click)="view(transaction)"  style="cursor: pointer;">Completada</a> </td>
                                        <td  data-bs-toggle="modal" data-bs-target="#basicModal" class="py-2" (click)="view(transaction)" style="cursor: pointer;" >
                                             <a [hidden]="transaction.transactionType=='egress'" class="text-success">Ingreso</a> <a [hidden]="transaction.transactionType=='ingress'" class="text-danger">Egreso</a>
                                         </td>
@@ -102,8 +102,8 @@
                                                     <div class="py-2">
                                                         
                                                         <a class="dropdown-item text-danger" >Anular 
-                                                            <span [hidden]="transaction.transactionType!='ingress'">Entrada</span>
-                                                            <span [hidden]="transaction.transactionType!='egress'">Salida</span>?
+                                                            <span style="cursor: pointer;" [hidden]="transaction.transactionType!='ingress'">Entrada</span>
+                                                            <span style="cursor: pointer;" [hidden]="transaction.transactionType!='egress'">Salida</span>?
                                                         </a></div>
                                                 </div>
                                             </div>
