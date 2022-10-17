@@ -94,16 +94,18 @@ export class HistoryComponent implements AfterViewInit {
     //console.log(JSON.stringify(this.transactions$));
   } 
   public setFilter(idbranch:any){
-    this.transactionsAux$=null;
-    this.transactionsAux$=this.transactions$;
-    this.transactions$=null;    
-    for (let i=0;i<this.transactionsAux$.length;i++){
-      if(this.transactionsAux$[i].idBranch!=idbranch){
-        this.transactions$.push(this.transactionsAux$[i]);
-      }
-    }
     this.filter=idbranch;
     this.filtering=true;
+  }
+  public ordering(){
+    this.transactionsAux$=null;
+    let size=this.transactions$.length;
+    //this.transactions$=null;    
+    for (let i=size;i=0;i--){
+              this.transactionsAux$.push(this.transactions$[i]);
+    }
+    this.transactions$=null;
+    this.transactions$=this.transactionsAux$
   }
   fechaCreacion = (i: number) => this.transactions$[this.transactions$.length - 1 - i];
 
@@ -125,7 +127,9 @@ export class HistoryComponent implements AfterViewInit {
       this.transactions$=this.dataApiService.getTransationByBranch(this._butler.userActive.idBranch);
   }
   public loadFromRestUniversal(){
-      this.transactions$=this.dataApiService.getAllTransactions();
+      this.transactions$=this.dataApiService.getAllTransactions().subscribe((res:any) => {
+        this.ordering();    
+        });  ;
   }
   public reload(){
     console.log("pedido de ejeucion");
