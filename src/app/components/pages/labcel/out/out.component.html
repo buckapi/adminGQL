@@ -38,11 +38,12 @@
                             <table class="table table-sm mb-0 table-responsive student-tbl">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Status</th>
+                                        <th>Fecha</th>
+                                       
+                                        
                                         <th class=" ps-5" style="min-width: 200px;">Descripcion
                                         </th>
+                                        <th>Status</th>
                                         <th>Monto</th>
                                         <th></th>
                                     </tr>
@@ -55,20 +56,19 @@
                                                 <div class="media d-flex align-items-center">
                                           
                                                     <div class="media-body">
-                                                        <h5 class="mb-0 fs--1">{{transaction.name}}</h5>
+                                                        <h5 class="mb-0 fs--1">{{transaction.createdAt | date:'dd//MM/yyyy h:mm a'}}</h5>
                                                     </div>
                                                 </div>
                                             </a>
                                         </td>
-                                        <td class="py-2">
-                                            <a>{{transaction.email}}</a></td>
-                                        <td class="py-2"> <a >{{transaction.status}}</a></td>
+                                      
                                         <td class="py-2 ps-5">{{transaction.description}}</td>
+                                        <td class="py-2"> <a >{{transaction.status}}</a></td>
                                         <td class="py-2">{{transaction.amount}}</td>
                                         <td class="py-2 text-end">
                                             <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
                                                 <div class="dropdown-menu dropdown-menu-end border py-0">
-                                                    <div class="py-2"><a class="dropdown-item"  >Ver detalle</a><a class="dropdown-item text-danger" >Anular</a></div>
+                                                    <div class="py-2"><a class="dropdown-item text-danger" style="cursor: pointer;">Anular</a></div>
                                                 </div>
                                             </div>
                                         </td>
