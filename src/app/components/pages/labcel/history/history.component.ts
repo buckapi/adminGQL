@@ -2,11 +2,11 @@ import { Component, AfterViewInit } from '@angular/core';
 import {BRANCHS} from '@app/services/branchs.service';
 import {CARDS} from '@app/services/cards.service';
 import dayjs, { Dayjs } from 'dayjs/esm';
-
 import {Butler} from '@app/services/butler.service';
 import { Apollo } from "apollo-angular";
 import { DataService } from '@app/services/data.service'; 
 import { DataApiService } from '@app/services/data-api.service'; 
+import { ReversePipe } from '@pipes/reverse.pipe';
 //import { DateRange, DateRanges, TimePeriod } from '../../../../src/daterangepicker/daterangepicker.component';
 
  export interface TimePeriod {
