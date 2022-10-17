@@ -67,52 +67,54 @@
                                     </tr>
                                 </thead>
                                 <tbody id="customers">
-                                    <tr class="btn-reveal-trigger" *ngFor='let transaction of transactions$ | async' [hidden]="filtering && transaction.idBranch!=filter" >
-                                        <td  data-bs-toggle="modal" data-bs-target="#basicModal" class="py-3" (click)="view(transaction)" style="cursor: pointer;">
-                                            <a >
-                                                <div class="media d-flex align-items-center">
-                                                    <div class="avatar avatar-xl me-2">
-                                                        <div class="">
-                                                            <img class="rounded-circle img-fluid"
-                                                                src="assets/assetsdash/images/avatar/5.png" width="15" alt=""  [hidden]="transaction.transactionType=='egress'"/>
+                                    <tr class="btn-reveal-trigger" *ngFor='"let _ of transactions$; index as i; trackBy:porFecha' [hidden]="filtering && transaction.idBranch!=filter" >
+                                        <ng-container *ngIf="transactions$[transactions$.length - 1 - i] as transaction">                                        
+                                            <td  data-bs-toggle="modal" data-bs-target="#basicModal" class="py-3" (click)="view(transaction)" style="cursor: pointer;">
+                                                <a >
+                                                    <div class="media d-flex align-items-center">
+                                                        <div class="avatar avatar-xl me-2">
+                                                            <div class="">
                                                                 <img class="rounded-circle img-fluid"
-                                                                src="assets/assetsdash/images/avatar/1.png" width="15" alt="" [hidden]="transaction.transactionType=='ingress'"/>
+                                                                    src="assets/assetsdash/images/avatar/5.png" width="15" alt=""  [hidden]="transaction.transactionType=='egress'"/>
+                                                                    <img class="rounded-circle img-fluid"
+                                                                    src="assets/assetsdash/images/avatar/1.png" width="15" alt="" [hidden]="transaction.transactionType=='ingress'"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h5 class="mb-0 fs--1">{{transaction.createdAt | date:'dd/MM/yyyy h:mm a'}}</h5>
                                                         </div>
                                                     </div>
-                                                    <div class="media-body">
-                                                        <h5 class="mb-0 fs--1">{{transaction.createdAt | date:'dd/MM/yyyy h:mm a'}}</h5>
+                                                </a>
+                                            </td>
+                                            <td (click)="view(transaction)" style="cursor: pointer;" class="py-2 ps-5" data-bs-toggle="modal" data-bs-target="#basicModal">{{transaction.description}} 
+                                                <span [hidden]="transaction.transactionType=='egress'">
+                                                    # {{transaction.ref}}</span>
+                                                    <span [hidden]="transaction.transactionType=='ingress'">ref. {{transaction.ref}}</span>
+                                            </td>
+                                        
+                                            <td  data-bs-toggle="modal" data-bs-target="#basicModal" class="py-2"  (click)="view(transaction)"  style="cursor: pointer;"> <a [hidden]="transaction.status!='completed'" >Completada</a> </td>
+                                            <td  data-bs-toggle="modal" data-bs-target="#basicModal" class="py-2" (click)="view(transaction)" style="cursor: pointer;" >
+                                                <a [hidden]="transaction.transactionType=='egress'" class="text-success">Ingreso</a> 
+                                                <a [hidden]="transaction.transactionType=='ingress'" class="text-danger">Egreso</a>
+                                            </td>
+                                            <td  data-bs-toggle="modal" data-bs-target="#basicModal" (click)="view(transaction)" style="cursor: pointer;" class="py-2">{{transaction.amount}}</td>
+                                            <td class="py-2 text-end">
+                                                <div class="dropdown">
+                                                    <button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown">
+                                                        <span class="fs--1">
+                                                            <i class="ti-close"></i>
+                                                </span></button>
+                                                    <div class="dropdown-menu dropdown-menu-end border py-0">
+                                                        <div class="py-2">
+                                                            
+                                                            <a class="dropdown-item text-danger" >Anular 
+                                                                <span style="cursor: pointer;" [hidden]="transaction.transactionType!='ingress'">Entrada</span>
+                                                                <span style="cursor: pointer;" [hidden]="transaction.transactionType!='egress'">Salida</span>?
+                                                            </a></div>
                                                     </div>
                                                 </div>
-                                            </a>
-                                        </td>
-                                          <td (click)="view(transaction)" style="cursor: pointer;" class="py-2 ps-5" data-bs-toggle="modal" data-bs-target="#basicModal">{{transaction.description}} 
-                                            <span [hidden]="transaction.transactionType=='egress'">
-                                                # {{transaction.ref}}</span>
-                                                <span [hidden]="transaction.transactionType=='ingress'">ref. {{transaction.ref}}</span>
-                                            </td>
-                                       
-                                        <td  data-bs-toggle="modal" data-bs-target="#basicModal" class="py-2"  (click)="view(transaction)"  style="cursor: pointer;"> <a [hidden]="transaction.status!='completed'" >Completada</a> </td>
-                                       <td  data-bs-toggle="modal" data-bs-target="#basicModal" class="py-2" (click)="view(transaction)" style="cursor: pointer;" >
-                                            <a [hidden]="transaction.transactionType=='egress'" class="text-success">Ingreso</a> 
-                                            <a [hidden]="transaction.transactionType=='ingress'" class="text-danger">Egreso</a>
-                                        </td>
-                                        <td  data-bs-toggle="modal" data-bs-target="#basicModal" (click)="view(transaction)" style="cursor: pointer;" class="py-2">{{transaction.amount}}</td>
-                                        <td class="py-2 text-end">
-                                            <div class="dropdown">
-                                                <button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown">
-                                                    <span class="fs--1">
-                                                        <i class="ti-close"></i>
-                                              </span></button>
-                                                <div class="dropdown-menu dropdown-menu-end border py-0">
-                                                    <div class="py-2">
-                                                        
-                                                        <a class="dropdown-item text-danger" >Anular 
-                                                            <span style="cursor: pointer;" [hidden]="transaction.transactionType!='ingress'">Entrada</span>
-                                                            <span style="cursor: pointer;" [hidden]="transaction.transactionType!='egress'">Salida</span>?
-                                                        </a></div>
-                                                </div>
-                                            </div>
-                                        </td>
+                                            </ng-container>
+                                        </tr>>
                                     </tr>
                                 </tbody>
                             </table>

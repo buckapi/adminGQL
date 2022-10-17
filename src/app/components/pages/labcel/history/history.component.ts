@@ -81,6 +81,9 @@ export class HistoryComponent implements AfterViewInit {
 
 
   }
+
+
+  porFecha = (i: number) => this.transactions$[this.transactions$.length - 1 - i];
 public view(transaction:any){
   this.transactionSelected=transaction;
 
