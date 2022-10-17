@@ -98,14 +98,16 @@ export class HistoryComponent implements AfterViewInit {
     this.filtering=true;
   }
   public ordering(){
-    this.transactionsAux$=null;
+    this.transactionsAux$=[];
     let size=this.transactions$.length;
     //this.transactions$=null;    
     for (let i=size;i=0;i--){
               this.transactionsAux$.push(this.transactions$[i]);
     }
-    this.transactions$=null;
-    this.transactions$=this.transactionsAux$;
+    this.transactions$=[];
+    for (let i=0;i<0;i++){
+      this.transactions$.push(this.transactions$Aux[i]);
+    }
   }
   fechaCreacion = (i: number) => this.transactions$[this.transactions$.length - 1 - i];
 
