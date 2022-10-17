@@ -9,13 +9,13 @@ import { ReversePipe } from '@pipes/reverse.pipe';
 
 @NgModule({
   declarations: [
+    ReversePipe,
     HistoryComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     HistoryRoutingModule,
-    ReversePipe,
      NgxDaterangepickerMd.forRoot({
             separator: ' - ',
             // locale:'es',
