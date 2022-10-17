@@ -27,6 +27,7 @@ import { ReversePipe } from '@pipes/reverse.pipe';
 })
 export class HistoryComponent implements AfterViewInit {
   transactions$: any;
+  transactionsAux$: any;
   transactionSelected:any={};
   filtering=false;
   filter="";
@@ -93,6 +94,14 @@ export class HistoryComponent implements AfterViewInit {
     //console.log(JSON.stringify(this.transactions$));
   } 
   public setFilter(idbranch:any){
+    this.transactionsAux$=null;
+    this.transactionsAux$=this.transactions$;
+    this.transactions$=null;    
+    for (let i=0;i<this.transactionsAux$.length;i++){
+      if(this.transactionsAux$[i].idBranch!=idbranch){
+        this.transactions$.push(this.transactionsAux$[i]);
+      }
+    }
     this.filter=idbranch;
     this.filtering=true;
   }
