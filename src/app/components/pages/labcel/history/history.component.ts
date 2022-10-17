@@ -1,17 +1,15 @@
 import { Component, AfterViewInit } from '@angular/core';
-import {BRANCHS} from '@app/services/branchs.service';
-import {CARDS} from '@app/services/cards.service';
+import { BRANCHS } from '@app/services/branchs.service';
+import { CARDS } from '@app/services/cards.service';
 import dayjs, { Dayjs } from 'dayjs/esm';
-import {Butler} from '@app/services/butler.service';
+import { Butler } from '@app/services/butler.service';
 import { Apollo } from "apollo-angular";
 import { DataService } from '@app/services/data.service'; 
 import { DataApiService } from '@app/services/data-api.service'; 
 import { ReversePipe } from '@pipes/reverse.pipe';
-//import { DateRange, DateRanges, TimePeriod } from '../../../../src/daterangepicker/daterangepicker.component';
 
  export interface TimePeriod {
   [index: string]: Dayjs;
-
   startDate: Dayjs;
   endDate: Dayjs;
 }
@@ -29,25 +27,22 @@ import { ReversePipe } from '@pipes/reverse.pipe';
 })
 export class HistoryComponent implements AfterViewInit {
   transactions$: any;
-  // prodSze$: any;
   transactionSelected:any={};
   filtering=false;
   filter="";
- public branchs:any=[];
+  public branchs:any=[];
   public cards:any=[];
   selected: TimePeriod;
   alwaysShowCalendars: boolean;
   showRangeLabelOnInput: boolean;
   keepCalendarOpeningWithRange: boolean;
   maxDate: dayjs.Dayjs;
-  minDate: dayjs.Dayjs;
-  
+  minDate: dayjs.Dayjs;  
   invalidDates: dayjs.Dayjs[] = [];
   tooltips = [
     { date: dayjs(), text: 'Today is just unselectable' },
     { date: dayjs().add(2, 'days'), text: 'Yeeeees!!!' }
   ];
-
   inlineDateTime: TimePeriod;
   ranges: DateRanges = {
     ['Hoy']: [dayjs(), dayjs()],
@@ -65,9 +60,8 @@ export class HistoryComponent implements AfterViewInit {
     public dataApiService: DataApiService,
     public _butler: Butler
     ) { 
-   this.maxDate = dayjs().add(2, 'weeks');
+    this.maxDate = dayjs().add(2, 'weeks');
     this.minDate = dayjs().subtract(3, 'days');
-
     this.alwaysShowCalendars = true;
     this.keepCalendarOpeningWithRange = true;
     this.showRangeLabelOnInput = true;
@@ -75,19 +69,14 @@ export class HistoryComponent implements AfterViewInit {
       startDate: dayjs().subtract(1, 'days').set('hours', 0).set('minutes', 0),
       endDate: dayjs().subtract(1, 'days').set('hours', 23).set('minutes', 59)
     };
- this.branchs=BRANCHS;
-  this.cards=CARDS
- 
-
-
+    this.branchs=BRANCHS;
+    this.cards=CARDS
   }
 
-
   porFecha = (i: number) => this.transactions$[this.transactions$.length - 1 - i];
-public view(transaction:any){
-  this.transactionSelected=transaction;
-
-}
+  public view(transaction:any){
+    this.transactionSelected=transaction;
+  }
   isInvalidDate = (m: dayjs.Dayjs): boolean => {
     return this.invalidDates.some((d) => d.isSame(m, 'day'));
   };
@@ -100,12 +89,12 @@ public view(transaction:any){
       return false;
     }
   };
-    public getBranchTransactions(){
+  public getBranchTransactions(){
     //console.log(JSON.stringify(this.transactions$));
-   // this._butler.results=this.prodSze$.count;
-  } public setFilter(idbranch:any){
-   this.filter=idbranch;
-   this.filtering=true;
+  } 
+  public setFilter(idbranch:any){
+    this.filter=idbranch;
+    this.filtering=true;
   }
 
   rangeClicked(range: DateRange): void {
