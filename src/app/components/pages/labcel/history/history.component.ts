@@ -11,11 +11,7 @@ import { DataApiService } from '@app/services/data-api.service';
 import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({ name: 'reverse' })
 
-export class ReversePipe implements PipeTransform {
-  transform(value) {
-    return value.slice().reverse();
-  }
-}
+
  export interface TimePeriod {
   [index: string]: Dayjs;
 
@@ -34,8 +30,11 @@ export class ReversePipe implements PipeTransform {
   templateUrl: './history.component.html',
   styleUrls: ['./history.component.css']
 })
-export class HistoryComponent implements AfterViewInit {
+export class HistoryComponent implements AfterViewInit,PipeTransform {
   transactions$: any;
+  transform(value) {
+    return value.slice().reverse();
+  }
   // prodSze$: any;
   transactionSelected:any={};
   filtering=false;
