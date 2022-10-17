@@ -234,7 +234,7 @@ public sendTicket(){
      this._butler.ticket=[];
        this.ticket=null;
        this.setSerialT();
-       this.router.navigate(['/labcelhistory']);
+       this.router.navigate(['/labceltransactions']);
      });  
     // console.log(JSON.stringify(this.ticket));
      console.log(JSON.stringify(this.options));
