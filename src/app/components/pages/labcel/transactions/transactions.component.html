@@ -63,7 +63,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="customers">
-                                    <tr class="btn-reveal-trigger" *ngFor='let transaction of transactions$ | reverse ' [hidden]="filtering && transaction.idBranch!=filter || transaction.transactionType=='egress'" >
+                                    <tr class="btn-reveal-trigger" *ngFor='let transaction of transactions$  ' [hidden]="filtering && transaction.idBranch!=filter || transaction.transactionType=='egress'" >
                                         <td  data-bs-toggle="modal" data-bs-target="#basicModal" class="py-3" (click)="view(transaction)" style="cursor: pointer;">
                                             <a >
                                                 <div class="media d-flex align-items-center">

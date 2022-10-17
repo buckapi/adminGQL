@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { HistoryRoutingModule } from './history-routing.module';
 import { HistoryComponent } from './history.component';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
-
+import { ReversePipe } from '@pipes/reverse.pipe';
 
 @NgModule({
   declarations: [
+    ReversePipe,
     HistoryComponent
   ],
   imports: [
