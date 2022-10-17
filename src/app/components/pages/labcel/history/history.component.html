@@ -171,10 +171,13 @@
                     </ul>
                 </div>
                 <h4>Metodo de pago: </h4> {{transactionSelected.method}} 
-                <h4><span [hidden]="transactionSelected.method!='Efectivo'">Cambio: </span>  </h4><span [hidden]="transactionSelected.method!='Efectivo'">{{transactionSelected.cambio}}  </span>
-                <h4><span [hidden]="transactionSelected.method!='Transferencia'">Folio: </span>  </h4><span [hidden]="transactionSelected.method!='Transferencia'">{{transactionSelected.folioTarjeta}}  </span>
+                              <h4><span [hidden]="transactionSelected.method!='Transferencia'">Folio: </span>  </h4><span [hidden]="transactionSelected.method!='Transferencia'">{{transactionSelected.folioTarjeta}}  </span>
 
                 <h4> Monto: </h4> {{transactionSelected.amount}}
+                <h4><span [hidden]="transactionSelected.method!='Efectivo'">Cobro: </span>  </h4><span [hidden]="transactionSelected.method!='Efectivo'">{{transactionSelected.cobro}}  </span>
+              
+                <h4><span [hidden]="transactionSelected.method!='Efectivo'">Cambio: </span>  </h4><span [hidden]="transactionSelected.method!='Efectivo'">{{transactionSelected.cambio}}  </span>
+
             </div> 
         </div>
     </div>

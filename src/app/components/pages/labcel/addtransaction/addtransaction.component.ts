@@ -214,7 +214,11 @@ public sendTicket(){
   this.ticket.serialT=this.currentSerial;
    this.toastSvc.success(this.mensaje, 'Ticket guardado');
    if (this.folioTarjeta==0){this.ticket.folioTarjeta=null;}
-   if(this.methodSelectedText=='Efectivo ✔'){this.ticket.method="Efectivo";this.ticket.cobro=this.cobro;this.ticket.cambio=this.cambio;}
+   if(this.methodSelectedText=='Efectivo ✔'){
+    this.ticket.method="Efectivo";
+    this.ticket.cobro=this.cobro;
+    this.ticket.cambio=this.cobro-this.total;
+  }
    if(this.methodSelectedText=='Transferencia ✔'){this.ticket.method="Transferencia";}
    if(this.methodSelectedText=='Tarjeta ✔'){this.ticket.method="Tarjeta";}
    this.ticket.total=this.total;
