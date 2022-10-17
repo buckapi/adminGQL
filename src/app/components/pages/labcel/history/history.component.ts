@@ -128,7 +128,8 @@ export class HistoryComponent implements AfterViewInit {
   }
   public loadFromRestUniversal(){
       this.transactions$=this.dataApiService.getAllTransactions().subscribe((res:any) => {
-        this.ordering();    
+        this.ordering();   
+        console.log(JSON.stringify(this.transactions$));
         });  ;
   }
   public reload(){
