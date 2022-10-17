@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'reverse',
-  pure:true
+  pure: false
 })
 
 export class ReversePipe implements PipeTransform {
