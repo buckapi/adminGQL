@@ -85,7 +85,11 @@
                                                 </div>
                                             </a>
                                         </td>
-                                          <td (click)="view(transaction)" style="cursor: pointer;" class="py-2 ps-5" data-bs-toggle="modal" data-bs-target="#basicModal">{{transaction.description}} <span [hidden]="transaction.transactionType=='egress'"># {{transaction.ref}}</span></td>
+                                          <td (click)="view(transaction)" style="cursor: pointer;" class="py-2 ps-5" data-bs-toggle="modal" data-bs-target="#basicModal">{{transaction.description}} 
+                                            <span [hidden]="transaction.transactionType=='egress'">
+                                                # {{transaction.ref}}</span>
+                                                <span [hidden]="transaction.transactionType=='ingress'">ref. {{transaction.ref}}</span>
+                                            </td>
                                        
                                         <td  data-bs-toggle="modal" data-bs-target="#basicModal" class="py-2"  (click)="view(transaction)"  style="cursor: pointer;"> <a [hidden]="transaction.status!='completed'" >Completada</a> </td>
                                        <td  data-bs-toggle="modal" data-bs-target="#basicModal" class="py-2" (click)="view(transaction)" style="cursor: pointer;" >
