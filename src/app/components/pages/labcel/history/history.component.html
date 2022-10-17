@@ -68,7 +68,7 @@
                                 </thead>
                                 <tbody id="customers">
                                     <tr class="btn-reveal-trigger"  *ngFor="let c of transactions$ | async ; index as i; trackBy: fechaCreacion"
-                                    [hidden]="filtering && c.idBranch!=filter" >
+                                     >
                                         <ng-container *ngIf="transactions$[transactions$.length - 1 - i] as transaction">                                    
                                             <td  data-bs-toggle="modal" data-bs-target="#basicModal" class="py-3" (click)="view(transaction)" style="cursor: pointer;">
                                                 <a >
