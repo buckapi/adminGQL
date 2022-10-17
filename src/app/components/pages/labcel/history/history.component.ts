@@ -8,7 +8,14 @@ import { Apollo } from "apollo-angular";
 import { DataService } from '@app/services/data.service'; 
 import { DataApiService } from '@app/services/data-api.service'; 
 //import { DateRange, DateRanges, TimePeriod } from '../../../../src/daterangepicker/daterangepicker.component';
+import { Pipe, PipeTransform } from '@angular/core';
+@Pipe({ name: 'reverse' })
 
+export class ReversePipe implements PipeTransform {
+  transform(value) {
+    return value.slice().reverse();
+  }
+}
  export interface TimePeriod {
   [index: string]: Dayjs;
 
