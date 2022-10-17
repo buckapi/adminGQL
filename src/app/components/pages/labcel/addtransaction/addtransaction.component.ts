@@ -122,7 +122,7 @@ public setOption(option:any){
   if(option==3){this.optionSelectedText="CC FACIL ✔";this.optionSelected=true;this.item.servicio="CC FACIL";}
   if(option==4){this.optionSelectedText="ACCESORIOS ✔";this.optionSelected=true;this.item.servicio="ACCESORIOS";}
   if(option==5){this.optionSelectedText="REPARACION ✔";this.optionSelected=true;this.item.servicio="REPARACION";}
-  cambio
+  
 }
 public setTechnical(technical:any){
   this.technical=technical;

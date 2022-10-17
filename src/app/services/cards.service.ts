@@ -4,7 +4,7 @@ export const CARDS: Card[] = [
   {
     email:'oficinalabcel@protonmail.com',
     userType: 'admin',
-    name:'Oficina',
+    name:'David',
     idApp: 'bc000001',
 
     bramch:"634bbee1d8d2632d682d47ae",
