@@ -96,6 +96,7 @@ export class HistoryComponent implements AfterViewInit {
     this.filter=idbranch;
     this.filtering=true;
   }
+  fechaCreacion = (i: number) => this.transactions$[this.transactions$.length - 1 - i];
 
   rangeClicked(range: DateRange): void {
     // eslint-disable-next-line no-console
