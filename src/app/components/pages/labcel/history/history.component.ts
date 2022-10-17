@@ -106,7 +106,7 @@ export class HistoryComponent implements AfterViewInit {
     }
     this.transactions$=[];
     for (let i=0;i<0;i++){
-      this.transactions$.push(this.transactions$Aux[i]);
+      this.transactions$.push(this.transactionsAux$[i]);
     }
   }
   fechaCreacion = (i: number) => this.transactions$[this.transactions$.length - 1 - i];
