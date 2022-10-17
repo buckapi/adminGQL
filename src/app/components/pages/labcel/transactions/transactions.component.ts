@@ -26,7 +26,7 @@ export interface TimePeriod {
   templateUrl: './transactions.component.html',
   styleUrls: ['./transactions.component.css']
 })
-export class TransactionsComponent implements OnInit {
+export class TransactionsComponent implements AfterViewInit {
   transactions$: any;
   // prodSze$: any;
   transactionSelected:any={};
