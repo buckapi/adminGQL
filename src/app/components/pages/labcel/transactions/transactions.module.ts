@@ -4,9 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { TransactionsRoutingModule } from './transactions-routing.module';
 import { TransactionsComponent } from './transactions.component';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
-
+import { ReversePipe } from '@pipes/reverse.pipe';
 @NgModule({
   declarations: [
+    ReversePipe,
     TransactionsComponent
   ],
   imports: [
