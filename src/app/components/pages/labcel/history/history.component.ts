@@ -8,9 +8,6 @@ import { Apollo } from "apollo-angular";
 import { DataService } from '@app/services/data.service'; 
 import { DataApiService } from '@app/services/data-api.service'; 
 //import { DateRange, DateRanges, TimePeriod } from '../../../../src/daterangepicker/daterangepicker.component';
-import { Pipe, PipeTransform } from '@angular/core';
-@Pipe({ name: 'reverse' })
-
 
  export interface TimePeriod {
   [index: string]: Dayjs;
@@ -30,11 +27,8 @@ import { Pipe, PipeTransform } from '@angular/core';
   templateUrl: './history.component.html',
   styleUrls: ['./history.component.css']
 })
-export class HistoryComponent implements AfterViewInit,PipeTransform {
+export class HistoryComponent implements AfterViewInit {
   transactions$: any;
-  transform(value) {
-    return value.slice().reverse();
-  }
   // prodSze$: any;
   transactionSelected:any={};
   filtering=false;
