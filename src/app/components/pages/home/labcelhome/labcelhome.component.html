@@ -107,14 +107,14 @@
                 <div class="col-xl-3 col-xxl-4">
                     <div class="card">
                         <div class="card-header pb-0 border-0">
-                            <h5 class="mb-0 text-black fs-20">My Profile</h5><span (click)="calculoTotales()" style="cursor:pointer;">graph</span>
+                            <h5 class="mb-0 text-black fs-20">{{_butler.userActive.email}}</h5>
+                          
                             <div class="dropdown ms-auto">
                                 <div class="btn-link" data-bs-toggle="dropdown">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="12" cy="5" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="19" r="2"></circle></g></svg>
                                 </div>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" >Edit</a>
-                                    <a class="dropdown-item" >Delete</a>
+                                    <a class="dropdown-item" >Ajustes</a>
                                 </div>
                             </div>
                         </div>
@@ -129,7 +129,7 @@
                                 <p class="mb-0 text-black ">{{_butler.userActive.branch}}</p>
                      
                             </div>
-                            GRAPH
+                          
                             <!-- <google-chart #chart  
                                [title]="title"  
                                [type]="type"  
@@ -155,15 +155,15 @@
                 <div class="col-xl-9 col-xxl-8">
                     <div class="card">
                         <div class="card-header border-0 pb-0">
-                            <h5 class="mb-0 text-black fs-20">Coin Holding</h5>
+                            <h5 class="mb-0 text-black fs-20">Sucursales</h5>
                             <div class="dropdown ms-auto">
                                 <div class="btn-link" data-bs-toggle="dropdown">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="12" cy="5" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="19" r="2"></circle></g></svg>
                                 </div>
-                                <div class="dropdown-menu dropdown-menu-right">
+                            <!-- <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item" >Edit</a>
                                     <a class="dropdown-item" >Delete</a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="card-body">
@@ -195,7 +195,7 @@
                                                     <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M0.707108 6.06712C0.0771426 6.69709 0.523309 7.77423 1.41421 7.77423L12.3601 7.77423C13.251 7.77423 13.6972 6.69709 13.0672 6.06712L7.59426 0.594186C7.20373 0.203662 6.57057 0.203662 6.18005 0.594186L0.707108 6.06712Z" fill="#61C277"/>
                                                     </svg>
-                                                    <span class="text-white fs-14">Ventas del dia</span>
+                                                    <span class="text-white fs-14">Balance del dia</span>
                                                 </div>
                                             </div>  
                                         </div>
