@@ -10,7 +10,7 @@ export class ReversePipe implements PipeTransform {
 
   transform(values: any) {
     if (values) {
-      return values.split('').reverse().join('');
+      return values.reverse();
     }
   }
 }
