@@ -59,6 +59,9 @@ setMyStyles(i:any) {
     'background-color': this.backgroundColors[i], };
   return styles;
 }
+  public doughnutChartOptions: ChartConfiguration<'doughnut'>['options'] = {
+    responsive: false
+  };
    public  banchss:any=["br000003","br000002","-","br000001"];
     transactions$: any;
     allTransactions: any;
