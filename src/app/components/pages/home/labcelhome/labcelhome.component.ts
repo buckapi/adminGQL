@@ -21,20 +21,23 @@ import { ChartConfiguration } from 'chart.js';
   styleUrls: ['./labcelhome.component.css']
 })
 export class LabcelhomeComponent implements AfterViewInit {
+public dataSet:any=[0,0,0,0];
+public infoLoaded=false;
     // Doughnut
   public doughnutChartLabels: string[] = [ 'Hidalgo', 'Colinas del sur', 'Reservas territoriales','Oficina' ];
   public doughnutChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [
   //    { data: [ 350, 450, 100 ], label: 'Series A' },
 //      { data: [ 50, 150, 120 ], label: 'Series B' },
-      { data: [ 250, 130, 70 , 120], label: 'Balance actual',
-
-  backgroundColor: [
-      '#3a3e98',
+      { 
+        data: [ 250, 130, 70 , 120], 
+        label: 'Balance actual',
+        backgroundColor: [
+        '#3a3e98',
         '#5256bc',
         '#527cbc',
         '#4ab1d8'
-      ],
-       }
+        ],
+      }
 
     ];
   public backgroundColors:any=[
@@ -133,19 +136,22 @@ public calculoTotales(){
        this.totales=[];
        this.egresos=[];
        this.ingresos=[];
+          this.doughnutChartDatasets[0].data=[];
       for (let i =0;i<4;i++){
           for (let j =0;j<size;j++){
             if(res[j].idBranch!=='undefined' &&  res[j].idBranch==this.banchss[i] ){         
               if (res[j].transactionType==="ingress"){
                 this.ingresosCalculado=this.ingresosCalculado+res[j].amount;
-                console.log("uno");
               }else{
                 this.egresosCalculado=this.egresosCalculado+res[j].amount;
               }
               this.totalCalculado=this.totalCalculado+res[j].amount;
             }
           }
+          this.infoLoaded=true;
               this.totales.push(this.totalCalculado);
+              this.doughnutChartDatasets[0].data.push(this.totalCalculado) ;
+              this.dataSet.push(this.totalCalculado);
               this.egresos.push(this.egresosCalculado);
               this.ingresos.push(this.ingresosCalculado);
 
@@ -155,7 +161,9 @@ public calculoTotales(){
         // this.totalIndividual(this.banchss[i]);
         // this.totales[i]=this.totalCalculado;
       }
-      console.log(JSON.stringify(this.totales));
+           
+            
+      console.log(JSON.stringify(this.doughnutChartDatasets[0].data[0]));
        // this.calculoTotales();
        // this.calculoTotales();
        // console.log(JSON.stringify(this.allTransactions));
