@@ -27,12 +27,10 @@
     "@supabase/supabase-js": "^1.35.6",
     "@ultimate/ngxerrors": "^1.4.0",
     "apollo-angular": "^3.0.1",
-    "bootstrap": "^5.2.2",
- 
+    "bootstrap": "^5.2.2", 
     "dayjs": "^1.11.5",
     "graphql": "^16",
     "mapbox-gl": "^1.13.2",
-
     "ngx-awesome-uploader": "^13.0.1",
     "ngx-daterangepicker-material": "^6.0.4",
     "ngx-infinite-scroll": "^13.1.0",
@@ -43,7 +41,9 @@
     "swiper": "^6.8.4",
     "tslib": "^2.3.0",
     "yup": "^0.32.11",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "chart.js": "~3.8.0",
+    "ng2-charts": "^3.0.0",
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.1.2",
