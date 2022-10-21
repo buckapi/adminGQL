@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilePickerModule } from  'ngx-awesome-uploader';
 import { ClockModule } from './components/pages/home/clock/clock.module';
 //import { ClockComponent } from './components/pages/home/clock/clock.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({ 
   declarations: [
@@ -33,6 +34,7 @@ import { ClockModule } from './components/pages/home/clock/clock.module';
    // ClockComponent
   ],
   imports: [
+
     RouterModule,
     BrowserModule,
     AppRoutingModule,
@@ -45,6 +47,7 @@ import { ClockModule } from './components/pages/home/clock/clock.module';
     FooterModule, 
     FontAwesomeModule,
     HttpClientModule,
+    NgChartsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable

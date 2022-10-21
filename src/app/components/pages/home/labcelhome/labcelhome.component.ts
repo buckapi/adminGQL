@@ -14,6 +14,7 @@ import { DataService } from '@app/services/data.service';
 import { DataApiService } from '@app/services/data-api.service'; 
 import {BRANCHS} from '@app/services/branchs.service';
 import {CARDS} from '@app/services/cards.service';
+import { ChartConfiguration } from 'chart.js';
 
 @Component({
   selector: 'app-labcelhome',
@@ -21,7 +22,47 @@ import {CARDS} from '@app/services/cards.service';
   styleUrls: ['./labcelhome.component.css']
 })
 export class LabcelhomeComponent implements AfterViewInit {
-  
+  // Doughnut
+  public doughnutChartLabels: string[] = [ 'Hidalgo', 'Colinas del sur', 'Reservas territoriales','Oficina' ];
+  public doughnutChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [
+  //    { data: [ 350, 450, 100 ], label: 'Series A' },
+//      { data: [ 50, 150, 120 ], label: 'Series B' },
+      { data: [ 250, 130, 70 , 120], label: 'Balance actual',
+
+  backgroundColor: [
+      '#3a3e98',
+        '#5256bc',
+        '#527cbc',
+        '#4ab1d8'
+      ],
+       }
+
+    ];
+  public backgroundColors:any=[
+      '#3a3e98',
+        '#5256bc',
+        '#527cbc',
+        '#4ab1d8'
+  ];
+  public borderColors:any=[
+      '#3a3e98',
+        '#5256bc',
+        '#527cbc',
+        '#4ab1d8'
+  ];
+setBorders(i:any) {
+  let styles = {
+    'border-color': this.borderColors[i], };
+  return styles;
+}
+setMyStyles(i:any) {
+  let styles = {
+    'background-color': this.backgroundColors[i], };
+  return styles;
+}
+  public doughnutChartOptions: ChartConfiguration<'doughnut'>['options'] = {
+    responsive: false
+  };
    public  banchss:any=["br000003","br000002","-","br000001"];
     transactions$: any;
     allTransactions: any;

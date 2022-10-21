@@ -107,7 +107,7 @@
                 <div class="col-xl-3 col-xxl-4">
                     <div class="card">
                         <div class="card-header pb-0 border-0">
-                            <h5 class="mb-0 text-black fs-20">{{_butler.userActive.email}}</h5>
+                            <h5 class="mb-0 text-black fs-20">{{_butler.userActive.branch}}</h5>
                           
                             <div class="dropdown ms-auto">
                                 <div class="btn-link" data-bs-toggle="dropdown">
@@ -126,10 +126,16 @@
                             <div class="text-center" *ngIf="_butler.userActive.email!=undefined">
                                   <img src="{{_butler.userActive.images[0]}}" width="100" class="img-fluid rounded-circle" alt="">
                                 <h4 class="fs-26 mt-sm-3 mt-2 mb-sm-3 mb-0 font-w600 text-black">{{_butler.userActive.name}}</h4>   
-                                <p class="mb-0 text-black ">{{_butler.userActive.branch}}</p>
+                                <p class="mb-0 text-black ">{{_butler.userActive.email}}</p>
                      
                             </div>
-                          
+                            <canvas baseChart
+        [labels]="doughnutChartLabels"
+        [datasets]="doughnutChartDatasets"
+        [options]="doughnutChartOptions"
+        [legend]="true"
+        [type]="'doughnut'">
+</canvas>
                             <!-- <google-chart #chart  
                                [title]="title"  
                                [type]="type"  
@@ -170,8 +176,8 @@
                             <div class="row">
                                
                                 <div class="col-lg-6"  *ngFor="let branch of branchs;let i = index">
-                                    <div class="card border coin-holding-card border-info">
-                                        <div class="card-body bg-info rounded">
+                                    <div class="card border coin-holding-card"[ngStyle]="setBorders(i)">
+                                        <div class="card-body rounded"[ngStyle]="setMyStyles(i)">
                                             <div class="d-flex align-items-center">
                                                 <i class="ti-location-pin" style="
                                                     color: white;

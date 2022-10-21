@@ -1,5 +1,6 @@
 <div id="main-wrapper" class="show menu-toggle">
   <app-header  [hidden]="router.url.includes('/login')"></app-header>
+
   <router-outlet></router-outlet>
   <div class="deznav" [hidden]="router.url.includes('/login')">
     <div class="deznav-scroll" [hidden]="_butler.idApp!='bc000001' || !_butler.isLogged || _butler.userType!='sucursal'" >

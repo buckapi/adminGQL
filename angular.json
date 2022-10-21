@@ -110,5 +110,8 @@
       }
     }
   },
-  "defaultProject": "motogo"
+  "defaultProject": "motogo",
+  "cli": {
+    "analytics": false
+  }
 }

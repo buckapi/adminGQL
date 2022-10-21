@@ -6,11 +6,15 @@ import { LabcelhomeComponent } from './labcelhome.component';
 import {XsegundoService} from '@app/services/xsegundo.service';
 
 import { ClockModule } from '@pages/home/clock/clock.module';
+import { NgChartsModule } from 'ng2-charts';
+
+
 @NgModule({
   declarations: [
     LabcelhomeComponent
   ],
   imports: [
+  NgChartsModule,
   FormsModule,  
     CommonModule,
     LabcelhomeRoutingModule,
