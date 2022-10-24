@@ -44,7 +44,7 @@ size=0;
     try {
       const result = await actionToCall as UserReponse;
       if (result.email) {
-        this.toastSvc.success("Welcome dear" +result.email, 'Logged!');
+        this.toastSvc.success("" +result.email, 'Bienvenido(a)');
         this.size = this.cards.length;
             this._butler.email=result.email;
 // console.log(JSON.stringify(this.cards))
