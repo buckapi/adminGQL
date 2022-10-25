@@ -2,6 +2,28 @@ import {Card} from 'src/app/interfaces/card';
 
 export const CARDS: Card[] = [
   {
+    email:'openimport@proton.me',
+    userType: 'admin',
+    name:'Aministrador',
+    idApp: 'bc000001',
+
+    bramch:"634bbee1d8d2632d682d47ae",
+    sex: 'm',
+    admin:true,
+    branch:'Oficina',
+    role:"administrator",
+     categories:[      
+      'otro'
+    ],
+    userId:'e32780ae-b99b-4656-b9c8-c94cbb6f733f',
+    images:[
+      'assets/assetsdash/images/profile/captain.png',
+      'jamundi'
+    ],
+    idBranch:'br000001',
+    idCard:'ur000001'
+  } ,
+  {
     email:'oficinalabcel@protonmail.com',
     userType: 'admin',
     name:'David',
