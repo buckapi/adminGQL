@@ -25,6 +25,7 @@ const routes: Routes = [
 { path: 'labcelout', loadChildren: () => import('./components/pages/labcel/out/out.module').then(m => m.OutModule) },
 { path: 'outregister', loadChildren: () => import('./components/pages/labcel/outregister/outregister.module').then(m => m.OutregisterModule) },
 { path: 'cierrecaja', loadChildren: () => import('./components/pages/labcel/cierrecaja/cierrecaja.module').then(m => m.CierrecajaModule) },
+{ path: 'products', loadChildren: () => import('./components/pages/products/products.module').then(m => m.ProductsModule) },
  { path:'**',pathMatch:'full',redirectTo:'home'}
 ];
 
