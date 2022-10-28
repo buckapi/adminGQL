@@ -17,34 +17,59 @@
                 <div class="welcome-text" >
                     <h4>Agreguemos un producto...</h4>
                     <span></span>
-                </div>                       
+                </div>     
+
             </div>
             <div class="col-sm-7 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                   
             </div>
+
         </div>
-        <div class="col-lg-12">
+        <div class="col-lg-12"> 
+ <img src="assets/assetsdash/images/one.png" [hidden]="!one" style="max-width:100%;">  
+                      <img src="assets/assetsdash/images/two.png" [hidden]="!two"style="max-width:100%;">  
+                       </div>
+ <p>
+ </p>
+
+         <div class="col-lg-12">
+
             <div class="card">
                 <div class="card-header border-0 pb-0">
                     <!-- <h4 class="card-title"  [hidden]="!show"></h4> -->
                 </div>
                <div class="card-body">
                     <div class="row">  
-<div class="uploader-wrapper" [hidden]="!two">
-  <ngx-awesome-uploader #uploader [adapter]="adapter" [enableCropper]="true"     [captions]="captions">
-  </ngx-awesome-uploader>
+                     
+<div class="uploader-wrapper" style="background:white;" [hidden]="!two">
+  <ngx-awesome-uploader class="fondo" #uploader [adapter]="adapter" [enableCropper]="true"     [captions]="captions">
+  </ngx-awesome-uploader >
 </div>
-            <form [formGroup]="new" (ngSubmit)="saveProduct()">
+            <form [formGroup]="new" (ngSubmit)="next()" [hidden]="!one">
                 <div class="mb-3 row" >
-                    <label class="col-lg-3 col-form-label" for="concepto" >Descripcion <span class="text-danger">*</span>        
+                    <label class="col-lg-3 col-form-label" for="name" >Nombre <span class="text-danger">*</span>
+                       
+                    </label>
+                    <div class="col-lg-3">
+                        <input  class="form-control"   upperCase type="text"
+                        formControlName="name"
+                        class="form-control"
+                        [ngClass]="{ 'is-invalid': submittedAcce && h['name'].errors }">
+                        <div *ngIf="submittedAcce && h['name'].errors" class="invalid-feedback">
+                        <div *ngIf="h['name'].errors['required']">Campo requerido</div>
+                      </div>
+                    </div>
+                </div>
+                <div class="mb-3 row" >
+                    <label class="col-lg-3 col-form-label" for="description" >Descripcion <span class="text-danger">*</span>        
                     </label>
                     <div class="col-lg-7">
                         <textarea  rows="5"class="form-control"  upperCase  type="text"
-                        formControlName="concepto"
+                        formControlName="description"
                         class="form-control"
-                        [ngClass]="{ 'is-invalid': submittedAcce && h['concepto'].errors }"></textarea>
-                        <div *ngIf="submittedAcce && h['concepto'].errors" class="invalid-feedback">
-                        <div *ngIf="h['concepto'].errors['required']">Campo requerido</div>
+                        [ngClass]="{ 'is-invalid': submittedAcce && h['description'].errors }"></textarea>
+                        <div *ngIf="submittedAcce && h['description'].errors" class="invalid-feedback">
+                        <div *ngIf="h['description'].errors['required']">Campo requerido</div>
                       </div>
                     </div>
                 </div>
@@ -58,16 +83,16 @@
                     </div>
                 </div>
                 <div class="mb-3 row" >
-                    <label class="col-lg-3 col-form-label" for="montoAcce" >Precio <span class="text-danger">*</span>
+                    <label class="col-lg-3 col-form-label" for="price" >Precio <span class="text-danger">*</span>
                        
                     </label>
                     <div class="col-lg-3">
                         <input  class="form-control"  upperCase  type="number"
-                        formControlName="montoAcce"
+                        formControlName="price"
                         class="form-control"
-                        [ngClass]="{ 'is-invalid': submittedAcce && h['montoAcce'].errors }">
-                        <div *ngIf="submittedAcce && h['montoAcce'].errors" class="invalid-feedback">
-                        <div *ngIf="h['montoAcce'].errors['required']">Campo requerido</div>
+                        [ngClass]="{ 'is-invalid': submittedAcce && h['price'].errors }">
+                        <div *ngIf="submittedAcce && h['price'].errors" class="invalid-feedback">
+                        <div *ngIf="h['price'].errors['required']">Campo requerido</div>
                       </div>
                     </div>
                 </div>
@@ -79,7 +104,7 @@
                       
                     </div>
                      <div class="col-lg-4 ms-auto">
-                          <button  class="btn btn-rounded btn-light"  [routerLink]="['../labcelout']">Cancelar</button>
+                          <button  class="btn btn-rounded btn-outline-light"  [routerLink]="['../labcelout']">Cancelar</button>
                         <button type="submit" class="btn btn-rounded btn-info" [hidden]="!showB">Aceptar</button>
                     </div>
                 </div>

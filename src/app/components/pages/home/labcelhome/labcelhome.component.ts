@@ -15,6 +15,9 @@ import { DataApiService } from '@app/services/data-api.service';
 import {BRANCHS} from '@app/services/branchs.service';
 import {CARDS} from '@app/services/cards.service';
 import { ChartConfiguration } from 'chart.js';
+import { IpServiceService } from '@app/services/ip-service.service'; 
+import { HttpClient } from  '@angular/common/http';
+
 @Component({
   selector: 'app-labcelhome',
   templateUrl: './labcelhome.component.html',
@@ -23,6 +26,17 @@ import { ChartConfiguration } from 'chart.js';
 export class LabcelhomeComponent implements AfterViewInit {
 public dataSet:any=[0,0,0,0];
 public infoLoaded=false;
+  name = 'Angular';
+
+   ipaddress:string = '';
+   latitude:string= '';
+   longitude:string= '';
+   currency:string = '';
+   currencysymbol:string = '';
+   isp:string= '';
+   city:string = '';
+   country:string ='';
+ipAddress:string; 
     // Doughnut
   public doughnutChartLabels: string[] = [ 'Hidalgo', 'Colinas del sur', 'Reservas territoriales','Oficina' ];
   public doughnutChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [
@@ -40,6 +54,7 @@ public infoLoaded=false;
       }
 
     ];
+
   public backgroundColors:any=[
       '#3a3e98',
         '#5256bc',
@@ -82,6 +97,7 @@ setMyStyles(i:any) {
     public script:ScriptService,
     private mapService:MapService,
     public router:Router,
+     private ip:IpServiceService,
     private apollo: Apollo,
     public dataApi: DataService,
     public dataApiService: DataApiService,
@@ -103,6 +119,14 @@ public totalIndividual(idBranch:any){
     }
   }
 }
+getIP()  
+  {  
+    this.ip.getIPAddress().subscribe((res:any)=>{  
+      this.ipAddress=res.ip;  
+
+
+    });  
+  }  
 public calculoTotales(){
   // console.log("entrando");
   for (let i =0;i<4;i++){
@@ -170,6 +194,13 @@ public calculoTotales(){
        });  
     }
   ngAfterViewInit(): void {
+    //this.getIP();
+     this.ip.getGEOLocation(this.ipaddress).subscribe((res:any) => {
+         this.size=res.length;    
+          this.ipaddress = res.ip;
+          this.country=res.country_name;  
+         console.log(JSON.stringify(res));
+        });  
       // this.loadFromRestUniversal()
       if(!this._butler.isLogged){    
         this.router.navigate(['/login'])

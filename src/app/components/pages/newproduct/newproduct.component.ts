@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core'
+import { Component, EventEmitter, AfterViewInit, Output, ViewChild ,ElementRef} from '@angular/core'
 import { DemoFilePickerAdapter } from  '../../../file-picker.adapter';
 import { FilePickerComponent, FilePreviewModel } from 'ngx-awesome-uploader';
 //import { FilePickerComponent } from '../../../../assets/file-picker/src/lib/file-picker.component';
@@ -28,7 +28,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators, FormControl } from
   templateUrl: './newproduct.component.html',
   styleUrls: ['./newproduct.component.css']
 })
-export class NewproductComponent implements OnInit {
+export class NewproductComponent implements AfterViewInit {
 
 
 
@@ -46,17 +46,19 @@ export class NewproductComponent implements OnInit {
   mensaje="Salida registrada!";
        nticket=0;
  new: FormGroup = new FormGroup({ 
-    concepto: new FormControl(''),
-    montoAcce: new FormControl(''),
+    description: new FormControl(''),
+    price: new FormControl(''),
   
   });
-two:false;
+two=false;
+one=true;
 
   public captions: UploaderCaptions = {
     dropzone: {
-      title: 'Arrastre y suelte aquí sus archivos',
-      or: 'ó también los puede',
-      browse: 'buscar',
+    
+      title: 'Imágenes del producto',
+      or: '',
+      browse: 'Cargar',
     },
     cropper: {
       crop: 'Cortar',
@@ -76,6 +78,7 @@ two:false;
   };
 
   constructor(
+    private el: ElementRef,
      private  http: HttpClient,
       public script:ScriptService,
       public router:Router,
@@ -86,12 +89,16 @@ two:false;
       private formBuilder: FormBuilder,
       private readonly toastSvc: ToastrService
     ) { }
-    
+  //  let myTag = this.el.nativeElement.querySelector("file-drop-wrapper"); // you can select html element by getelementsByClassName also, please use as per your requirement.
   onIsError(): void {
     this.isError = true;
     setTimeout(() => {
       this.isError = false;
     }, 4000);
+  }
+  next(){
+    this.two=true;
+    this.one=false;
   }
     get h(): { [key: string]: AbstractControl } {
     return this.new.controls;
@@ -105,20 +112,20 @@ two:false;
   this.product.idBranch=this._butler.userActive.idBranch;
   this.product.idCard=this._butler.userActive.idCard;
   this.product.email=this._butler.userActive.email;
-  this.product.name=this._butler.userActive.name;
+  this.product.name=this.new.value.name;
   this.product.method="Efectivo";
   this.product.folioTarjeta=null;
   this.product.items=[];
   
   //this.product.serialT=this.currentSerial;
-  this.product.amount=this.new.value.montoAcce;
-  this.product.description=(this._butler.userActive.categories[this.category])+" ("+this.new.value.concepto+") ";
+  this.product.amount=this.new.value.price;
+  this.product.description=(this.new.value.description);
   this.toastSvc.success(this.mensaje, 'product registrado');
   this.product.status="completed";
   this.product.transactionType="egress";
   // this.product.categoria=this.new.value.categoria;
   this.product.ref=this.nticket;
-  this.dataApiService.saveTicket(this.product)
+  this.dataApiService.saveProduct(this.product)
    .subscribe((res:any) => {
     //this.setSerialT();
        this.router.navigate(['/labcelout']);
@@ -167,11 +174,17 @@ public  setOption(){
 public aleatorio(a:any,b:any) {
     return Math.round(Math.random()*(b-a)+parseInt(a));
   }
-  ngOnInit(): void {
+  ngAfterViewInit (): void {
+    let myTag ; 
+this.el.nativeElement.ownerDocument.dropZone.style.setProperty("background", "white", "important");
+
+  
+
        this.new = this.formBuilder.group(
       {
-        concepto: ['', Validators.required],
-        montoAcce: [0, Validators.required]
+        name: ['', Validators.required],
+        description: ['', Validators.required],
+        price: [0, Validators.required]
       }
   
     );

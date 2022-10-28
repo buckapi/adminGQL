@@ -1,0 +1,20 @@
+.uploader-wrapper{
+	background: white !important;
+}
+.file-drop-wrapper .customm-drag{
+	background: white !important;
+	border: 0;
+}
+.uploader-wrapper .fondo {
+	background: white !important;
+}
+.uploader-wrapper .fondo .file-drop-wrapper{
+	background: white !important;
+}
+.uploader-wrapper .fondo .file-drop-wrapper .customm-drag{
+	background: white !important;
+	border: 0;
+}
+.blanco{
+	background: white;
+}

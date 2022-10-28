@@ -315,7 +315,7 @@ body {
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
-  /*background-color: var(--bs-body-bg);  fondo*/ 
+  background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
@@ -5497,8 +5497,7 @@ textarea.form-control {
   transform: translateY(-50%) !important; }
 
 .border {
-  /*border: 1px solid #EEEEEE !important;  border*/
-}
+  border: 1px solid #EEEEEE !important; }
 
 .border-0 {
   border: 0 !important; }
@@ -40084,7 +40083,7 @@ button {
   position: relative;
   border: 0rem solid transparent;
   border-radius: 0.75rem;
-  /*box-shadow: 0rem 0.3125rem 0.3125rem 0rem rgba(82, 63, 105, 0.05); sombra*/
+  box-shadow: 0rem 0.3125rem 0.3125rem 0rem rgba(82, 63, 105, 0.05);
   height: calc(100% - 30px); }
   @media only screen and (max-width: 35.9375rem) {
     .card {
@@ -42449,7 +42448,7 @@ table.dataTable.display tbody td {
 
 .authincation-content {
   background: #fff;
-  /*box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15); sombra login*/
+  box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
   border-radius: 5px; }
   [data-theme-version="dark"] .authincation-content {
     background: #14112E;

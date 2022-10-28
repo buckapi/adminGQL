@@ -4,7 +4,7 @@ export const CARDS: Card[] = [
   {
     email:'openimport@proton.me',
     userType: 'admin',
-    name:'Aministrador',
+    name:'OPENIMPORT',
     idApp: 'bc000001',
 
     bramch:"634bbee1d8d2632d682d47ae",
@@ -14,7 +14,9 @@ export const CARDS: Card[] = [
     role:"administrator",
      categories:[      
       'ACCESORIOS',
-      'HERRAMIENTAS'
+      'HERRAMIENTAS',
+      'HOGAR',
+      'TECONOLOGIA'
     ],
     userId:'e32780ae-b99b-4656-b9c8-c94cbb6f733f',
     images:[

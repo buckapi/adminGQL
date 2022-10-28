@@ -12,7 +12,10 @@ import { BuckapicardInterface } from '@app/interfaces/buckapicard';
 import { Apollo } from "apollo-angular";
 import { DataService } from '@app/services/data.service'; 
 import { DataApiService } from '@app/services/data-api.service'; 
+
+import { IpServiceService } from '@app/services/ip-service.service'; 
 import gql from "graphql-tag";
+import { HttpClient } from  '@angular/common/http';
 const getProductsQuery = gql`
 query GetProductsByStatus($status: String!) {
   getProductsByStatus(status: $status) {
@@ -48,16 +51,18 @@ export class HomeComponent implements AfterViewInit {
 
 link:string=""; 
   constructor(
+    private ip:IpServiceService,
     private bikersService:BikersService,
     public script:ScriptService,
     private mapService:MapService,
     public router:Router,
     private apollo: Apollo,
     public dataApi: DataService,
+         public http: HttpClient,
     public dataApiService: DataApiService,
     public _butler: Butler
   ) { } 
-
+ipAddress:string;  
   config: SwiperOptions = {
 
     a11y: { enabled: true },
@@ -71,7 +76,12 @@ link:string="";
     navigation: false
   };  
   
-
+getIP()  
+  {  
+    this.ip.getIPAddress().subscribe((res:any)=>{  
+      this.ipAddress=res.ip;  
+    });  
+  }  
  public quick(tix:any){
     let tixToView = tix;
     this._butler.preview=tixToView;
@@ -176,7 +186,13 @@ getDirections(place:Feature){
       ),      
     );
   }
+ getIpCliente() {
+ return this.http.get("http://api.ipify.org/?format=json");   
+    }
+
   ngAfterViewInit(): void {
+      this.getIP(); 
+    //this.getIpCliente();
     //  if(this._butler.isLogged==false){    
     //   this.router.navigate(['/login'])
     // }
