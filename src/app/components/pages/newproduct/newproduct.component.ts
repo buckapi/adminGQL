@@ -44,7 +44,7 @@ export class NewproductComponent implements AfterViewInit {
   submittedAcce = false;
   category="Seleccione una!";
   mensaje="Salida registrada!";
-       nticket=0;
+       randomSerial=0;
  new: FormGroup = new FormGroup({ 
     description: new FormControl(''),
     price: new FormControl(''),
@@ -124,7 +124,7 @@ one=true;
   this.product.status="completed";
   this.product.transactionType="egress";
   // this.product.categoria=this.new.value.categoria;
-  this.product.ref=this.nticket;
+  this.product.ref=this.randomSerial;
   this.dataApiService.saveProduct(this.product)
    .subscribe((res:any) => {
     //this.setSerialT();
@@ -177,10 +177,7 @@ public aleatorio(a:any,b:any) {
   ngAfterViewInit (): void {
     let myTag ; 
 this.el.nativeElement.ownerDocument.dropZone.style.setProperty("background", "white", "important");
-
-  
-
-       this.new = this.formBuilder.group(
+  this.new = this.formBuilder.group(
       {
         name: ['', Validators.required],
         description: ['', Validators.required],
@@ -188,7 +185,7 @@ this.el.nativeElement.ownerDocument.dropZone.style.setProperty("background", "wh
       }
   
     );
-         this.nticket=this.aleatorio(10000,99999);
+         this.randomSerial=this.aleatorio(10000,99999);
   }
 
 }

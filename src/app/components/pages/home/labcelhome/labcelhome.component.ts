@@ -199,7 +199,7 @@ public calculoTotales(){
          this.size=res.length;    
           this.ipaddress = res.ip;
           this.country=res.country_name;  
-         console.log(JSON.stringify(res));
+         //console.log(JSON.stringify(res));
         });  
       // this.loadFromRestUniversal()
       if(!this._butler.isLogged){    

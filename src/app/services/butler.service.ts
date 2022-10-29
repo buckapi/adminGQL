@@ -47,6 +47,7 @@ export class Butler {
     idBranch:string=""; 
     branch:string=""; 
     userId:string=""; 
+    deviceType:string=""; 
     userType:string=""; 
     email:string=""; 
     cards:any[]=[]; 
