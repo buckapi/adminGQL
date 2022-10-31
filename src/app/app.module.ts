@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilePickerModule } from  'ngx-awesome-uploader';
 import { ClockModule } from './components/pages/home/clock/clock.module';
 //import { ClockComponent } from './components/pages/home/clock/clock.component';
+import { NgxFloatButtonModule } from 'ngx-float-button';
 
 @NgModule({ 
   declarations: [
@@ -33,6 +34,7 @@ import { ClockModule } from './components/pages/home/clock/clock.module';
    // ClockComponent
   ],
   imports: [
+  NgxFloatButtonModule,
     RouterModule,
     BrowserModule,
     AppRoutingModule,

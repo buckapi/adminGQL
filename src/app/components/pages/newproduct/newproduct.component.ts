@@ -36,7 +36,7 @@ export class NewproductComponent implements AfterViewInit {
   //adapter = new DemoFilePickerAdapter(this.http,this._butler);
 
   @ViewChild('uploader', { static: true }) uploader: FilePickerComponent;
-  public adapter = new DemoFilePickerAdapter(this.http);
+  public adapter = new DemoFilePickerAdapter(this.http,this._butler);
  public myFiles: FilePreviewModel[] = [];
    public product:any={};
      public options:any=[];
@@ -52,6 +52,7 @@ export class NewproductComponent implements AfterViewInit {
   });
 two=false;
 one=true;
+three=false;
 
   public captions: UploaderCaptions = {
     dropzone: {
@@ -96,10 +97,19 @@ one=true;
       this.isError = false;
     }, 4000);
   }
-  next(){
+  next(i:any){
+    if(i==1){
     this.two=true;
     this.one=false;
+    this.three=false;
+    }
+    if(i==2){
+    this.two=false;
+    this.one=false;
+    this.three=true;
+    }
   }
+
     get h(): { [key: string]: AbstractControl } {
     return this.new.controls;
   }
@@ -163,7 +173,7 @@ one=true;
 public  setOption(){
     this.product.categoria=this._butler.userActive.categories[this.category];
     this.showB=true;
-    console.log("Category selected "+this._butler.userActive.categories[this.category]);
+  //  console.log("Category selected "+this._butler.userActive.categories[this.category]);
   }
   public onRemoveSuccess(e: FilePreviewModel) {
     console.log(e);

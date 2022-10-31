@@ -5,7 +5,7 @@
       <img src="assets/assetsdash/images/logoopenimport.jpg" [hidden]="_butler.idApp!='bc000001'">
             </a>
 
-            <div class="nav-control">
+            <div class="nav-control" [hidden]="router.url.includes('/login') || _butler.deviceType=='Celular'">
                 <div class="hamburger" style="transform: translateY(0px) rotate(-180deg); cursor:pointer;">
                     <span class="line"></span><span class="line"></span><span class="line"></span>
                 </div>

@@ -1,15 +1,3 @@
-<!-- <ngx-file-picker
-[uploadType]="'multi'"
-(validationError)= "onValidationError($event)"
-[adapter]="adapter"
-[fileExtensions]="['pdf', 'jpeg','jpg', 'png', 'PNG', 'mp4', 'css', 'docx', 'txt','webp']"
-(uploadSuccess)="onUploadSuccess($event)"
-(removeSuccess)="onRemoveSuccess($event)"
-
-[showPreviewContainer]="true"
-[accept]="'image/*'"
-(fileAdded)="onFileAdded($event)">
-</ngx-file-picker>	 -->
 <div class="content-body">
     <div class="container-fluid">
         <div class="row page-titles mx-0">
@@ -23,99 +11,94 @@
             <div class="col-sm-7 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                   
             </div>
-
         </div>
         <div class="col-lg-12"> 
- <img src="assets/assetsdash/images/one.png" [hidden]="!one" style="max-width:100%;">  
-                      <img src="assets/assetsdash/images/two.png" [hidden]="!two"style="max-width:100%;">  
-                       </div>
- <p>
- </p>
-
-         <div class="col-lg-12">
-
-            <div class="card">
+            <img src="assets/assetsdash/images/one.png" [hidden]="!one" style="max-width:100%;">  
+            <img src="assets/assetsdash/images/two.png" [hidden]="!two"style="max-width:100%;">  
+        </div>
+        <p>
+        </p>
+        <div class="col-lg-12">
+        <!--  <button type="button" class="btn btn-rounded btn tp-btn-light btn-dark btn-primary" [routerLink]="['../labcelout']">
+            <span class="btn-icon-start text-primary">
+                <i class="fa fa-arrow-left"></i>
+            </span>Atras
+        </button> -->
+            <div class="card"  [ngStyle]="{'background-color': two ? '#fafbfd': '#fff' }">
                 <div class="card-header border-0 pb-0">
                     <!-- <h4 class="card-title"  [hidden]="!show"></h4> -->
                 </div>
                <div class="card-body">
-                    <div class="row">  
-                     
-<div class="uploader-wrapper" style="background:white;" [hidden]="!two">
-  <ngx-awesome-uploader class="fondo" #uploader [adapter]="adapter" [enableCropper]="true"     [captions]="captions">
-  </ngx-awesome-uploader >
-</div>
-            <form [formGroup]="new" (ngSubmit)="next()" [hidden]="!one">
-                <div class="mb-3 row" >
-                    <label class="col-lg-3 col-form-label" for="name" >Nombre <span class="text-danger">*</span>
-                       
-                    </label>
-                    <div class="col-lg-3">
-                        <input  class="form-control"   upperCase type="text"
-                        formControlName="name"
-                        class="form-control"
-                        [ngClass]="{ 'is-invalid': submittedAcce && h['name'].errors }">
-                        <div *ngIf="submittedAcce && h['name'].errors" class="invalid-feedback">
-                        <div *ngIf="h['name'].errors['required']">Campo requerido</div>
-                      </div>
-                    </div>
-                </div>
-                <div class="mb-3 row" >
-                    <label class="col-lg-3 col-form-label" for="description" >Descripcion <span class="text-danger">*</span>        
-                    </label>
-                    <div class="col-lg-7">
-                        <textarea  rows="5"class="form-control"  upperCase  type="text"
-                        formControlName="description"
-                        class="form-control"
-                        [ngClass]="{ 'is-invalid': submittedAcce && h['description'].errors }"></textarea>
-                        <div *ngIf="submittedAcce && h['description'].errors" class="invalid-feedback">
-                        <div *ngIf="h['description'].errors['required']">Campo requerido</div>
-                      </div>
-                    </div>
-                </div>
-                <div class="mb-3 row" >
-                    <label class="col-lg-3 col-form-label" for="folioAcce" >Categoria <span class="text-danger">*</span>
-                    </label>
-                    <div class="col-lg-3">
-                      <select id="district" class="form-control wide"[(ngModel)]="category" (ngModelChange)="setOption()" [ngModelOptions]="{standalone: true}">
-                                        <option *ngFor="let category of _butler.userActive.categories, let i = index " [ngValue]="i"> <span   style="cursor:pointer;">{{category}}</span></option>
+                    <div class="row">                       
+                        <div class="uploader-wrapper" style="background:white;" [hidden]="!two">
+                          <ngx-awesome-uploader class="fondo" #uploader [adapter]="adapter" [enableCropper]="true"     [captions]="captions">
+                          </ngx-awesome-uploader >
+                        </div>
+                        <form [formGroup]="new" (ngSubmit)="next(1)" [hidden]="!one">
+                            <div class="mb-3 row" >
+                                <label class="col-lg-3 col-form-label" for="name" >Nombre <span class="text-danger">*</span>                                   
+                                </label>
+                                <div class="col-lg-3">
+                                    <input  class="form-control"   upperCase type="text"
+                                    formControlName="name"
+                                    class="form-control"
+                                    [ngClass]="{ 'is-invalid': submittedAcce && h['name'].errors }">
+                                    <div *ngIf="submittedAcce && h['name'].errors" class="invalid-feedback">
+                                    <div *ngIf="h['name'].errors['required']">Campo requerido</div>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 row" >
+                                <label class="col-lg-3 col-form-label" for="description" >Descripcion <span class="text-danger">*</span>        
+                                </label>
+                                <div class="col-lg-7">
+                                    <textarea  rows="5"class="form-control"  upperCase  type="text"
+                                    formControlName="description"
+                                    class="form-control"
+                                    [ngClass]="{ 'is-invalid': submittedAcce && h['description'].errors }"></textarea>
+                                    <div *ngIf="submittedAcce && h['description'].errors" class="invalid-feedback">
+                                    <div *ngIf="h['description'].errors['required']">Campo requerido</div>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 row" >
+                                <label class="col-lg-3 col-form-label" for="folioAcce" >Categoria <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-3">
+                                    <select id="district" class="form-control wide"[(ngModel)]="category" (ngModelChange)="setOption()" [ngModelOptions]="{standalone: true}">
+                                        <option *ngFor="let category of _butler.userActive.categories, let i = index " [ngValue]="i"> 
+                                            <span   style="cursor:pointer;">{{category}}</span>
+                                        </option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="mb-3 row" >
+                                <label class="col-lg-3 col-form-label" for="price" >Precio <span class="text-danger">*</span>                                   
+                                </label>
+                                <div class="col-lg-3">
+                                    <input  class="form-control"  upperCase  type="number"
+                                    formControlName="price"
+                                    class="form-control"
+                                    [ngClass]="{ 'is-invalid': submittedAcce && h['price'].errors }">
+                                    <div *ngIf="submittedAcce && h['price'].errors" class="invalid-feedback">
+                                    <div *ngIf="h['price'].errors['required']">Campo requerido</div>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="mb-12 row">                                
+                                <div class="col-lg-6 ms-auto">                                  
+                                </div>
+                                 <div class="col-lg-4 ms-auto">
+                                      <button  class="btn btn-rounded btn-outline-light"  [routerLink]="['../labcelout']">Cancelar</button>
+                                    <button type="submit" class="btn btn-rounded btn-info" [hidden]="!showB">Aceptar</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div class="mb-3 row" >
-                    <label class="col-lg-3 col-form-label" for="price" >Precio <span class="text-danger">*</span>
-                       
-                    </label>
-                    <div class="col-lg-3">
-                        <input  class="form-control"  upperCase  type="number"
-                        formControlName="price"
-                        class="form-control"
-                        [ngClass]="{ 'is-invalid': submittedAcce && h['price'].errors }">
-                        <div *ngIf="submittedAcce && h['price'].errors" class="invalid-feedback">
-                        <div *ngIf="h['price'].errors['required']">Campo requerido</div>
-                      </div>
-                    </div>
-                </div>
-
-
-                <div class="mb-12 row">
-                    
-                    <div class="col-lg-6 ms-auto">
-                      
-                    </div>
-                     <div class="col-lg-4 ms-auto">
-                          <button  class="btn btn-rounded btn-outline-light"  [routerLink]="['../labcelout']">Cancelar</button>
-                        <button type="submit" class="btn btn-rounded btn-info" [hidden]="!showB">Aceptar</button>
-                    </div>
-                </div>
-
-
-            </form>
-          </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 
 

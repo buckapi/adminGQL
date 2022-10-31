@@ -1,7 +1,8 @@
 <div id="main-wrapper" class="show menu-toggle">
   <app-header  [hidden]="router.url.includes('/login')"></app-header>
   <router-outlet></router-outlet>
-  <div class="deznav" [hidden]="router.url.includes('/login')">
+
+  <div class="deznav" [hidden]="router.url.includes('/login') || _butler.deviceType=='Celular'">
     <div class="deznav-scroll" [hidden]="_butler.idApp!='bc000001' || !_butler.isLogged || _butler.userType!='sucursal'" >
       <ul class="metismenu" id="menu">
           <li>
@@ -77,8 +78,23 @@
       </div>
     </div>
   </div>
+ 
 </div>
-
+<div class="col-12" [hidden]="_butler.deviceType!='Celular' || router.url.includes('/login')">
+ <ngx-float-button icon="menu" style="
+ text-align: -webkit-rigth;
+position: fixed;
+z-index: 100000000;
+ left: 85%;
+ top: 88%;
+ box-sizing: border-box;
+ font-size: 20px;
+ text-align: right; ">
+    <ngx-float-item-button icon="shopping_cart" content="Ventas" style="  background: #22cf7d;"></ngx-float-item-button>
+    <ngx-float-item-button icon="dataset" content="Productos" [routerLink]="['/newproduct']"></ngx-float-item-button>
+  
+</ngx-float-button>
+</div>
 
 
 
