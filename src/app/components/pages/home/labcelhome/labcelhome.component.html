@@ -19,12 +19,12 @@
                </div>
             </div>
             <div class="row">
-                <div class="col-xl-8">
+                <!-- <div class="col-xl-8">
                     <div class="card">
                         <div class="card-header pb-2 d-block d-sm-flex flex-wrap border-0">
                             <div class="mb-3">
                                 <h4 class="fs-20 text-black">Actividad reciente </h4>
-                                <!-- <p class="mb-0 fs-13">Sucursales:</p> -->
+                              
                             </div>                    
                         </div>
                         <div class="card-body tab-content p-0">
@@ -67,12 +67,12 @@
                           
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-xl-4 col-lg-6 col-sm-6">
                     <div class="card overflow-hidden">
                         <div class="card-body">
                             <div class="text-center">
-                                <div class="profile-photo" *ngIf="_butler.userActive.email!=undefined">
+                                <div class="profile-photo" *ngIf="_butler.userActive.email!==undefined">
                                     <img src="{{_butler.userActive.images[0]}}" width="100" class="img-fluid rounded-circle" alt="">
                                 </div>
                                 <h3 class="mt-4 mb-1">{{_butler.userActive.name}}</h3>

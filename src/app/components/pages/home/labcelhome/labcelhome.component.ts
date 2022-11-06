@@ -194,6 +194,18 @@ public calculoTotales(){
        });  
     }
   ngAfterViewInit(): void {
+     this.script.load(
+    
+        'global',
+        'bundle',
+        'peity',
+        'wallet',
+        'apex'
+
+        )
+       .then(data => {
+        // console.log('script loaded ', data);
+       }).catch(error => console.log(error));
     //this.getIP();
      this.ip.getGEOLocation(this.ipaddress).subscribe((res:any) => {
          this.size=res.length;    
