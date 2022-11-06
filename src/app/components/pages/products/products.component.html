@@ -20,6 +20,7 @@
                                         </a>
                                     </li>
                                 </ol>
+                                
 							<div class="input-group detault-daterange me-3  mb-3" >
 							</div>
 						</div>
@@ -38,7 +39,7 @@
 					</div>
 				</div>
             </div>
-            <div class="col-sm-8 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+            <div class="col-sm-8 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex ">
 
 
               
@@ -103,7 +104,7 @@
             </div>
         </div>
          <div class="row"  [hidden]="list">
-            <div class="col-xl-3 col-lg-6 col-md-4 col-sm-6" *ngFor='let product of products$ | async, let i = index'>
+            <div class="col-lg-3 col-md-6 col-xs-6" *ngFor='let product of products$ | async, let i = index'>
                 <div class="card">
                     <div class="card-body">
                         <div class="new-arrival-product">
