@@ -12,9 +12,13 @@ import {
   UploadStatus,
   FilePreviewModel
 } from 'ngx-awesome-uploader';
+import {Butler} from '@app/services/butler.service';
 
 export class DemoFilePickerAdapter extends FilePickerAdapter {
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    public _butler: Butler
+    ) {
     super();
   }
   public uploadFile(fileItem: FilePreviewModel): Observable<any> {
@@ -40,6 +44,9 @@ export class DemoFilePickerAdapter extends FilePickerAdapter {
         // }
 
         if (res.type === HttpEventType.Response) {
+           this._butler.file=res.body.result.files.file;
+           this._butler.images.push('https://db.buckapi.us/s/imgApi/server/local-storage/tixsImages/'+this._butler.file[0].name);
+   
           // this._butler.file=res.body.result.files.file;
           //const responseFromBackend = res.body;
             return res.body.id.toString();
@@ -62,9 +69,9 @@ export class DemoFilePickerAdapter extends FilePickerAdapter {
 
 
       }),
-      catchError(er => {
-        console.log(er);
-        return of({ status: UploadStatus.ERROR, body: er });
+     catchError(error => {
+      //  console.log(error);
+        return of({ status: UploadStatus.ERROR, body: error });
       })
     );
   }

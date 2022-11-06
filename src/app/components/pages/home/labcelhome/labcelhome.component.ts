@@ -187,7 +187,7 @@ public calculoTotales(){
       }
            
             
-      console.log(JSON.stringify(this.doughnutChartDatasets[0].data[0]));
+     // console.log(JSON.stringify(this.doughnutChartDatasets[0].data[0]));
        // this.calculoTotales();
        // this.calculoTotales();
        // console.log(JSON.stringify(this.allTransactions));

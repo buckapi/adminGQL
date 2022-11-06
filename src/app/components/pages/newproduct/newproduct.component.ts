@@ -1,8 +1,6 @@
 import { Component, EventEmitter, AfterViewInit, Output, ViewChild ,ElementRef} from '@angular/core'
 import { DemoFilePickerAdapter } from  '../../../file-picker.adapter';
 import { FilePickerComponent, FilePreviewModel } from 'ngx-awesome-uploader';
-//import { FilePickerComponent } from '../../../../assets/file-picker/src/lib/file-picker.component';
-//import { FilePreviewModel } from '../../../../assets/file-picker/src/lib/file-preview.model';
 import { Router } from '@angular/router';
 import { ScriptService } from '@app/services/script.service';
 import { ScriptStore } from '@app/services/script.store';
@@ -17,8 +15,6 @@ import { UploaderCaptions } from 'ngx-awesome-uploader';
 import { HttpClient } from  '@angular/common/http';
 import gql from "graphql-tag";
 import { ToastrService } from 'ngx-toastr';
-//import { AbstractControl, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-//import { ValidationError } from '../../../../assets/file-picker/src/lib/validation-error.model';
 import { ValidationError } from 'ngx-awesome-uploader';
 import { delay, map } from 'rxjs/operators';
 import { AbstractControl, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
@@ -30,13 +26,10 @@ import { AbstractControl, FormBuilder, FormGroup, Validators, FormControl } from
 })
 export class NewproductComponent implements AfterViewInit {
 
-
-
-
   //adapter = new DemoFilePickerAdapter(this.http,this._butler);
 
   @ViewChild('uploader', { static: true }) uploader: FilePickerComponent;
-  public adapter = new DemoFilePickerAdapter(this.http);
+  public adapter = new DemoFilePickerAdapter(this.http,this._butler);
  public myFiles: FilePreviewModel[] = [];
    public product:any={};
      public options:any=[];
@@ -47,12 +40,14 @@ export class NewproductComponent implements AfterViewInit {
        randomSerial=0;
  new: FormGroup = new FormGroup({ 
     description: new FormControl(''),
+    name: new FormControl(''),
     price: new FormControl(''),
   
   });
+ i=1;
 two=false;
 one=true;
-
+three=false;
   public captions: UploaderCaptions = {
     dropzone: {
     
@@ -96,9 +91,17 @@ one=true;
       this.isError = false;
     }, 4000);
   }
-  next(){
+ next(i:any){
+    if(i==1){
     this.two=true;
     this.one=false;
+    this.three=false;
+    }
+    if(i==2){
+    this.two=false;
+    this.one=false;
+    this.three=true;
+    }
   }
     get h(): { [key: string]: AbstractControl } {
     return this.new.controls;
@@ -115,20 +118,19 @@ one=true;
   this.product.name=this.new.value.name;
   this.product.method="Efectivo";
   this.product.folioTarjeta=null;
-  this.product.items=[];
-  
+  this.product.images=this._butler.images;  
   //this.product.serialT=this.currentSerial;
-  this.product.amount=this.new.value.price;
+  this.product.price=this.new.value.price;
   this.product.description=(this.new.value.description);
   this.toastSvc.success(this.mensaje, 'product registrado');
-  this.product.status="completed";
+  this.product.status="activated";
   this.product.transactionType="egress";
   // this.product.categoria=this.new.value.categoria;
-  this.product.ref=this.randomSerial;
+  this.product.ref=this.aleatorio(10000,99999);
   this.dataApiService.saveProduct(this.product)
    .subscribe((res:any) => {
     //this.setSerialT();
-       this.router.navigate(['/labcelout']);
+       this.router.navigate(['/products']);
 
      });  
      console.log(JSON.stringify(this.options));
@@ -163,7 +165,7 @@ one=true;
 public  setOption(){
     this.product.categoria=this._butler.userActive.categories[this.category];
     this.showB=true;
-    console.log("Category selected "+this._butler.userActive.categories[this.category]);
+   // console.log("Category selected "+this._butler.userActive.categories[this.category]);
   }
   public onRemoveSuccess(e: FilePreviewModel) {
     console.log(e);
@@ -175,6 +177,7 @@ public aleatorio(a:any,b:any) {
     return Math.round(Math.random()*(b-a)+parseInt(a));
   }
   ngAfterViewInit (): void {
+    this._butler.images=[];
     let myTag ; 
 this.el.nativeElement.ownerDocument.dropZone.style.setProperty("background", "white", "important");
   this.new = this.formBuilder.group(

@@ -42,6 +42,11 @@ export class DataApiService {
 		return this.http.get(url_api);
 	}
 
+	getAllProducts(){
+		const url_api = 'https://db.buckapi.us:7001/api/products';
+		return this.http.get(url_api);
+	}
+
 	getCierresByBranch(branch: string){
 		const url_api = `https://db.buckapi.us:7001/api/infos?filter[where][idBranch]=${branch}`;
 		this.cierre = this.http.get(url_api);
