@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import {BRANCHS} from '@app/services/branchs.service';
 import {CARDS} from '@app/services/cards.service';
 import dayjs, { Dayjs } from 'dayjs/esm';
@@ -25,7 +25,7 @@ import { DataApiService } from '@app/services/data-api.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent implements OnInit {products$: any;
+export class ProductsComponent implements AfterViewInit {products$: any;
   // prodSze$: any;
  public branchs:any=[];
   public cards:any=[];
@@ -114,8 +114,7 @@ export class ProductsComponent implements OnInit {products$: any;
      this.dataApi.getDataAPI(0,0);
       this.products$=this.dataApi.products$;  
   }
-  
-  OnInit(): void {
+  ngAfterViewInit(): void {
     if(this._butler.admin){
  this.loadFromRest();
 
